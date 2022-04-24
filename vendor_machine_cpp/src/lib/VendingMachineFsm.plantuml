@@ -1,0 +1,18 @@
+
+@startuml VendingMachineFsm
+hide empty description
+skinparam dpi 100
+
+title Vending Machine
+
+[*] --> Idle
+Idle --> WaitingForMoney: itemSelected[isItemInExistence]
+Idle --> SoldOutError: itemSelected[!isItemInExistence]
+SoldOutError --> Idle: timeout
+WaitingForMoney --> DeliveringItem: moneyInserted[isEnough]
+WaitingForMoney --> ReturningMoney: timeout
+DeliveringItem --> ReturningChange: itemDelivered
+ReturningChange --> Idle: moneyDelivered
+ReturningMoney --> Idle: moneyDelivered
+
+@enduml
