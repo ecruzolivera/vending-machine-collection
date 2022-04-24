@@ -1,3 +1,3 @@
 # Vending Machine Collection
 
-- [C++](./vendor_machine_cpp/)
+- [C++](./vending_machine_cpp/
