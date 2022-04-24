@@ -1,0 +1,27 @@
+<RCC>
+    <qresource prefix="/">
+        <file>actions/ActionTypes.qml</file>
+        <file>actions/AppActions.qml</file>
+        <file>actions/qmldir</file>
+        <file>constants/Constants.qml</file>
+        <file>constants/qmldir</file>
+        <file>main.qml</file>
+        <file>middlewares/ApiFixtures.qml</file>
+        <file>middlewares/qmldir</file>
+        <file>middlewares/SystemMiddleware.qml</file>
+        <file>middlewares/TodoMiddleware.qml</file>
+        <file>qtquickcontrols2.conf</file>
+        <file>stores/MainStore.qml</file>
+        <file>stores/qmldir</file>
+        <file>stores/qmldir</file>
+        <file>stores/RootStore.qml</file>
+        <file>stores/TodoStore.qml</file>
+        <file>ui/components/qmldir</file>
+        <file>ui/components/AddTaskBar.qml</file>
+        <file>ui/pages/qmldir</file>
+        <file>ui/pages/TodoPage.qml</file>
+        <file>ui/theme/qmldir</file>
+        <file>ui/theme/Theme.qml</file>
+        <file>Utils.js</file>
+    </qresource>
+</RCC>

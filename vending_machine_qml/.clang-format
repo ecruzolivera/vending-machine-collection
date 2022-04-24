@@ -1,0 +1,23 @@
+﻿---
+BasedOnStyle: Microsoft
+AlignConsecutiveAssignments: 'true'
+AlignConsecutiveDeclarations: 'true'
+AllowShortBlocksOnASingleLine: 'false'
+AllowShortCaseLabelsOnASingleLine: 'false'
+AllowShortFunctionsOnASingleLine: Empty
+AllowShortLoopsOnASingleLine: 'false'
+AlwaysBreakTemplateDeclarations: 'Yes'
+BinPackArguments: 'false'
+BinPackParameters: 'false'
+BreakBeforeBinaryOperators: NonAssignment
+BreakBeforeBraces: Allman
+BreakConstructorInitializers: BeforeComma
+ColumnLimit: '100'
+IncludeBlocks: Regroup
+IndentCaseLabels: 'true'
+IndentPPDirectives: BeforeHash
+SpaceBeforeParens: Never
+SpaceInEmptyParentheses: 'false'
+UseTab: Never
+
+...

@@ -1,0 +1,3 @@
+singleton ApiFixtures 1.0 ApiFixtures.qml
+TodoMiddleware 1.0 TodoMiddleware.qml
+SystemMiddleware 1.0 SystemMiddleware.qml

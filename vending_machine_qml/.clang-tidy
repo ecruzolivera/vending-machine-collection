@@ -1,0 +1,5 @@
+---
+Checks: '*,-fuchsia-*,-google-*,-zircon-*,-abseil-*,-llvm-*,-llvm-header-guard'
+WarningsAsErrors: '*'
+HeaderFilterRegex: './src/*'
+FormatStyle: file
