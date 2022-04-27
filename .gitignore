@@ -36,3 +36,4 @@ Thumbs.db
 */qmlimport.path
 *.txt.user
 *.pro.user
+build-*

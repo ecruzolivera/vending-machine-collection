@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.14.0)
 
-project(qml_starter LANGUAGES CXX)
+project(vending_machine_qml LANGUAGES CXX)
 
 set(PROJECT_VERSION_MAJOR 0)
 set(PROJECT_VERSION_MINOR 1)
