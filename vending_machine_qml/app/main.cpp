@@ -23,7 +23,7 @@ int main(int argc, char *argv[])
     com::cutehacks::duperagent::registerTypes();
     registerQSyncableTypes();
     registerQuickFluxQmlTypes();
-    engine.addImportPath("qrc:/");
+    engine.addImportPath("qrc:///");
     const QUrl url(QStringLiteral("qrc:/main.qml"));
 
     QObject::connect(
