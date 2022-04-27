@@ -9,31 +9,52 @@ import ui.components 1.0
 
 Pane {
     property string name: qsTr("Todo List")
-    AddTaskBar {
-        width: 500
-    }
-
-    ListView {
-        id: resultsId
-        anchors.fill: parent
-        spacing: Theme.spacing_sm
-        clip: true
-        model: JsonListModel {
-            keyField: "id"
-            source: MainStore.todo.todoList
+    Column {
+        AddTaskBar {
+            width: 500
         }
 
-        ScrollBar.vertical: ScrollBar {}
-        delegate: searchResultId
+        ListView {
+            width: 500
+            height: Math.min(500, 100 * count)
+            spacing: Theme.spacing_sm
+            clip: true
+            model: JsonListModel {
+                keyField: "id"
+                source: MainStore.todo.todoIsNotCompleted
+            }
+            ScrollBar.vertical: ScrollBar {}
+            delegate: todoItemId
+            header: Text {
+                text: qsTr("Todo")
+            }
+            headerPositioning: ListView.OverlayHeader
+        }
+
+        ListView {
+            width: 500
+            height: Math.min(500, 100 * count)
+            spacing: Theme.spacing_sm
+            clip: true
+            model: JsonListModel {
+                keyField: "id"
+                source: MainStore.todo.todoCompleted
+            }
+            ScrollBar.vertical: ScrollBar {}
+            delegate: todoItemId
+            header: Text {
+                text: qsTr("Completed")
+            }
+            visible: count > 0
+        }
     }
 
     Component {
-        id: searchResultId
-        RowLayout {
-            spacing: Theme.spacing_sm
-            Text {
-                text: qsTr(title)
-            }
+        id: todoItemId
+        CheckBox {
+            text: model.title
+            checked: model.isCompleted
+            onCheckedChanged: AppActions.taskMarkCompleted(model.id, checked)
         }
     }
 }

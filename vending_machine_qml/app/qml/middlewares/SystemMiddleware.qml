@@ -4,7 +4,6 @@ import actions 1.0
 
 Middleware {
     function dispatch(type, message) {
-        console.log("dispatch type:", type, "message:", JSON.stringify(message))
         switch (type) {
         case ActionTypes.startApp:
             next(type, message)

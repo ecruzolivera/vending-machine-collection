@@ -7,17 +7,16 @@ import stores 1.0
 import ui.theme 1.0
 
 Row {
-    anchors.horizontalCenter: parent.horizontalCenter
     spacing: Theme.spacing_sm
     TextField {
         id: enterTodoId
         width: 500
         placeholderText: qsTr("type new task name")
-        //            focus: true
+        focus: true
     }
     Button {
         text: qsTr("Add Task")
-//        enabled: enterTodoId.text.length > 0
+        enabled: enterTodoId.text.length > 0
         onClicked: AppActions.taskAdd(enterTodoId.text)
     }
 }

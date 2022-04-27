@@ -4,7 +4,7 @@
 #include <QQmlApplicationEngine>
 #include <QSListModel>
 #include <QuickFlux>
-#include <com/cutehacks/duperagent/duperagent.h>
+#include <duperagent.h>
 #include <uuid.h>
 
 int main(int argc, char *argv[])
@@ -20,6 +20,9 @@ int main(int argc, char *argv[])
     QCoreApplication::setApplicationName("Starter");
     QQmlApplicationEngine engine;
     UUId::registerTypes();
+    com::cutehacks::duperagent::registerTypes();
+    registerQSyncableTypes();
+    registerQuickFluxQmlTypes();
     engine.addImportPath("qrc:/");
     const QUrl url(QStringLiteral("qrc:/main.qml"));
 

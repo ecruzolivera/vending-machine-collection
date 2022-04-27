@@ -8,9 +8,11 @@ UUId::UUId(QObject *parent)
 {
 }
 
-quint32 UUId::uuid()
+QString UUId::uuid()
 {
-    return QUuid::createUuid().toString(QUuid::Id128).toUInt(nullptr, 16);
+    auto id = QUuid::createUuid().toString(QUuid::WithoutBraces);
+    qDebug() << id;
+    return id;
 }
 
 void UUId::registerTypes()

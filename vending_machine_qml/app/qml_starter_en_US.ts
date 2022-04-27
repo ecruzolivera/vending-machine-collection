@@ -2,43 +2,33 @@
 <!DOCTYPE TS>
 <TS version="2.1" language="en_US">
 <context>
-    <name>LibraryPage</name>
+    <name>AddTaskBar</name>
     <message>
-        <location filename="qml/ui/pages/LibraryPage.qml" line="6"/>
-        <source>Library</source>
+        <location filename="qml/ui/components/AddTaskBar.qml" line="14"/>
+        <source>type new task name</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="qml/ui/components/AddTaskBar.qml" line="18"/>
+        <source>Add Task</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
-    <name>PlayListPage</name>
+    <name>TodoPage</name>
     <message>
-        <location filename="qml/ui/pages/PlayListPage.qml" line="6"/>
-        <source>PlayList</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>SearchPage</name>
-    <message>
-        <location filename="qml/ui/pages/SearchPage.qml" line="9"/>
-        <source>Search</source>
+        <location filename="qml/ui/pages/TodoPage.qml" line="11"/>
+        <source>Todo List</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="qml/ui/pages/SearchPage.qml" line="24"/>
-        <source>Search Podcast...</source>
+        <location filename="qml/ui/pages/TodoPage.qml" line="29"/>
+        <source>Todo</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="qml/ui/pages/SearchPage.qml" line="80"/>
-        <location filename="qml/ui/pages/SearchPage.qml" line="120"/>
-        <source>Unsubscribe</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="qml/ui/pages/SearchPage.qml" line="80"/>
-        <location filename="qml/ui/pages/SearchPage.qml" line="120"/>
-        <source>Subscribe</source>
+        <location filename="qml/ui/pages/TodoPage.qml" line="46"/>
+        <source>Completed</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

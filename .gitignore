@@ -33,3 +33,6 @@ $RECYCLE.BIN/
 ehthumbs.db
 Thumbs.db
 */target
+*/qmlimport.path
+*.txt.user
+*.pro.user

@@ -8,7 +8,7 @@ class UUId : public QObject
 {
     Q_OBJECT
   public:
-    Q_INVOKABLE quint32 uuid();
+    Q_INVOKABLE QString uuid();
 
     static void registerTypes();
 
