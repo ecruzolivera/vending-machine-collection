@@ -17,13 +17,8 @@ ApplicationWindow {
     visible: true
     title: MainStore.appName
 
-    StackView {
-        id: stackViewId
-        anchors.fill: parent
-        initialItem: searchPageId
-        TodoPage {
-            id: searchPageId
-        }
+    VendingMachine {
+         anchors.fill: parent
     }
 
     MiddlewareList {

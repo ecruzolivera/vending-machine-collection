@@ -2,6 +2,8 @@ import QtQuick 2.0
 pragma Singleton
 
 QtObject {
+    readonly property int screenWidth: 1080
+    readonly property int screenHeight: 1920
     readonly property int spacing_sm: 5
     readonly property int spacing_md: spacing_sm * 2
     readonly property int spacing_lg: spacing_md * 2

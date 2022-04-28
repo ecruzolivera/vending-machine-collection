@@ -3,7 +3,7 @@ import QuickFlux 1.1
 import actions 1.0
 
 Store {
-    readonly property string appName: "Todo App"
+    readonly property string appName: qsTr("Vending Machine")
     property bool isStarted: false
 
     Filter {

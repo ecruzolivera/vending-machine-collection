@@ -17,9 +17,9 @@
         <file>stores/RootStore.qml</file>
         <file>stores/TodoStore.qml</file>
         <file>ui/components/qmldir</file>
-        <file>ui/components/AddTaskBar.qml</file>
+        <file>ui/components/TopBar.qml</file>
         <file>ui/pages/qmldir</file>
-        <file>ui/pages/TodoPage.qml</file>
+        <file>ui/pages/VendingMachine.qml</file>
         <file>ui/theme/qmldir</file>
         <file>ui/theme/Theme.qml</file>
         <file>Utils.js</file>
