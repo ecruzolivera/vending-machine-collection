@@ -42,7 +42,7 @@
         <file alias="comb.svg">../../db/assets/misc/comb.svg</file>
         <file alias="pen.svg">../../db/assets/misc/pen.svg</file>
         <file alias="soap.svg">../../db/assets/misc/soap.svg</file>
-        <file alias="drive.svg">../../db/assets/misc/usb_drive.svg</file>
+        <file alias="usb_drive.svg">../../db/assets/misc/usb_drive.svg</file>
     </qresource>
 </RCC>
 

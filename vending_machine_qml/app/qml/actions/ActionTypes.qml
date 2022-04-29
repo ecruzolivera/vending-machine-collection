@@ -11,4 +11,5 @@ KeyTable {
     property string quitApp
     // app
     property string categorySelected
+    property string itemSelected
 }

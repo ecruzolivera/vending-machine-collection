@@ -25,12 +25,10 @@ ColumnLayout {
             Layout.preferredHeight: parent.height
             Layout.fillHeight: true
         }
-        Rectangle {
-            // items
-            Layout.preferredWidth: parent.width * 3 / 4
-            Layout.preferredHeight: parent.height
+        ItemsGrid {
             Layout.fillHeight: true
-            color: "lightsalmon"
+            Layout.preferredHeight: parent.height
+            Layout.preferredWidth: parent.width * 3 / 4
         }
     }
     RowLayout {

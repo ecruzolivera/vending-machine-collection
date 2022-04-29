@@ -9,33 +9,33 @@ import "db.js" as Db
 
 Store {
     id: root
+    property var db: Db.db()
     property var categories: Utils.getSafe(db.categories, [])
     property var items: Utils.getSafe(db.items, [])
-    property var db: Db.db()
-    property string categorySelectedUuid: ""
+    property string selectedCategoryId: ""
+    property var selectedCategoryItems: items.filter(
+                                            item => item.categoryId === selectedCategoryId)
+    property string selectedItemUuid: ""
 
     Filter {
         type: ActionTypes.categorySelected
         onDispatched: {
             console.log(ActionTypes.categorySelected, JSON.stringify(message))
             const uuid = Utils.getSafe(message.payload, "")
-            categorySelectedUuid = uuid
+            selectedCategoryId = uuid
+        }
+    }
+
+    Filter {
+        type: ActionTypes.itemSelected
+        onDispatched: {
+            console.log(ActionTypes.itemSelected, JSON.stringify(message))
+            const uuid = Utils.getSafe(message.payload, "")
+            selectedItemUuid = uuid
         }
     }
 
     QtObject {
         id: priv
-        readonly property var taskSchema: ({
-                                               "id": 0,
-                                               "title": "",
-                                               "details": "",
-                                               "isCompleted": false
-                                           })
-        function makeTodo(title) {
-            return Object.assign({}, taskSchema, {
-                                     "id": UUId.uuid(),
-                                     "title": title
-                                 })
-        }
     }
 }

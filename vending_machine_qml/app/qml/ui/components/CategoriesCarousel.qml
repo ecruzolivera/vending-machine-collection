@@ -76,14 +76,14 @@ Item {
                         anchors.fill: parent
                         onClicked: {
                             listId.currentIndex = index
-                            AppActions.categorySelected(modelData.uuid)
+                            AppActions.categorySelected(modelData.id)
                         }
                     }
                 }
             }
             onIsCurrentItemChanged: {
                 if (isCurrentItem) {
-                    AppActions.categorySelected(modelData.uuid)
+                    AppActions.categorySelected(modelData.id)
                 }
             }
         }

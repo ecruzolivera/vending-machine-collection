@@ -12,4 +12,9 @@ ActionCreator {
                      "payload": id
                  })
     }
+    function itemSelected(id) {
+        dispatch(ActionTypes.itemSelected, {
+                     "payload": id
+                 })
+    }
 }
