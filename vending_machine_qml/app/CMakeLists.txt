@@ -36,7 +36,7 @@ find_package(
 
 set(CPP_FILES cpp/uuid.h cpp/uuid.cpp)
 set(TS_FILES ${PROJECT_NAME}_en_US.ts)
-set(PROJECT_SOURCES main.cpp qml/qml.qrc ${CPP_FILES} ${TS_FILES})
+set(PROJECT_SOURCES main.cpp assets.qrc qml/qml.qrc ${CPP_FILES} ${TS_FILES})
 
 if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
   qt_add_executable(${PROJECT_NAME} ${PROJECT_SOURCES})

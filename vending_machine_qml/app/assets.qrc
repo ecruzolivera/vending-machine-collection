@@ -1,0 +1,49 @@
+<RCC>
+    <qresource prefix="/">
+        <file>../../db/db.json</file>
+        <file>../../db/assets/fastfood/burger.svg</file>
+        <file>../../db/assets/fastfood/chocolatebar.svg</file>
+        <file>../../db/assets/fastfood/fried-chicken.svg</file>
+        <file>../../db/assets/fastfood/hot-dog.svg</file>
+        <file>../../db/assets/fastfood/pizza.svg</file>
+        <file>../../db/assets/fastfood/potato.svg</file>
+        <file>../../db/assets/fastfood/taco.svg</file>
+        <file>../../db/assets/fastfood/hamburger.svg</file>
+        <file>../../db/assets/fastfood/popcorn.svg</file>
+        <file>../../db/assets/fastfood/sandwich.svg</file>
+        <file>../../db/assets/fastfood/shortcake.svg</file>
+        <file>../../db/assets/fruits/apricot.svg</file>
+        <file>../../db/assets/fruits/avocado.svg</file>
+        <file>../../db/assets/fruits/banana.svg</file>
+        <file>../../db/assets/fruits/dragon.svg</file>
+        <file>../../db/assets/fruits/durian.svg</file>
+        <file>../../db/assets/fruits/granate.svg</file>
+        <file>../../db/assets/fruits/grape.svg</file>
+        <file>../../db/assets/fruits/kiwi.svg</file>
+        <file>../../db/assets/fruits/lychee.svg</file>
+        <file>../../db/assets/fruits/mango.svg</file>
+        <file>../../db/assets/fruits/passion.svg</file>
+        <file>../../db/assets/fruits/pineapple.svg</file>
+        <file>../../db/assets/fruits/raspberry.svg</file>
+        <file>../../db/assets/fruits/strawberry.svg</file>
+        <file>../../db/assets/fruits/watermelon.svg</file>
+        <file>../../db/assets/juice/cantaloupe.svg</file>
+        <file>../../db/assets/juice/cherry.svg</file>
+        <file>../../db/assets/juice/coconut.svg</file>
+        <file>../../db/assets/juice/guava.svg</file>
+        <file>../../db/assets/juice/lemon.svg</file>
+        <file>../../db/assets/juice/mango.svg</file>
+        <file>../../db/assets/juice/peach.svg</file>
+        <file>../../db/assets/juice/pear.svg</file>
+        <file>../../db/assets/juice/pineapple.svg</file>
+        <file>../../db/assets/juice/pitahaya.svg</file>
+        <file>../../db/assets/juice/strawberry.svg</file>
+        <file>../../db/assets/misc/bandage.svg</file>
+        <file>../../db/assets/misc/comb.svg</file>
+        <file>../../db/assets/misc/pen.svg</file>
+        <file>../../db/assets/misc/soap.svg</file>
+        <file>../../db/assets/misc/usb_drive.svg</file>
+    </qresource>
+</RCC>
+
+

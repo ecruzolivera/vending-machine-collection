@@ -10,9 +10,7 @@ import ui.components 1.0
 ColumnLayout {
     TopBar {
         Layout.fillWidth: true
-        Layout.preferredWidth: parent.width
         Layout.preferredHeight: 100
-        Layout.minimumHeight: 80
         Layout.alignment: Qt.AlignTop
     }
     RowLayout {

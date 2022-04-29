@@ -8,15 +8,17 @@ import ui.theme 1.0
 import ui.components 1.0
 
 ListView {
-
     // vertical scrollable categories
+    model: MainStore.items.categories
+    delegate: categoryDelegateId
     Component {
         id: categoryDelegateId
-        Pane {}
+        Pane {
+            Row {
+                Label {
+                    text: modelData.category
+                }
+            }
+        }
     }
-
-    readonly property var model: [{
-            "category": "Hygiene"
-            ,image:
-        }]
 }
