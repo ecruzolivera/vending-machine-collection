@@ -20,17 +20,16 @@ Item {
                 text: qsTr("Vending Machine Logo")
             }
             RowLayout {
-                spacing: 16
+                spacing: 8
                 Layout.alignment: Qt.AlignVCenter
                 Label {
                     text: new Date().toDateString(Qt.locale(),
                                                   Locale.ShortFormat)
                 }
                 Rectangle {
-                    Layout.preferredWidth: 2
-                    Layout.preferredHeight: parent.height * 2 / 3
-                    height: 200
-                    color: "gray"
+                    Layout.preferredWidth: 1
+                    Layout.preferredHeight: 30
+                    color: Material.foreground
                 }
                 Label {
                     text: new Date().toLocaleTimeString(Qt.locale(),
