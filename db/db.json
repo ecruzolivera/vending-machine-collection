@@ -1,0 +1,256 @@
+{
+  "items": [
+    {
+      "uuid": "1",
+      "category": "fastfood",
+      "name": "burger",
+      "image": "assets/fastfood/burger.svg"
+    },
+    {
+      "uuid": "2",
+      "category": "fastfood",
+      "name": "chocolatebar",
+      "image": "assets/fastfood/chocolatebar.svg"
+    },
+    {
+      "uuid": "3",
+      "category": "fastfood",
+      "name": "fried chicken",
+      "image": "assets/fastfood/fried-chicken.svg"
+    },
+    {
+      "uuid": "4",
+      "category": "fastfood",
+      "name": "hot dog",
+      "image": "assets/fastfood/hot-dog.svg"
+    },
+    {
+      "uuid": "5",
+      "category": "fastfood",
+      "name": "pizza",
+      "image": "assets/fastfood/pizza.svg"
+    },
+    {
+      "uuid": "6",
+      "category": "fastfood",
+      "name": "potato",
+      "image": "assets/fastfood/potato.svg"
+    },
+    {
+      "uuid": "7",
+      "category": "fastfood",
+      "name": "taco",
+      "image": "assets/fastfood/taco.svg"
+    },
+    {
+      "uuid": "8",
+      "category": "fastfood",
+      "name": "hamburger",
+      "image": "assets/fastfood/hamburger.svg"
+    },
+    {
+      "uuid": "9",
+      "category": "fastfood",
+      "name": "popcorn",
+      "image": "assets/fastfood/popcorn.svg"
+    },
+    {
+      "uuid": "10",
+      "category": "fastfood",
+      "name": "sandwich",
+      "image": "assets/fastfood/sandwich.svg"
+    },
+    {
+      "uuid": "11",
+      "category": "fastfood",
+      "name": "shortcake",
+      "image": "assets/fastfood/shortcake.svg"
+    },
+    {
+      "uuid": "12",
+      "category": "fruits",
+      "name": "apricot",
+      "image": "assets/fruits/apricot.svg"
+    },
+    {
+      "uuid": "13",
+      "category": "fruits",
+      "name": "avocado",
+      "image": "assets/fruits/avocado.svg"
+    },
+    {
+      "uuid": "14",
+      "category": "fruits",
+      "name": "banana",
+      "image": "assets/fruits/banana.svg"
+    },
+    {
+      "uuid": "15",
+      "category": "fruits",
+      "name": "dragon fruit",
+      "image": "assets/fruits/dragon_fruit.svg"
+    },
+    {
+      "uuid": "16",
+      "category": "fruits",
+      "name": "durian",
+      "image": "assets/fruits/durian.svg"
+    },
+    {
+      "uuid": "17",
+      "category": "fruits",
+      "name": "granate",
+      "image": "assets/fruits/granate.svg"
+    },
+    {
+      "uuid": "18",
+      "category": "fruits",
+      "name": "grape",
+      "image": "assets/fruits/grape.svg"
+    },
+    {
+      "uuid": "19",
+      "category": "fruits",
+      "name": "kiwi",
+      "image": "assets/fruits/kiwi.svg"
+    },
+    {
+      "uuid": "20",
+      "category": "fruits",
+      "name": "lychee",
+      "image": "assets/fruits/lychee.svg"
+    },
+    {
+      "uuid": "21",
+      "category": "fruits",
+      "name": "mango",
+      "image": "assets/fruits/mango.svg"
+    },
+    {
+      "uuid": "22",
+      "category": "fruits",
+      "name": "passion_fruit",
+      "image": "assets/fruits/passion_fruit.svg"
+    },
+    {
+      "uuid": "23",
+      "category": "fruits",
+      "name": "pineapple",
+      "image": "assets/fruits/pineapple.svg"
+    },
+    {
+      "uuid": "24",
+      "category": "fruits",
+      "name": "raspberry",
+      "image": "assets/fruits/raspberry.svg"
+    },
+    {
+      "uuid": "25",
+      "category": "fruits",
+      "name": "strawberry",
+      "image": "assets/fruits/strawberry.svg"
+    },
+    {
+      "uuid": "26",
+      "category": "fruits",
+      "name": "watermelon",
+      "image": "assets/fruits/watermelon.svg"
+    },
+    {
+      "uuid": "27",
+      "category": "juice",
+      "name": "cantaloupe",
+      "image": "assets/juice/cantaloupe.svg"
+    },
+    {
+      "uuid": "28",
+      "category": "juice",
+      "name": "cherry",
+      "image": "assets/juice/cherry.svg"
+    },
+    {
+      "uuid": "29",
+      "category": "juice",
+      "name": "coconut",
+      "image": "assets/juice/coconut.svg"
+    },
+    {
+      "uuid": "30",
+      "category": "juice",
+      "name": "guava",
+      "image": "assets/juice/guava.svg"
+    },
+    {
+      "uuid": "31",
+      "category": "juice",
+      "name": "lemon",
+      "image": "assets/juice/lemon.svg"
+    },
+    {
+      "uuid": "32",
+      "category": "juice",
+      "name": "mango",
+      "image": "assets/juice/mango.svg"
+    },
+    {
+      "uuid": "33",
+      "category": "juice",
+      "name": "peach",
+      "image": "assets/juice/peach.svg"
+    },
+    {
+      "uuid": "34",
+      "category": "juice",
+      "name": "pear",
+      "image": "assets/juice/pear.svg"
+    },
+    {
+      "uuid": "35",
+      "category": "juice",
+      "name": "pineapple",
+      "image": "assets/juice/pineapple.svg"
+    },
+    {
+      "uuid": "36",
+      "category": "juice",
+      "name": "pitahaya",
+      "image": "assets/juice/pitahaya.svg"
+    },
+    {
+      "uuid": "37",
+      "category": "juice",
+      "name": "strawberry",
+      "image": "assets/juice/strawberry.svg"
+    },
+    {
+      "uuid": "38",
+      "category": "misc",
+      "name": "bandage",
+      "image": "assets/misc/bandage.svg"
+    },
+    {
+      "uuid": "39",
+      "category": "misc",
+      "name": "comb",
+      "image": "assets/misc/comb.svg"
+    },
+    {
+      "uuid": "40",
+      "category": "misc",
+      "name": "pen",
+      "image": "assets/misc/pen.svg"
+    },
+    {
+      "uuid": "41",
+      "category": "misc",
+      "name": "soap",
+      "image": "assets/misc/soap.svg"
+    },
+    {
+      "uuid": "42",
+      "category": "misc",
+      "name": "usb_drive",
+      "image": "assets/misc/usb_drive.svg"
+    }
+  ]
+}

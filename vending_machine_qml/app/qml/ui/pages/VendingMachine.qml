@@ -22,8 +22,9 @@ ColumnLayout {
         Layout.fillWidth: true
         Layout.fillHeight: true
         CategoriesCarousel {
-            Layout.fillHeight: true
+            Layout.preferredWidth: parent.width / 4
             Layout.preferredHeight: parent.height
+            Layout.fillHeight: true
         }
         Rectangle {
             // items

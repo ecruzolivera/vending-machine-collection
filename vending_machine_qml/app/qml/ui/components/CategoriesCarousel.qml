@@ -7,8 +7,16 @@ import stores 1.0
 import ui.theme 1.0
 import ui.components 1.0
 
-Rectangle {
-    // vertical carousel
-    Layout.preferredWidth: parent.width / 4
-    color: "lightgreen"
+ListView {
+
+    // vertical scrollable categories
+    Component {
+        id: categoryDelegateId
+        Pane {}
+    }
+
+    readonly property var model: [{
+            "category": "Hygiene"
+            ,image:
+        }]
 }
