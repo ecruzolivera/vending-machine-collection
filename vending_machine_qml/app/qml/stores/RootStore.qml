@@ -14,8 +14,8 @@ Store {
         }
     }
 
-    property alias todo: todoId
-    TodoStore {
-        id: todoId
+    property alias items: itemsId
+    ItemsStore {
+        id: itemsId
     }
 }
