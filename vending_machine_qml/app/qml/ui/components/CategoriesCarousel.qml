@@ -1,6 +1,7 @@
 import QtQuick 2.15
 import QtQuick.Controls 2.15
 import QtQuick.Layouts 1.15
+import QtQuick.Controls.Material 2.15
 import QSyncable 1.0
 import actions 1.0
 import stores 1.0
@@ -16,7 +17,12 @@ Item {
         spacing: 16
         model: MainStore.items.categories
         delegate: categoryDelegateId
-        onCurrentIndexChanged: console.log("currentIndex", currentIndex)
+        header: Item {
+            height: 20
+        }
+        footer: Item {
+            height: 20
+        }
     }
     Component {
         id: categoryDelegateId
@@ -26,11 +32,16 @@ Item {
             Rectangle {
                 width: priv.cardWidth
                 height: priv.cardHeight
+                radius: 8
                 anchors.centerIn: parent
                 scale: listId.currentIndex === index ? 1.2 : 0.8
                 color: "transparent"
+                border {
+                    color: Material.accentColor
+                }
                 Behavior on scale {
                     ScaleAnimator {
+                        duration: 200
                     }
                 }
                 ColumnLayout {
