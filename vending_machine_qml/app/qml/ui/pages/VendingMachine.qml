@@ -20,6 +20,7 @@ ColumnLayout {
         Layout.fillWidth: true
         Layout.fillHeight: true
         CategoriesCarousel {
+            Layout.alignment: Qt.AlignHCenter | Qt.AlignVCenter
             Layout.preferredWidth: parent.width / 4
             Layout.preferredHeight: parent.height
             Layout.fillHeight: true

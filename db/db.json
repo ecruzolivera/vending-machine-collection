@@ -3,21 +3,25 @@
     {
       "uuid": "1",
       "category": "fastfood",
+      "image": "assets/fastfood/burger.svg",
       "description": "Laboris amet eiusmod tempor proident tempor exercitation nostrud reprehenderit adipisicing nulla irure nostrud enim minim."
     },
     {
       "uuid": "2",
       "category": "fruits",
+      "image": "assets/fruits/apricot.svg",
       "description":"Ipsum occaecat deserunt mollit laboris."
     },
     {
       "uuid": "3",
       "category": "juice",
+      "image": "assets/juice/cantaloupe.svg",
       "description":"Nostrud veniam voluptate laborum aliquip dolore consequat ullamco aliqua enim."
     },
     {
       "uuid": "4",
       "category": "misc",
+      "image": "assets/misc/bandage.svg",
       "description":"Eiusmod anim nulla nostrud eu officia enim ipsum elit ullamco."
     }
   ],
