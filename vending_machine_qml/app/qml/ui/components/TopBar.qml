@@ -22,15 +22,9 @@ Item {
             RowLayout {
                 spacing: 16
                 Layout.alignment: Qt.AlignVCenter
-                ColumnLayout {
-                    Layout.alignment: Qt.AlignVCenter
-                    Label {
-                        Layout.alignment: Qt.AlignRight
-                        text: qsTr("Monday")
-                    }
-                    Label {
-                        text: qsTr("15-07-2016")
-                    }
+                Label {
+                    text: new Date().toDateString(Qt.locale(),
+                                                  Locale.ShortFormat)
                 }
                 Rectangle {
                     Layout.preferredWidth: 2
@@ -39,7 +33,8 @@ Item {
                     color: "gray"
                 }
                 Label {
-                    text: qsTr("15:24")
+                    text: new Date().toLocaleTimeString(Qt.locale(),
+                                                        Locale.ShortFormat)
                     font {
                         pixelSize: 22
                         bold: true
