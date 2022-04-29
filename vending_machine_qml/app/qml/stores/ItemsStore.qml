@@ -12,6 +12,16 @@ Store {
     property var categories: Utils.getSafe(db.categories, [])
     property var items: Utils.getSafe(db.items, [])
     property var db: Db.db()
+    property string categorySelectedUuid: ""
+
+    Filter {
+        type: ActionTypes.categorySelected
+        onDispatched: {
+            console.log(ActionTypes.categorySelected, JSON.stringify(message))
+            const uuid = Utils.getSafe(message.payload, "")
+            categorySelectedUuid = uuid
+        }
+    }
 
     QtObject {
         id: priv

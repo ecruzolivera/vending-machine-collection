@@ -9,9 +9,6 @@ KeyTable {
     property string startApp
     // Call it to quit the application
     property string quitApp
-    // Todo
-    property string taskAdd
-    property string taskMarkCompleted
-    property string taskDeleted
-    property string taskOpenDetail
+    // app
+    property string categorySelected
 }
