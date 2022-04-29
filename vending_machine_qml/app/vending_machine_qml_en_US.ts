@@ -2,33 +2,33 @@
 <!DOCTYPE TS>
 <TS version="2.1" language="en_US">
 <context>
-    <name>AddTaskBar</name>
+    <name>RootStore</name>
     <message>
-        <location filename="qml/ui/components/AddTaskBar.qml" line="14"/>
-        <source>type new task name</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="qml/ui/components/AddTaskBar.qml" line="18"/>
-        <source>Add Task</source>
+        <location filename="qml/stores/RootStore.qml" line="6"/>
+        <source>Vending Machine</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
-    <name>TodoPage</name>
+    <name>TopBar</name>
     <message>
-        <location filename="qml/ui/pages/TodoPage.qml" line="11"/>
-        <source>Todo List</source>
+        <location filename="qml/ui/components/TopBar.qml" line="16"/>
+        <source>Vending Machine Logo</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="qml/ui/pages/TodoPage.qml" line="29"/>
-        <source>Todo</source>
+        <location filename="qml/ui/components/TopBar.qml" line="25"/>
+        <source>Monday</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="qml/ui/pages/TodoPage.qml" line="46"/>
-        <source>Completed</source>
+        <location filename="qml/ui/components/TopBar.qml" line="28"/>
+        <source>15-07-2016</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="qml/ui/components/TopBar.qml" line="38"/>
+        <source>15:24</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

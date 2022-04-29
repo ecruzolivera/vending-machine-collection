@@ -21,12 +21,9 @@ ColumnLayout {
         Layout.preferredHeight: parent.height
         Layout.fillWidth: true
         Layout.fillHeight: true
-        Rectangle {
-            // vertical carousel
-            Layout.preferredWidth: parent.width / 4
-            Layout.preferredHeight: parent.height
+        CategoriesCarousel {
             Layout.fillHeight: true
-            color: "lightgreen"
+            Layout.preferredHeight: parent.height
         }
         Rectangle {
             // items

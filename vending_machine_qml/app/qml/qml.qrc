@@ -16,6 +16,7 @@
         <file>stores/qmldir</file>
         <file>stores/RootStore.qml</file>
         <file>stores/TodoStore.qml</file>
+        <file>ui/components/CategoriesCarousel.qml</file>
         <file>ui/components/qmldir</file>
         <file>ui/components/TopBar.qml</file>
         <file>ui/pages/qmldir</file>
