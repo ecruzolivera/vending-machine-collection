@@ -17,51 +17,21 @@ Item {
         cellHeight: priv.cardHeight
         cellWidth: priv.cardWidth
         clip: true
-        model: MainStore.items.selectedCategoryItems
+        model: JsonListModel {
+            keyField: "id"
+            source: MainStore.items.selectedCategoryItems
+        }
         delegate: itemDelegateId
     }
     Component {
         id: itemDelegateId
-        Item {
-            width: priv.cardWidth
+        ItemCard {
             height: priv.cardHeight
-            //            color: "transparent"
-            //            border.color: Qt.rgba(Math.random(), Math.random(),
-            //                                  Math.random(), 1)
-            ColumnLayout {
-                anchors.centerIn: parent
-                spacing: 8
-                Image {
-                    Layout.alignment: Qt.AlignHCenter
-                    fillMode: Image.PreserveAspectFit
-                    sourceSize {
-                        width: 60
-                        height: 60
-                    }
-                    source: modelData.image
-                    Layout.preferredWidth: parent.width
-                }
-                Label {
-                    Layout.alignment: Qt.AlignHCenter
-                    text: modelData.name
-                }
-                Rectangle {
-                    Layout.alignment: Qt.AlignHCenter
-                    Layout.preferredWidth: 60
-                    Layout.preferredHeight: 25
-                    radius: 2
-
-                    color: "transparent"
-                    border {
-                        color: Material.accentColor
-                    }
-                    Label {
-                        anchors.centerIn: parent
-                        text: Number(modelData.price/100).toLocaleCurrencyString(
-                                  Qt.locale())
-                    }
-                }
-            }
+            width: priv.cardWidth
+            productName: model.name
+            imageUrl: image
+            productPrice: price
+            Component.onCompleted: console.log(JSON.stringify(modelData))
             MouseArea {
                 anchors.fill: parent
                 onClicked: {

@@ -9,7 +9,7 @@ import ui.theme 1.0
 
 Item {
     Pane {
-        Material.background: "darkturquoise"
+        Material.background: Material.primaryColor
         width: parent.width
         height: parent.height
         RowLayout {

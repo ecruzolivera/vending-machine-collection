@@ -15,6 +15,7 @@ Store {
     property string selectedCategoryId: ""
     property var selectedCategoryItems: items.filter(
                                             item => item.categoryId === selectedCategoryId)
+                                        || []
     property string selectedItemUuid: ""
 
     Filter {

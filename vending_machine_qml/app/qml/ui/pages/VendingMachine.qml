@@ -1,6 +1,7 @@
 import QtQuick 2.15
 import QtQuick.Controls 2.15
 import QtQuick.Layouts 1.15
+import QtQuick.Controls.Material 2.15
 import QSyncable 1.0
 import actions 1.0
 import stores 1.0
@@ -31,30 +32,9 @@ ColumnLayout {
             Layout.preferredWidth: parent.width * 3 / 4
         }
     }
-    RowLayout {
-        //bottom
-        Layout.fillWidth: true
-        Layout.preferredWidth: parent.width
-        Layout.preferredHeight: 200
-        Layout.minimumHeight: 150
+    BottomBar {
         Layout.alignment: Qt.AlignBottom
-        Rectangle {
-            // selected item
-            Layout.preferredWidth: parent.width / 3
-            Layout.preferredHeight: parent.height
-            color: "green"
-        }
-        Rectangle {
-            // selected item description
-            Layout.preferredWidth: parent.width / 3
-            Layout.preferredHeight: parent.height
-            color: "blue"
-        }
-        Rectangle {
-            // buy area
-            Layout.preferredWidth: parent.width / 3
-            Layout.preferredHeight: parent.height
-            color: "yellow"
-        }
+        Layout.fillWidth: true
+        Layout.preferredHeight: 200
     }
 }
