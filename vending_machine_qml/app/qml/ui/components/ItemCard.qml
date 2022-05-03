@@ -13,9 +13,9 @@ import "../../Utils.js" as Utils
 Item {
     width: 400
     height: 200
-    required property string productName
-    required property url imageUrl
-    required property int productPrice
+    property string productName
+    property url imageUrl
+    property int productPrice
     ColumnLayout {
         anchors.centerIn: parent
         spacing: 8

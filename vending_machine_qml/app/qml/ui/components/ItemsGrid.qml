@@ -17,10 +17,7 @@ Item {
         cellHeight: priv.cardHeight
         cellWidth: priv.cardWidth
         clip: true
-        model: JsonListModel {
-            keyField: "id"
-            source: MainStore.items.selectedCategoryItems
-        }
+        model: MainStore.items.selectedCategoryItems
         delegate: itemDelegateId
     }
     Component {
@@ -28,10 +25,9 @@ Item {
         ItemCard {
             height: priv.cardHeight
             width: priv.cardWidth
-            productName: model.name
-            imageUrl: image
-            productPrice: price
-            Component.onCompleted: console.log(JSON.stringify(modelData))
+            productName: modelData.name
+            imageUrl: modelData.image
+            productPrice: modelData.price
             MouseArea {
                 anchors.fill: parent
                 onClicked: {
@@ -41,6 +37,7 @@ Item {
             }
         }
     }
+
     QtObject {
         id: priv
         readonly property int cardWidth: gridId.width / 3 - 20
