@@ -10,20 +10,21 @@ import "db.js" as Db
 Store {
     id: root
     property var db: Db.db()
-    property var categories: Utils.getSafe(db.categories, [])
-    property var items: Utils.getSafe(db.items, [])
+    property var categories: Utils.getSafe(()=>db.categories, [])
+    property var items: Utils.getSafe(()=>db.items, [])
     property string selectedCategoryId: ""
     property var selectedCategoryItems: items.filter(
                                             item => item.categoryId === selectedCategoryId)
                                         || []
-    property string selectedItemUuid: ""
+    property string selectedItemId: ""
+    property var selectedItem: items.find(item => item.id === selectedItemId)
 
     Filter {
         type: ActionTypes.categorySelected
         onDispatched: {
             console.log(ActionTypes.categorySelected, JSON.stringify(message))
-            const uuid = Utils.getSafe(message.payload, "")
-            selectedCategoryId = uuid
+            const id = Utils.getSafe(()=>message.payload, "")
+            selectedCategoryId = id
         }
     }
 
@@ -31,8 +32,8 @@ Store {
         type: ActionTypes.itemSelected
         onDispatched: {
             console.log(ActionTypes.itemSelected, JSON.stringify(message))
-            const uuid = Utils.getSafe(message.payload, "")
-            selectedItemUuid = uuid
+            const id = Utils.getSafe(()=>message.payload, "")
+            selectedItemId = id
         }
     }
 

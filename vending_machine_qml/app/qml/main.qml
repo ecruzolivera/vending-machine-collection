@@ -18,7 +18,7 @@ ApplicationWindow {
     title: MainStore.appName
 
     VendingMachine {
-         anchors.fill: parent
+        anchors.fill: parent
     }
 
     MiddlewareList {

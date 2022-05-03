@@ -1,11 +1,9 @@
 .pragma library
 
-function getSafe(prop, defaultValue) {
-    defaultValue = defaultValue || null
+function getSafe(fn, defaultVal) {
     try {
-        const retval = prop
-        return retval !== undefined ? retval : defaultValue
+        return fn()
     } catch (e) {
-        return defaultValue
+        return defaultVal
     }
 }

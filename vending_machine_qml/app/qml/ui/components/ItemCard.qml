@@ -31,6 +31,7 @@ Item {
         }
         Label {
             Layout.alignment: Qt.AlignHCenter
+            font.capitalization: Font.Capitalize
             text: productName
         }
         Rectangle {
