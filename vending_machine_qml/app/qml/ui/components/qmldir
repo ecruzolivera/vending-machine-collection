@@ -3,3 +3,4 @@ CategoriesCarousel 1.0 CategoriesCarousel.qml
 ItemsGrid 1.0 ItemsGrid.qml
 BottomBar 1.0 BottomBar.qml
 ItemCard 1.0 ItemCard.qml
+PriceBox 1.0 PriceBox.qml

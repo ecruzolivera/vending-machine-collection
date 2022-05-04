@@ -12,4 +12,5 @@ KeyTable {
     // app
     property string categorySelected
     property string itemSelected
+    property string buySelected
 }

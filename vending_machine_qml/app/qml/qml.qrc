@@ -28,5 +28,6 @@
         <file>Utils.js</file>
         <file>stores/db.js</file>
         <file>ui/components/ItemCard.qml</file>
+        <file>ui/components/PriceBox.qml</file>
     </qresource>
 </RCC>

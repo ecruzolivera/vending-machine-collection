@@ -17,4 +17,9 @@ ActionCreator {
                      "payload": id
                  })
     }
+    function buySelected(id) {
+        dispatch(ActionTypes.buySelected, {
+                     "payload": id
+                 })
+    }
 }

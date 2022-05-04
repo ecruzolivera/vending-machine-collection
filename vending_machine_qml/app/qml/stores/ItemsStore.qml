@@ -37,6 +37,13 @@ Store {
         }
     }
 
+    Filter {
+        type: ActionTypes.buySelected
+        onDispatched: {
+            console.log(ActionTypes.buySelected, JSON.stringify(message))
+        }
+    }
+
     QtObject {
         id: priv
     }

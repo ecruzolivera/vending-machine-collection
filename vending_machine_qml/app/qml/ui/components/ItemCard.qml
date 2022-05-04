@@ -31,21 +31,11 @@ Item {
             font.capitalization: Font.Capitalize
             text: productName
         }
-        Rectangle {
+        PriceBox {
             Layout.alignment: Qt.AlignHCenter
-            Layout.preferredWidth: 60
             Layout.preferredHeight: 25
-            radius: 2
-
-            color: "transparent"
-            border {
-                color: Material.accentColor
-            }
-            Label {
-                anchors.centerIn: parent
-                text: Number(productPrice / 100).toLocaleCurrencyString(
-                          Qt.locale())
-            }
+            Layout.preferredWidth: 60
+            priceInCets: productPrice
         }
     }
 }

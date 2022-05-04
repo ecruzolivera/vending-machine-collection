@@ -11,14 +11,15 @@ import "../../Utils.js" as Utils
 
 Rectangle {
     //bottom
-    id:root
+    id: root
     color: Material.primaryColor
     RowLayout {
-        anchors.fill: parent
+        anchors.centerIn: parent
+        visible: !!priv.selectedItem
         Pane {
             // selected item
-            Layout.preferredWidth: parent.width / 3
-            Layout.preferredHeight: parent.height
+            Layout.preferredWidth: root.width / 3 - 20
+            Layout.preferredHeight: root.height - 20
             ColumnLayout {
                 anchors.centerIn: parent
                 spacing: 8
@@ -35,25 +36,60 @@ Rectangle {
                     fillMode: Image.PreserveAspectFit
                     Layout.preferredWidth: 100
                     Layout.preferredHeight: 100
-                    sourceSize {
-                        width: 100
-                        height: 100
-                    }
                     source: Utils.getSafe(() => priv.selectedItem.image, "")
                 }
             }
         }
-        Rectangle {
+        Pane {
             // selected item nutritional
-            Layout.preferredWidth: parent.width / 3
-            Layout.preferredHeight: parent.height
-            color: "blue"
+            id: nutritionalFactsPaneId
+            Layout.preferredWidth: root.width / 3 - 20
+            Layout.preferredHeight: root.height - 20
+            ColumnLayout {
+                Label {
+                    font {
+                        pixelSize: 15
+                        bold: true
+                    }
+                    text: qsTr("Ingredients")
+                }
+                Label {
+                    Layout.preferredWidth: nutritionalFactsPaneId.width - 20
+                    Layout.fillHeight: true
+                    font {
+                        pixelSize: 14
+                    }
+                    wrapMode: Text.WordWrap
+                    text: Utils.getSafe(() => priv.selectedItem.description, "")
+                }
+            }
         }
-        Rectangle {
-            // buy area
-            Layout.preferredWidth: parent.width / 3
-            Layout.preferredHeight: parent.height
-            color: "yellow"
+        Pane {
+            // selected item buy area
+            Layout.preferredWidth: root.width / 3 - 20
+            Layout.preferredHeight: root.height - 20
+            RowLayout {
+                anchors.centerIn: parent
+                spacing: 10
+                Label {
+                    font {
+                        pixelSize: 15
+                        bold: true
+                    }
+                    text: qsTr("Price")
+                }
+                PriceBox {
+                    Layout.alignment: Qt.AlignHCenter
+                    Layout.preferredHeight: 25
+                    Layout.preferredWidth: 60
+                    priceInCets: Utils.getSafe(() => priv.selectedItem.price, 0)
+                }
+                Button {
+                    text: qsTr("Buy")
+                    onClicked: AppActions.buySelected(
+                                   Utils.getSafe(() => priv.selectedItem.id, 0))
+                }
+            }
         }
     }
 
