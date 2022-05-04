@@ -1,7 +1,8 @@
 # Vending Machine Collection
 
 - [C++](./vending_machine_cpp/)
+- [QML](./vending_machine_qml/)
 
-The UI is loosely based in this [project UI](https://www.behance.net/gallery/45351745/AtelierBox-Digital-Vending-Machine-UI-and-UX/modules/271197489) because i like how it looks.
+## Common State Machine
 
-![Mock up](./vendingmachine.png)
+![vending machine fsm](./VendingMachineFsm.png)

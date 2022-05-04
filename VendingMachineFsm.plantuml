@@ -6,8 +6,8 @@ skinparam dpi 100
 title Vending Machine
 
 [*] --> Idle
-Idle --> WaitingForMoney: itemSelected[isItemInExistence]
-Idle --> SoldOutError: itemSelected[!isItemInExistence]
+Idle --> WaitingForMoney: buyItem[isItemInExistence]
+Idle --> SoldOutError: buyItem[!isItemInExistence]
 SoldOutError --> Idle: timeout
 WaitingForMoney --> DeliveringItem: moneyInserted[isEnough]
 WaitingForMoney --> ReturningMoney: timeout

@@ -29,5 +29,6 @@
         <file>stores/db.js</file>
         <file>ui/components/ItemCard.qml</file>
         <file>ui/components/PriceBox.qml</file>
+        <file>stores/VendingMachineFsm.qml</file>
     </qresource>
 </RCC>
