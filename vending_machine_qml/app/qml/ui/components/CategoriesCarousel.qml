@@ -60,12 +60,9 @@ Item {
                         Image {
                             Layout.alignment: Qt.AlignHCenter
                             fillMode: Image.PreserveAspectFit
-                            sourceSize {
-                                width: 50
-                                height: 50
-                            }
+                            Layout.preferredWidth: 60
+                            Layout.preferredHeight: 60
                             source: modelData.image
-                            Layout.preferredWidth: parent.width
                         }
                         Label {
                             Layout.alignment: Qt.AlignHCenter

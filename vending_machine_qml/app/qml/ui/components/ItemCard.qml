@@ -21,13 +21,10 @@ Item {
         spacing: 8
         Image {
             Layout.alignment: Qt.AlignHCenter
+            Layout.preferredWidth: 60
+            Layout.preferredHeight: 60
             fillMode: Image.PreserveAspectFit
-            sourceSize {
-                width: 60
-                height: 60
-            }
             source: imageUrl
-            Layout.preferredWidth: parent.width
         }
         Label {
             Layout.alignment: Qt.AlignHCenter

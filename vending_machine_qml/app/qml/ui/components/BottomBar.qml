@@ -11,6 +11,7 @@ import "../../Utils.js" as Utils
 
 Rectangle {
     //bottom
+    id:root
     color: Material.primaryColor
     RowLayout {
         anchors.fill: parent
@@ -32,17 +33,18 @@ Rectangle {
                 Image {
                     Layout.alignment: Qt.AlignHCenter
                     fillMode: Image.PreserveAspectFit
+                    Layout.preferredWidth: 100
+                    Layout.preferredHeight: 100
                     sourceSize {
                         width: 100
                         height: 100
                     }
                     source: Utils.getSafe(() => priv.selectedItem.image, "")
-                    Layout.preferredWidth: parent.width
                 }
             }
         }
         Rectangle {
-            // selected item description
+            // selected item nutritional
             Layout.preferredWidth: parent.width / 3
             Layout.preferredHeight: parent.height
             color: "blue"
