@@ -38,6 +38,12 @@ Rectangle {
                     Layout.preferredHeight: 100
                     source: Utils.getSafe(() => priv.selectedItem.image, "")
                 }
+                PriceBox {
+                    Layout.alignment: Qt.AlignHCenter
+                    Layout.preferredHeight: 25
+                    Layout.preferredWidth: 60
+                    priceInCets: Utils.getSafe(() => priv.selectedItem.price, 0)
+                }
             }
         }
         Pane {
@@ -68,7 +74,7 @@ Rectangle {
             // selected item buy area
             Layout.preferredWidth: root.width / 3 - 20
             Layout.preferredHeight: root.height - 20
-            RowLayout {
+            ColumnLayout {
                 anchors.centerIn: parent
                 spacing: 10
                 Label {
@@ -85,7 +91,7 @@ Rectangle {
                     priceInCets: Utils.getSafe(() => priv.selectedItem.price, 0)
                 }
                 Button {
-                    text: qsTr("Buy")
+                    text: qsTr("Checkout")
                     onClicked: AppActions.buySelected(
                                    Utils.getSafe(() => priv.selectedItem.id, 0))
                 }

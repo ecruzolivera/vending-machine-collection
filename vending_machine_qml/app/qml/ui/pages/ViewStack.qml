@@ -44,6 +44,22 @@ Item {
                 duration: 400
             }
         }
+        replaceEnter: Transition {
+            PropertyAnimation {
+                property: "opacity"
+                from: 0
+                to: 1
+                duration: 400
+            }
+        }
+        replaceExit: Transition {
+            PropertyAnimation {
+                property: "opacity"
+                from: 1
+                to: 0
+                duration: 400
+            }
+        }
     }
 
     function push(item, properties, operation) {
