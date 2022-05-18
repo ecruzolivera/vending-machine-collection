@@ -1,1 +1,4 @@
-VendingMachine 1.0 VendingMachine.qml
+singleton Pages 1.0 Pages.qml
+ViewStack 1.0 ViewStack.qml
+HomePage 1.0 HomePage.qml
+CheckoutPage 1.0 CheckoutPage.qml

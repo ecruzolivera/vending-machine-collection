@@ -17,13 +17,16 @@ ApplicationWindow {
     visible: true
     title: MainStore.appName
 
-    VendingMachine {
+    ViewStack {
+        id: stackViewId
         anchors.fill: parent
     }
 
     MiddlewareList {
         applyTarget: AppDispatcher
         SystemMiddleware {}
-        TodoMiddleware {}
+        NavigationMiddleware {
+            stackView: stackViewId
+        }
     }
 }

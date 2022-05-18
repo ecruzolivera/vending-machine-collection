@@ -7,28 +7,31 @@
         <file>constants/qmldir</file>
         <file>main.qml</file>
         <file>middlewares/ApiFixtures.qml</file>
+        <file>middlewares/NavigationMiddleware.qml</file>
         <file>middlewares/qmldir</file>
         <file>middlewares/SystemMiddleware.qml</file>
-        <file>middlewares/TodoMiddleware.qml</file>
         <file>qtquickcontrols2.conf</file>
+        <file>stores/db.js</file>
+        <file>stores/ItemsStore.qml</file>
         <file>stores/MainStore.qml</file>
         <file>stores/qmldir</file>
         <file>stores/qmldir</file>
         <file>stores/RootStore.qml</file>
-        <file>stores/ItemsStore.qml</file>
+        <file>stores/VendingMachineFsm.qml</file>
+        <file>ui/components/BottomBar.qml</file>
         <file>ui/components/CategoriesCarousel.qml</file>
+        <file>ui/components/ItemCard.qml</file>
         <file>ui/components/ItemsGrid.qml</file>
+        <file>ui/components/PriceBox.qml</file>
         <file>ui/components/qmldir</file>
         <file>ui/components/TopBar.qml</file>
-        <file>ui/components/BottomBar.qml</file>
+        <file>ui/pages/CheckoutPage.qml</file>
+        <file>ui/pages/HomePage.qml</file>
+        <file>ui/pages/Pages.qml</file>
         <file>ui/pages/qmldir</file>
-        <file>ui/pages/VendingMachine.qml</file>
+        <file>ui/pages/ViewStack.qml</file>
         <file>ui/theme/qmldir</file>
         <file>ui/theme/Theme.qml</file>
         <file>Utils.js</file>
-        <file>stores/db.js</file>
-        <file>ui/components/ItemCard.qml</file>
-        <file>ui/components/PriceBox.qml</file>
-        <file>stores/VendingMachineFsm.qml</file>
     </qresource>
 </RCC>

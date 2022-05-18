@@ -13,4 +13,9 @@ KeyTable {
     property string categorySelected
     property string itemSelected
     property string buySelected
+
+    // navigation
+    property string navigatePush
+    property string navigatePop
+    property string navigateReplace
 }
