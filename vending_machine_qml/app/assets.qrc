@@ -43,6 +43,11 @@
         <file alias="pen.svg">../../db/assets/misc/pen.svg</file>
         <file alias="soap.svg">../../db/assets/misc/soap.svg</file>
         <file alias="usb_drive.svg">../../db/assets/misc/usb_drive.svg</file>
+        
+        <file>./assets/add_black.svg</file>
+        <file>./assets/delete_black.svg</file>
+        <file>./assets/remove_black.svg</file>
+        <file>./assets/shopping_cart_black.svg</file>
     </qresource>
 </RCC>
 

@@ -11,3 +11,4 @@ KeyTable {
     property string stateReturningChange
     property string stateReturningMoney
 }
+

@@ -14,8 +14,16 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="qml/ui/components/BottomBar.qml" line="88"/>
-        <source>Buy</source>
+        <location filename="qml/ui/components/BottomBar.qml" line="82"/>
+        <source>Checkout</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>ItemCard</name>
+    <message>
+        <location filename="qml/ui/components/ItemCard.qml" line="56"/>
+        <source>Existences:</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

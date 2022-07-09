@@ -25,16 +25,9 @@ Item {
         ItemCard {
             height: priv.cardHeight
             width: priv.cardWidth
-            productName: modelData.name
+            itemName: modelData.name
             imageUrl: modelData.image
             productPrice: modelData.price
-            MouseArea {
-                anchors.fill: parent
-                onClicked: {
-                    gridId.currentIndex = index
-                    AppActions.itemSelected(modelData.id)
-                }
-            }
         }
     }
 

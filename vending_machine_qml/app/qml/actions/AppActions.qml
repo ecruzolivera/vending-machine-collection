@@ -44,26 +44,20 @@ ActionCreator {
                      "payload": id
                  })
     }
-    function itemSelected(id) {
-        dispatch(ActionTypes.itemSelected, {
-                     "payload": id
-                 })
-    }
-    function buySelected(id) {
-        dispatch(ActionTypes.buySelected, {
+
+    function itemAddToCart(id) {
+        dispatch(ActionTypes.itemAddToCart, {
                      "payload": id
                  })
     }
 
-    function push(item, properties, operation) {
-        stackViewId.push(item, properties, operation)
+    function itemRemoveFromCart(id) {
+        dispatch(ActionTypes.itemRemoveFromCart, {
+                     "payload": id
+                 })
     }
 
-    function pop(item, operation) {
-        stackViewId.pop(item, operation)
-    }
-
-    function replace(target, item, properties, operation) {
-        stackViewId.replace(target, item, properties, operation)
+    function checkoutCart() {
+        dispatch(ActionTypes.checkoutCart)
     }
 }

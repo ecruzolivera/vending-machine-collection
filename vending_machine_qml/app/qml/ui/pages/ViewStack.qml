@@ -63,14 +63,17 @@ Item {
     }
 
     function push(item, properties, operation) {
+        console.log("viewstack push:", item)
         stackViewId.push(item, properties, operation)
     }
 
     function pop(item, operation) {
+        console.log("viewstack pop:", item)
         stackViewId.pop(item, operation)
     }
 
     function replace(target, item, properties, operation) {
+        console.log("viewstack replace target:", target, "item:", item)
         stackViewId.replace(target, item, properties, operation)
     }
 }

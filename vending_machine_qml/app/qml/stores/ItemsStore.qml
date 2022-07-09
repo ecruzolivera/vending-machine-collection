@@ -10,8 +10,8 @@ import "db.js" as Db
 Store {
     id: root
     property var db: Db.db()
-    property var categories: Utils.getSafe(()=>db.categories, [])
-    property var items: Utils.getSafe(()=>db.items, [])
+    property var categories: Utils.getSafe(() => db.categories, [])
+    property var items: Utils.getSafe(() => db.items, [])
     property string selectedCategoryId: ""
     property var selectedCategoryItems: items.filter(
                                             item => item.categoryId === selectedCategoryId)
@@ -22,25 +22,25 @@ Store {
     Filter {
         type: ActionTypes.categorySelected
         onDispatched: {
-            console.log(ActionTypes.categorySelected, JSON.stringify(message))
-            const id = Utils.getSafe(()=>message.payload, "")
+            console.log(type, JSON.stringify(message))
+            const id = Utils.getSafe(() => message.payload, "")
             selectedCategoryId = id
         }
     }
 
     Filter {
-        type: ActionTypes.itemSelected
+        type: ActionTypes.itemAddToCart
         onDispatched: {
-            console.log(ActionTypes.itemSelected, JSON.stringify(message))
-            const id = Utils.getSafe(()=>message.payload, "")
-            selectedItemId = id
+            console.log(type, JSON.stringify(message))
+            //            const id = Utils.getSafe(()=>message.payload, "")
+            //            selectedItemId = id
         }
     }
 
     Filter {
-        type: ActionTypes.buySelected
+        type: ActionTypes.itemRemoveFromCart
         onDispatched: {
-            console.log(ActionTypes.buySelected, JSON.stringify(message))
+            console.log(type, JSON.stringify(message))
         }
     }
 

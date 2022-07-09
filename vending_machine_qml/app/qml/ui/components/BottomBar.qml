@@ -38,12 +38,6 @@ Rectangle {
                     Layout.preferredHeight: 100
                     source: Utils.getSafe(() => priv.selectedItem.image, "")
                 }
-                PriceBox {
-                    Layout.alignment: Qt.AlignHCenter
-                    Layout.preferredHeight: 25
-                    Layout.preferredWidth: 60
-                    priceInCets: Utils.getSafe(() => priv.selectedItem.price, 0)
-                }
             }
         }
         Pane {
@@ -83,12 +77,6 @@ Rectangle {
                         bold: true
                     }
                     text: qsTr("Price")
-                }
-                PriceBox {
-                    Layout.alignment: Qt.AlignHCenter
-                    Layout.preferredHeight: 25
-                    Layout.preferredWidth: 60
-                    priceInCets: Utils.getSafe(() => priv.selectedItem.price, 0)
                 }
                 Button {
                     text: qsTr("Checkout")

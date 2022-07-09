@@ -72,14 +72,15 @@ Item {
                     MouseArea {
                         anchors.fill: parent
                         onClicked: {
-                            listId.currentIndex = index
                             AppActions.categorySelected(modelData.id)
+                            listId.currentIndex = index
                         }
                     }
                 }
             }
             onIsCurrentItemChanged: {
-                if (isCurrentItem) {
+                if (isCurrentItem
+                        && MainStore.items.selectedCategoryId !== modelData.id) {
                     AppActions.categorySelected(modelData.id)
                 }
             }
