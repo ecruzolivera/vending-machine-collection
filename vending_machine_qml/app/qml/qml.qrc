@@ -3,8 +3,10 @@
         <file>actions/ActionTypes.qml</file>
         <file>actions/AppActions.qml</file>
         <file>actions/qmldir</file>
+        <file>constants/Assets.qml</file>
         <file>constants/Constants.qml</file>
         <file>constants/qmldir</file>
+        <file>js/Utils.js</file>
         <file>main.qml</file>
         <file>middlewares/ApiFixtures.qml</file>
         <file>middlewares/NavigationMiddleware.qml</file>
@@ -31,7 +33,6 @@
         <file>ui/pages/ViewStack.qml</file>
         <file>ui/theme/qmldir</file>
         <file>ui/theme/Theme.qml</file>
-        <file>Utils.js</file>
-        <file>constants/Assets.qml</file>
+        <file>stores/Cart.qml</file>
     </qresource>
 </RCC>

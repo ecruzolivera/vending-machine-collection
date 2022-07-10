@@ -7,7 +7,7 @@ import actions 1.0
 import stores 1.0
 import ui.theme 1.0
 import ui.components 1.0
-import "../../Utils.js" as Utils
+import "../../js/Utils.js" as Utils
 
 Rectangle {
     //bottom

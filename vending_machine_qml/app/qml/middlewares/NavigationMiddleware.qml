@@ -1,7 +1,7 @@
 import QtQuick 2.15
 import QuickFlux 1.1
 import actions 1.0
-import "../Utils.js" as Utils
+import "../js/Utils.js" as Utils
 
 Middleware {
     required property var stackView

@@ -9,7 +9,7 @@ import constants 1.0
 import stores 1.0
 import ui.theme 1.0
 import ui.components 1.0
-import "../../Utils.js" as Utils
+import "../../js/Utils.js" as Utils
 
 Item {
     width: 400
@@ -19,7 +19,7 @@ Item {
     property url imageUrl
     property int productPrice
     property int existences
-    property int amountInCart
+    property int qttyInCart
     ColumnLayout {
         anchors.centerIn: parent
         spacing: 8
@@ -63,25 +63,25 @@ Item {
         RowLayout {
             spacing: Theme.spacing_sm
             Item {
-                visible: amountInCart === 0
+                visible: qttyInCart === 0
                 Layout.preferredHeight: 40
                 Layout.preferredWidth: 40
                 Layout.alignment: Qt.AlignVCenter
             }
             Button {
-                visible: amountInCart > 0
+                visible: qttyInCart > 0
                 Layout.preferredHeight: 40
                 Layout.preferredWidth: 40
                 Layout.alignment: Qt.AlignVCenter
                 icon {
-                    source: amountInCart === 1 ? Assets.deleteIcon : Assets.removeIcon
+                    source: qttyInCart === 1 ? Assets.deleteIcon : Assets.removeIcon
                 }
                 onClicked: AppActions.itemRemoveFromCart(itemId)
             }
             Label {
                 Layout.alignment: Qt.AlignVCenter
                 font.capitalization: Font.Capitalize
-                text: amountInCart
+                text: qttyInCart
             }
             Button {
                 Layout.alignment: Qt.AlignVCenter

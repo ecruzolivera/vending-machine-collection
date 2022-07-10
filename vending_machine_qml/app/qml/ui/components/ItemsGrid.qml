@@ -25,9 +25,16 @@ Item {
         ItemCard {
             height: priv.cardHeight
             width: priv.cardWidth
+            itemId: modelData.id
             itemName: modelData.name
             imageUrl: modelData.image
             productPrice: modelData.price
+            qttyInCart: {
+                const id = modelData.id
+                const maybeItem = MainStore.items.cart.find(
+                                    item => item.id === id)
+                return !!maybeItem ? maybeItem.qtty : 0
+            }
         }
     }
 

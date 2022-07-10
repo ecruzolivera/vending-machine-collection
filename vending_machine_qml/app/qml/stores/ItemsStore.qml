@@ -4,7 +4,7 @@ import QuickFlux 1.1
 import UUId 1.0
 import actions 1.0
 import constants 1.0
-import "../Utils.js" as Utils
+import "../js/Utils.js" as Utils
 import "db.js" as Db
 
 Store {
@@ -19,6 +19,10 @@ Store {
     property string selectedItemId: ""
     property var selectedItem: items.find(item => item.id === selectedItemId)
 
+    property var cart: []
+
+    onCartChanged: console.log(JSON.stringify(cart))
+
     Filter {
         type: ActionTypes.categorySelected
         onDispatched: {
@@ -32,8 +36,22 @@ Store {
         type: ActionTypes.itemAddToCart
         onDispatched: {
             console.log(type, JSON.stringify(message))
-            //            const id = Utils.getSafe(()=>message.payload, "")
-            //            selectedItemId = id
+            const id = Utils.getSafe(() => message.payload, "")
+            const itemInCart = cart.some(item => item.id === id)
+            if (itemInCart) {
+                cart = cart.map(item => {
+                                    if (item.id === id) {
+                                        item.qtty += 1
+                                        return item
+                                    }
+                                    return item
+                                })
+            } else {
+                cart = [...cart, {
+                            "id": id,
+                            "qtty": 1
+                        }]
+            }
         }
     }
 
@@ -41,6 +59,13 @@ Store {
         type: ActionTypes.itemRemoveFromCart
         onDispatched: {
             console.log(type, JSON.stringify(message))
+            const id = Utils.getSafe(() => message.payload, "")
+            const index = cart.findIndex(item => item.id === id)
+            if (index !== -1) {
+                const cartCopy = [...cart]
+                cartCopy.splice(index, 1)
+                cart = [...cartCopy]
+            }
         }
     }
 
