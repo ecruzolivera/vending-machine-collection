@@ -20,8 +20,21 @@ Store {
     property var selectedItem: items.find(item => item.id === selectedItemId)
 
     property alias cart: cartId.cart
+    property int cartItemsQtty: cart.reduce((prev, item) => prev + item.qtty, 0)
+    property int cartCurrentCost: cart.reduce((prev, item) => {
+                                                  try {
+                                                      const currentItem = items.find(
+                                                          i => i.id === item.id)
+                                                      const currentItemPrice = currentItem.price
+                                                      return prev + item.qtty * currentItemPrice
+                                                  } catch (e) {
+                                                      console.error(
+                                                          JSON.stringify(e))
+                                                      return 0
+                                                  }
+                                              }, 0)
 
-    onCartChanged: console.log(JSON.stringify(cart))
+    onCartChanged: console.log("cart:", JSON.stringify(cart))
 
     Filter {
         type: ActionTypes.categorySelected
@@ -74,5 +87,4 @@ Store {
     Cart {
         id: cartId
     }
-
 }

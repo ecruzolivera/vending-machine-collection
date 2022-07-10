@@ -32,6 +32,18 @@ ColumnLayout {
             Layout.preferredWidth: parent.width * 3 / 4
         }
     }
+    Item {
+        Layout.fillWidth: true
+        Layout.preferredHeight: 1
+        z: 1
+        Cart {
+            anchors {
+                verticalCenter: parent.verticalCenter
+                left: parent.left
+                leftMargin: 68
+            }
+        }
+    }
     BottomBar {
         Layout.alignment: Qt.AlignBottom
         Layout.fillWidth: true

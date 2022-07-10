@@ -2,7 +2,6 @@ import QtQuick 2.15
 
 QtObject {
     property var cart: []
-
     function addItem(id) {
         const itemInCart = cart.some(item => item.id === id)
         if (itemInCart) {

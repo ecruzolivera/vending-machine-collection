@@ -1,4 +1,5 @@
 TopBar 1.0 TopBar.qml
+Cart 1.0 Cart.qml
 CategoriesCarousel 1.0 CategoriesCarousel.qml
 ItemsGrid 1.0 ItemsGrid.qml
 BottomBar 1.0 BottomBar.qml
