@@ -19,7 +19,7 @@ Store {
     property string selectedItemId: ""
     property var selectedItem: items.find(item => item.id === selectedItemId)
 
-    property var cart: []
+    property alias cart: cartId.cart
 
     onCartChanged: console.log(JSON.stringify(cart))
 
@@ -33,43 +33,46 @@ Store {
     }
 
     Filter {
-        type: ActionTypes.itemAddToCart
+        type: ActionTypes.itemAdd
         onDispatched: {
             console.log(type, JSON.stringify(message))
-            const id = Utils.getSafe(() => message.payload, "")
-            const itemInCart = cart.some(item => item.id === id)
-            if (itemInCart) {
-                cart = cart.map(item => {
-                                    if (item.id === id) {
-                                        item.qtty += 1
-                                        return item
-                                    }
-                                    return item
-                                })
+            const id = Utils.getSafe(() => message.payload)
+            if (!!id) {
+                cartId.addItem(id)
             } else {
-                cart = [...cart, {
-                            "id": id,
-                            "qtty": 1
-                        }]
+                console.warn("Invalid Id")
             }
         }
     }
 
     Filter {
-        type: ActionTypes.itemRemoveFromCart
+        type: ActionTypes.itemDecrement
         onDispatched: {
             console.log(type, JSON.stringify(message))
             const id = Utils.getSafe(() => message.payload, "")
-            const index = cart.findIndex(item => item.id === id)
-            if (index !== -1) {
-                const cartCopy = [...cart]
-                cartCopy.splice(index, 1)
-                cart = [...cartCopy]
+            if (!!id) {
+                cartId.decrementItem(id)
+            } else {
+                console.warn("Invalid Id")
             }
         }
     }
 
-    QtObject {
-        id: priv
+    Filter {
+        type: ActionTypes.itemRemove
+        onDispatched: {
+            console.log(type, JSON.stringify(message))
+            const id = Utils.getSafe(() => message.payload, "")
+            if (!!id) {
+                cartId.removeItem(id)
+            } else {
+                console.warn("Invalid Id")
+            }
+        }
     }
+
+    Cart {
+        id: cartId
+    }
+
 }

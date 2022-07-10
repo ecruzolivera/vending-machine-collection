@@ -76,7 +76,7 @@ Item {
                 icon {
                     source: qttyInCart === 1 ? Assets.deleteIcon : Assets.removeIcon
                 }
-                onClicked: AppActions.itemRemoveFromCart(itemId)
+                onClicked: AppActions.itemDecrement(itemId)
             }
             Label {
                 Layout.alignment: Qt.AlignVCenter
@@ -90,7 +90,7 @@ Item {
                 icon {
                     source: Assets.addIcon
                 }
-                onClicked: AppActions.itemAddToCart(itemId)
+                onClicked: AppActions.itemAdd(itemId)
             }
         }
     }

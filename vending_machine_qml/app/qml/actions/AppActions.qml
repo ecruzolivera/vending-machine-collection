@@ -44,19 +44,21 @@ ActionCreator {
                      "payload": id
                  })
     }
-
-    function itemAddToCart(id) {
-        dispatch(ActionTypes.itemAddToCart, {
+    function itemAdd(id) {
+        dispatch(ActionTypes.itemAdd, {
                      "payload": id
                  })
     }
-
-    function itemRemoveFromCart(id) {
-        dispatch(ActionTypes.itemRemoveFromCart, {
+    function itemDecrement(id) {
+        dispatch(ActionTypes.itemDecrement, {
                      "payload": id
                  })
     }
-
+    function itemRemove(id) {
+        dispatch(ActionTypes.itemRemove, {
+                     "payload": id
+                 })
+    }
     function checkoutCart() {
         dispatch(ActionTypes.checkoutCart)
     }
