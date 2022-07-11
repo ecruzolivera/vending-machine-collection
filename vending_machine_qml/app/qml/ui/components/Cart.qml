@@ -7,25 +7,27 @@ import stores 1.0
 import ui.theme 1.0
 
 Pane {
-    width: 150
-    height: 100
-    RowLayout {
+    width: 100
+    height: 60
+    visible: priv.cartItemsQtty > 0
+    ColumnLayout {
         anchors.centerIn: parent
         spacing: Theme.spacing_md
-        Image {
-            Layout.alignment: Qt.AlignVCenter
-            source: Assets.shoppingCartIcon
-        }
-        ColumnLayout {
-            Layout.alignment: Qt.AlignVCenter
+        RowLayout {
+            Layout.alignment: Qt.AlignRight
+            spacing: Theme.spacing_md
+            Image {
+                Layout.alignment: Qt.AlignVCenter
+                source: Assets.shoppingCartIcon
+            }
             Label {
-                Layout.alignment: Qt.AlignRight
                 text: priv.cartItemsQtty
             }
-            Label {
-                Layout.alignment: Qt.AlignRight
-                text: priv.cartCurrentCost
-            }
+        }
+        Label {
+            Layout.alignment: Qt.AlignRight
+            text: Number(priv.cartCurrentCost / 100).toLocaleCurrencyString(
+                      Qt.locale())
         }
     }
     QtObject {
