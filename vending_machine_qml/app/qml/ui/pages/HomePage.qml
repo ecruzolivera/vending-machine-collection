@@ -8,48 +8,40 @@ import stores 1.0
 import ui.theme 1.0
 import ui.components 1.0
 
-Item {
-    ColumnLayout {
-        anchors.fill: parent
-        TopBar {
-            Layout.fillWidth: true
-            Layout.preferredHeight: 100
-            Layout.alignment: Qt.AlignTop
-        }
-        Item {
-            Layout.fillWidth: true
-            Layout.preferredHeight: 1
-            z: 1
-            Cart {
-                anchors {
-                    verticalCenter: parent.verticalCenter
-                    right: parent.right
-                    rightMargin: 68
-                }
+ColumnLayout {
+    Item {
+        Layout.fillWidth: true
+        Layout.preferredHeight: 1
+        z: 1
+        Cart {
+            anchors {
+                verticalCenter: parent.verticalCenter
+                right: parent.right
+                rightMargin: 68
             }
         }
-        RowLayout {
-            //main view
-            Layout.preferredWidth: parent.width
-            Layout.preferredHeight: parent.height
-            Layout.fillWidth: true
-            Layout.fillHeight: true
-            CategoriesCarousel {
-                Layout.alignment: Qt.AlignHCenter | Qt.AlignVCenter
-                Layout.preferredWidth: parent.width / 4
-                Layout.preferredHeight: parent.height
-                Layout.fillHeight: true
-            }
-            ItemsGrid {
-                Layout.fillHeight: true
-                Layout.preferredHeight: parent.height
-                Layout.preferredWidth: parent.width * 3 / 4
-            }
-        }
-        // BottomBar {
-        // Layout.alignment: Qt.AlignBottom
-        // Layout.fillWidth: true
-        // Layout.preferredHeight: 200
-        // }
     }
+    RowLayout {
+        //main view
+        Layout.preferredWidth: parent.width
+        Layout.preferredHeight: parent.height
+        Layout.fillWidth: true
+        Layout.fillHeight: true
+        CategoriesCarousel {
+            Layout.alignment: Qt.AlignHCenter | Qt.AlignVCenter
+            Layout.preferredWidth: parent.width / 4
+            Layout.preferredHeight: parent.height
+            Layout.fillHeight: true
+        }
+        ItemsGrid {
+            Layout.fillHeight: true
+            Layout.preferredHeight: parent.height
+            Layout.preferredWidth: parent.width * 3 / 4
+        }
+    }
+    // BottomBar {
+    // Layout.alignment: Qt.AlignBottom
+    // Layout.fillWidth: true
+    // Layout.preferredHeight: 200
+    // }
 }

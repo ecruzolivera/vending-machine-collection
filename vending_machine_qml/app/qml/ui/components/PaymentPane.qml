@@ -9,11 +9,47 @@ import stores 1.0
 import ui.theme 1.0
 import ui.components 1.0
 
-ColumnLayout {
+Item {
     id: root
-    property var model: []
-    Label {
-        text: qsTr("Payment")
-        Layout.alignment: Qt.AlignHCenter
+    property int cartCost: 0
+    property int totalMoneyInserted: 0
+    signal backButtonClicked
+    signal cancelButtonClicked
+    ColumnLayout {
+        spacing: 20
+        anchors {
+            top: parent.top
+            horizontalCenter: parent.horizontalCenter
+        }
+        Label {
+            Layout.alignment: Qt.AlignHCenter
+            text: qsTr("Payment")
+            font.bold: true
+        }
+        Label {
+            Layout.alignment: Qt.AlignHCenter
+            text: qsTr(`Cart Cost: ${Number(
+                           cartCost / 100).toLocaleCurrencyString(
+                           Qt.locale())}`)
+            font.bold: true
+        }
+        Label {
+            Layout.alignment: Qt.AlignHCenter
+            text: qsTr(`Money Inserted: ${Number(
+                           totalMoneyInserted / 100).toLocaleCurrencyString(
+                           Qt.locale())}`)
+        }
+        Row {
+            Layout.alignment: Qt.AlignHCenter
+            spacing: 10
+            Button {
+                text: qsTr("Back")
+                onClicked: root.backButtonClicked()
+            }
+            Button {
+                text: qsTr("Cancel")
+                onClicked: root.cancelButtonClicked()
+            }
+        }
     }
 }

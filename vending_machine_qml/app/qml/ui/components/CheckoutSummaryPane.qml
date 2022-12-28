@@ -9,58 +9,76 @@ import stores 1.0
 import ui.theme 1.0
 import ui.components 1.0
 
-ColumnLayout {
+Item {
     id: root
-    spacing: 20
     property var model: []
-    Label {
-        text: qsTr("Summary")
-        Layout.alignment: Qt.AlignHCenter
-    }
-    ListView {
-        id: checkoutListId
-        Layout.preferredHeight: count * priv.itemHeight
-        Layout.preferredWidth: priv.itemWidth
-        Layout.alignment: Qt.AlignHCenter
-        delegate: delegateId
-        model: root.model
-        clip: true
-    }
-    Row {
+    property int cartCost: 0
+    signal backButtonClicked
+    signal payButtonClicked
+    ColumnLayout {
         spacing: 20
-        Layout.alignment: Qt.AlignHCenter
-        Button {
-            text: qsTr("Back")
-            onClicked: AppActions.navigatePop()
+        anchors {
+            top: parent.top
+            horizontalCenter: parent.horizontalCenter
         }
-        Button {
-            text: qsTr("Pay")
-            onClicked: AppActions.payItems()
+
+        Label {
+            Layout.alignment: Qt.AlignHCenter
+            font.bold: true
+            text: qsTr("Summary")
         }
-    }
-    Component {
-        id: delegateId
-        Rectangle {
-            height: priv.itemHeight
-            width: priv.itemWidth
-            border.color: "black"
-            Row {
-                anchors.centerIn: parent
+        ListView {
+            id: checkoutListId
+            Layout.preferredHeight: priv.maxItemsInSummary * priv.itemHeight
+            Layout.preferredWidth: priv.itemWidth
+            Layout.alignment: Qt.AlignHCenter | Qt.AlignTop
+            clip: true
+            interactive: count > priv.maxItemsInSummary
+            model: root.model
+            delegate: delegateId
+        }
+        Row {
+            Layout.alignment: Qt.AlignHCenter | Qt.AlignTop
+            spacing: 10
+            Label {
+                font.bold: true
+                text: qsTr("Total:")
+            }
+            Label {
+                text: `${Number(cartCost / 100).toLocaleCurrencyString(
+                          Qt.locale())}`
+            }
+        }
+        Row {
+            Layout.alignment: Qt.AlignHCenter | Qt.AlignTop
+            spacing: 20
+            Button {
+                text: qsTr("Back")
+                onClicked: root.backButtonClicked()
+            }
+            Button {
+                text: qsTr("Pay")
+                onClicked: root.payButtonClicked()
+            }
+        }
+        Component {
+            id: delegateId
+            Item {
+                height: priv.itemHeight
+                width: priv.itemWidth
                 Label {
-                    text: modelData.name
-                }
-                Label {
-                    text: "x" + modelData.qtty
-                }
-                Label {
-                    text: ":" + modelData.totalPrice
+                    anchors.centerIn: parent
+                    text: `${modelData.qtty}x ${modelData.name} ${Number(
+                              modelData.totalPrice / 100).toLocaleCurrencyString(
+                              Qt.locale())}`
                 }
             }
         }
-    }
-    QtObject {
-        id: priv
-        property int itemWidth: 400
-        property int itemHeight: 100
+        QtObject {
+            id: priv
+            property int itemWidth: 400
+            property int itemHeight: 50
+            readonly property int maxItemsInSummary: 5
+        }
     }
 }

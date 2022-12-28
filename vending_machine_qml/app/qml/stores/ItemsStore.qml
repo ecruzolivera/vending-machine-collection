@@ -19,6 +19,7 @@ Store {
     property string selectedItemId: ""
     property var selectedItem: items.find(item => item.id === selectedItemId)
     property var insertedMoney: []
+    property string paymentState: ""
 
     property alias cart: cartId.cart
     property int cartItemsQtty: cart.reduce((prev, item) => prev + item.qtty, 0)
@@ -109,6 +110,7 @@ Store {
         id: fsmId
         onStateChanged: {
             console.log("entered state:", state)
+            paymentState = state
             switch (state) {
             case Constants.stateIdle:
                 insertedMoney = []

@@ -12,11 +12,29 @@ import ui.components 1.0
 Pane {
     id: root
     SwipeView {
+        id: swipeId
         anchors.fill: parent
+        interactive: false
         CheckoutSummaryPane {
             model: priv.checkoutListModel
+            cartCost: MainStore.items.cartCurrentCost
+            onBackButtonClicked: {
+                AppActions.navigatePop()
+            }
+            onPayButtonClicked: {
+                AppActions.payItems()
+                swipeId.incrementCurrentIndex()
+            }
         }
-        PaymentPane {}
+        PaymentPane {
+            onBackButtonClicked: {
+                swipeId.decrementCurrentIndex()
+            }
+            onCancelButtonClicked: {
+                AppActions.navigatePop()
+                AppActions.cancelPayment()
+            }
+        }
     }
     QtObject {
         id: priv
@@ -29,5 +47,6 @@ Pane {
                                                                          "qtty": item.qtty
                                                                      }
                                                                  })
+        property string paymentState: MainStore.items.paymentState
     }
 }

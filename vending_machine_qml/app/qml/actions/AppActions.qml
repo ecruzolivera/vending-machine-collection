@@ -71,6 +71,10 @@ ActionCreator {
         dispatch(ActionTypes.payItems)
     }
 
+    function cancelPayment() {
+        dispatch(ActionTypes.cancelPayment)
+    }
+
     // Coints inserted
     function coinInserted(denomination) {
         dispatch(ActionTypes.coinInserted, {
