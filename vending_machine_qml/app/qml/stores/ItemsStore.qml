@@ -19,6 +19,8 @@ Store {
     property string selectedItemId: ""
     property var selectedItem: items.find(item => item.id === selectedItemId)
     property var insertedMoney: []
+    property var insertedMoneyTotal: insertedMoney.reduce(
+                                         (acc, current) => acc + current, 0)
     property string paymentState: ""
 
     property alias cart: cartId.cart

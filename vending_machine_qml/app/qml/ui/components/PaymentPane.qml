@@ -12,7 +12,7 @@ import ui.components 1.0
 Item {
     id: root
     property int cartCost: 0
-    property int totalMoneyInserted: 0
+    property int insertedMoney: 0
     signal backButtonClicked
     signal cancelButtonClicked
     ColumnLayout {
@@ -36,7 +36,7 @@ Item {
         Label {
             Layout.alignment: Qt.AlignHCenter
             text: qsTr(`Money Inserted: ${Number(
-                           totalMoneyInserted / 100).toLocaleCurrencyString(
+                           insertedMoney / 100).toLocaleCurrencyString(
                            Qt.locale())}`)
         }
         Row {

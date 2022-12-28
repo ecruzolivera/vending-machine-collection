@@ -27,6 +27,8 @@ Pane {
             }
         }
         PaymentPane {
+            cartCost: MainStore.items.cartCurrentCost
+            insertedMoney: MainStore.items.insertedMoneyTotal
             onBackButtonClicked: {
                 swipeId.decrementCurrentIndex()
             }
