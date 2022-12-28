@@ -1,2 +1,4 @@
 singleton Constants 1.0 Constants.qml
 singleton Assets 1.0 Assets.qml
+singleton Denominations 1.0 Denominations.qml
+

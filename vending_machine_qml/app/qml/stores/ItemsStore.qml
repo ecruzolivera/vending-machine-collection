@@ -18,6 +18,7 @@ Store {
                                         || []
     property string selectedItemId: ""
     property var selectedItem: items.find(item => item.id === selectedItemId)
+    property var insertedMoney: []
 
     property alias cart: cartId.cart
     property int cartItemsQtty: cart.reduce((prev, item) => prev + item.qtty, 0)
@@ -35,6 +36,8 @@ Store {
                                               }, 0)
 
     onCartChanged: console.log("cart:", JSON.stringify(cart))
+    onInsertedMoneyChanged: console.log("inserted money:",
+                                        JSON.stringify(insertedMoney))
 
     Filter {
         type: ActionTypes.categorySelected
@@ -84,7 +87,33 @@ Store {
         }
     }
 
-    Cart {
+    Filter {
+        type: ActionTypes.coinInserted
+        onDispatched: {
+            console.log(type, JSON.stringify(message))
+            const denomination = Utils.getSafe(() => message.payload)
+            if (!!denomination && typeof denomination === "number") {
+                insertedMoney = [...insertedMoney, denomination]
+                fsmId.sigMoneyInserted()
+            } else {
+                console.warn("Invalid denomination")
+            }
+        }
+    }
+
+    CartModel {
         id: cartId
+    }
+
+    VendingMachineFsm {
+        id: fsmId
+        onStateChanged: {
+            console.log("entered state:", state)
+            switch (state) {
+            case Constants.stateIdle:
+                insertedMoney = []
+                break
+            }
+        }
     }
 }

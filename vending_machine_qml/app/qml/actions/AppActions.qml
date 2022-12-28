@@ -44,22 +44,37 @@ ActionCreator {
                      "payload": id
                  })
     }
+
     function itemAdd(id) {
         dispatch(ActionTypes.itemAdd, {
                      "payload": id
                  })
     }
+
     function itemDecrement(id) {
         dispatch(ActionTypes.itemDecrement, {
                      "payload": id
                  })
     }
+
     function itemRemove(id) {
         dispatch(ActionTypes.itemRemove, {
                      "payload": id
                  })
     }
+
     function checkoutCart() {
         dispatch(ActionTypes.checkoutCart)
+    }
+
+    function payItems() {
+        dispatch(ActionTypes.payItems)
+    }
+
+    // Coints inserted
+    function coinInserted(denomination) {
+        dispatch(ActionTypes.coinInserted, {
+                     "payload": denomination
+                 })
     }
 }

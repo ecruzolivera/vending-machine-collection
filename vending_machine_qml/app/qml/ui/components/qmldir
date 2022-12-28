@@ -5,3 +5,5 @@ ItemsGrid 1.0 ItemsGrid.qml
 BottomBar 1.0 BottomBar.qml
 ItemCard 1.0 ItemCard.qml
 PriceBox 1.0 PriceBox.qml
+CheckoutSummaryPane 1.0 CheckoutSummaryPane.qml
+PaymentPane 1.0 PaymentPane.qml

@@ -22,7 +22,7 @@
 <context>
     <name>ItemCard</name>
     <message>
-        <location filename="qml/ui/components/ItemCard.qml" line="56"/>
+        <location filename="qml/ui/components/ItemCard.qml" line="55"/>
         <source>Existences:</source>
         <translation type="unfinished"></translation>
     </message>

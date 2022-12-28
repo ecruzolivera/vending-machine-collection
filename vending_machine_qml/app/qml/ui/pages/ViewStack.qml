@@ -68,8 +68,11 @@ Item {
     }
 
     function pop(item, operation) {
-        console.log("viewstack pop:", item)
-        stackViewId.pop(item, operation)
+        if (!!item) {
+            console.log("viewstack pop:", item)
+        }
+        const poped = stackViewId.pop(item, operation)
+        console.log("viewstack pop:", poped)
     }
 
     function replace(target, item, properties, operation) {

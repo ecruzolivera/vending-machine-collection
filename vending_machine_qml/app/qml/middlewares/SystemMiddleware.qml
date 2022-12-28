@@ -13,7 +13,7 @@ Middleware {
         case ActionTypes.startApp:
             next(type, message)
             break
-        case ActionTypes.buySelected:
+        case ActionTypes.checkoutCart:
             next(type, message)
             AppActions.navigatePush(Pages.checkout)
             break

@@ -8,6 +8,8 @@ import middlewares 1.0
 import ui.pages 1.0
 import ui.theme 1.0
 import stores 1.0
+import actions 1.0
+import constants 1.0
 
 ApplicationWindow {
     minimumWidth: 640
@@ -20,6 +22,35 @@ ApplicationWindow {
     ViewStack {
         id: stackViewId
         anchors.fill: parent
+        focus: true
+        Keys.onPressed: {
+            switch (event.key) {
+            case Qt.Key_1:
+                AppActions.coinInserted(Denominations.c10)
+                break
+            case Qt.Key_2:
+                AppActions.coinInserted(Denominations.c20)
+                break
+            case Qt.Key_3:
+                AppActions.coinInserted(Denominations.c50)
+                break
+            case Qt.Key_4:
+                AppActions.coinInserted(Denominations.c100)
+                break
+            case Qt.Key_5:
+                AppActions.coinInserted(Denominations.b5)
+                break
+            case Qt.Key_6:
+                AppActions.coinInserted(Denominations.b10)
+                break
+            case Qt.Key_7:
+                AppActions.coinInserted(Denominations.b20)
+                break
+            case Qt.Key_8:
+                AppActions.coinInserted(Denominations.b50)
+                break
+            }
+        }
     }
 
     MiddlewareList {

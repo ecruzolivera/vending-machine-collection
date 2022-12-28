@@ -2,7 +2,6 @@ import QtQuick 2.15
 import QtQml.StateMachine 1.15 as DSM
 import constants 1.0
 
-// diagram app/Forme/stores/ArmConfigFsm.png and the design is in plantuml app/Forme/stores/ArmConfigFsm.plantuml
 DSM.StateMachine {
     id: root
     running: true
@@ -17,6 +16,12 @@ DSM.StateMachine {
     signal sigItemDelivered
     signal sigMoneyDelivered
 
+    onSigMoneyInserted: {
+        if (returnMoneyTimeoutTimerId.running) {
+            returnMoneyTimeoutTimerId.restart()
+        }
+    }
+
     DSM.State {
         id: stateIdleId
         readonly property string name: Constants.stateIdle
@@ -25,6 +30,11 @@ DSM.StateMachine {
             signal: sigBuy
             targetState: stateWaitingForMoneyId
             onTriggered: console.log("Transition:", "sigBuy")
+        }
+        DSM.SignalTransition {
+            signal: sigMoneyInserted
+            targetState: stateReturningMoneyId
+            onTriggered: console.log("Transition:", "sigMoneyInserted")
         }
     }
     DSM.State {
@@ -37,8 +47,8 @@ DSM.StateMachine {
             guard: isEnough
             onTriggered: console.log("Transition:", "sigMoneyInserted")
         }
-        DSM.TimeoutTransition{
-            timeout: 20*60
+        DSM.TimeoutTransition {
+            timeout: 20 * 60
             targetState: stateIdleId
         }
     }
@@ -65,11 +75,22 @@ DSM.StateMachine {
     DSM.State {
         id: stateReturningMoneyId
         readonly property string name: Constants.stateReturningMoney
-        onEntered: root.stateChanged(name)
+        onEntered: {
+            root.stateChanged(name)
+            returnMoneyTimeoutTimerId.start()
+        }
         DSM.SignalTransition {
             signal: sigMoneyDelivered
             targetState: stateIdleId
             onTriggered: console.log("Transition:", "sigMoneyDelivered")
+        }
+        Timer {
+            id: returnMoneyTimeoutTimerId
+            interval: 5000
+            onTriggered: root.sigMoneyDelivered()
+            onRunningChanged: console.log(
+                                  "return money timeout timer running:",
+                                  running)
         }
     }
 }

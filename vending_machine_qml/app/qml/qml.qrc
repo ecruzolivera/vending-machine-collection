@@ -33,7 +33,10 @@
         <file>ui/pages/ViewStack.qml</file>
         <file>ui/theme/qmldir</file>
         <file>ui/theme/Theme.qml</file>
-        <file>stores/Cart.qml</file>
+        <file>stores/CartModel.qml</file>
         <file>ui/components/Cart.qml</file>
+        <file>ui/components/CheckoutSummaryPane.qml</file>
+        <file>ui/components/PaymentPane.qml</file>
+        <file>constants/Denominations.qml</file>
     </qresource>
 </RCC>
