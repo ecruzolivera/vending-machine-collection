@@ -14,7 +14,6 @@ Pane {
     SwipeView {
         id: swipeId
         anchors.fill: parent
-        interactive: false
         CheckoutSummaryPane {
             model: priv.checkoutListModel
             cartCost: MainStore.items.cartCurrentCost
@@ -22,7 +21,7 @@ Pane {
                 AppActions.navigatePop()
             }
             onPayButtonClicked: {
-                AppActions.payItems()
+                AppActions.buyItems()
                 swipeId.incrementCurrentIndex()
             }
         }

@@ -67,8 +67,8 @@ ActionCreator {
         dispatch(ActionTypes.checkoutCart)
     }
 
-    function payItems() {
-        dispatch(ActionTypes.payItems)
+    function buyItems() {
+        dispatch(ActionTypes.buyItems)
     }
 
     function cancelPayment() {

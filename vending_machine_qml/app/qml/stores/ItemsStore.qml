@@ -21,7 +21,7 @@ Store {
     property var insertedMoney: []
     property var insertedMoneyTotal: insertedMoney.reduce(
                                          (acc, current) => acc + current, 0)
-    property string paymentState: ""
+    property alias paymentState: fsmId.paymentEnteredState
 
     property alias cart: cartId.cart
     property int cartItemsQtty: cart.reduce((prev, item) => prev + item.qtty, 0)
@@ -58,6 +58,7 @@ Store {
             const id = Utils.getSafe(() => message.payload)
             if (!!id) {
                 cartId.addItem(id)
+                fsmId.sigItemAddedToCart()
             } else {
                 console.warn("Invalid Id")
             }
@@ -71,6 +72,7 @@ Store {
             const id = Utils.getSafe(() => message.payload, "")
             if (!!id) {
                 cartId.decrementItem(id)
+                fsmId.sigItemRemovedFromCart()
             } else {
                 console.warn("Invalid Id")
             }
@@ -84,6 +86,7 @@ Store {
             const id = Utils.getSafe(() => message.payload, "")
             if (!!id) {
                 cartId.removeItem(id)
+                fsmId.sigItemRemovedFromCart()
             } else {
                 console.warn("Invalid Id")
             }
@@ -104,17 +107,27 @@ Store {
         }
     }
 
+    Filter {
+        type: ActionTypes.buyItems
+        onDispatched: {
+            console.log(type, JSON.stringify(message))
+            fsmId.sigBuy()
+        }
+    }
+
     CartModel {
         id: cartId
     }
 
     VendingMachineFsm {
         id: fsmId
-        onStateChanged: {
-            console.log("entered state:", state)
-            paymentState = state
+        isEnoughMoney: insertedMoneyTotal >= cartCurrentCost
+        hasMoneyToBeReturned: insertedMoneyTotal > cartCurrentCost
+        isCartEmpty: cart.length === 0
+        onEnteredState: {
             switch (state) {
-            case Constants.stateIdle:
+            case FsmState.idle:
+                cartId.clear()
                 insertedMoney = []
                 break
             }

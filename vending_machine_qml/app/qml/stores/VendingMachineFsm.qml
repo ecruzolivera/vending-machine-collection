@@ -6,30 +6,74 @@ DSM.StateMachine {
     id: root
     running: true
     initialState: stateIdleId
-    property bool isEnough: false
+    property bool isEnoughMoney: false
+    property bool hasMoneyToBeReturned: false
+    property bool isCartEmpty: false
+    property string paymentEnteredState: ""
+    property string paymentExitedState: ""
 
-    signal stateChanged(string state)
+    signal enteredState(string state)
+    signal exitedState(string state)
+
     /* Input Events */
+    signal sigItemAddedToCart
+    signal sigItemRemovedFromCart
     signal sigBuy
     signal sigMoneyInserted
     signal sigTimeout
     signal sigItemDelivered
     signal sigMoneyDelivered
 
-    onSigMoneyInserted: {
-        if (returnMoneyTimeoutTimerId.running) {
-            returnMoneyTimeoutTimerId.restart()
+    onEnteredState: {
+        console.log("fsm entered state:", state)
+        paymentEnteredState = state
+        switch (state) {
+        case FsmState.itemsInCart:
+            timeoutTimerId.stop()
+            timeoutTimerId.interval = 5 * 60 * 1000
+            timeoutTimerId.start()
+            break
+        case FsmState.waitingForMoney:
+            timeoutTimerId.stop()
+            timeoutTimerId.interval = 2 * 60 * 1000
+            timeoutTimerId.start()
+            break
         }
+    }
+    onExitedState: {
+        console.log("fsm exited state:", state)
+        paymentEnteredState = state
+    }
+
+    onSigMoneyInserted: {
+        if (paymentEnteredState === FsmState.waitingForMoney) {
+            timeoutTimerId.restart()
+        }
+    }
+
+    onSigItemAddedToCart: {
+        if (paymentEnteredState === FsmState.itemsInCart) {
+            timeoutTimerId.restart()
+        }
+    }
+
+    Timer {
+        id: timeoutTimerId
+        interval: 10000
+        onTriggered: root.sigTimeout()
+        onRunningChanged: console.log("fsm timeout running:", running)
+        onIntervalChanged: console.log("fsm timeout interval:", interval)
     }
 
     DSM.State {
         id: stateIdleId
-        readonly property string name: Constants.stateIdle
-        onEntered: root.stateChanged(name)
+        readonly property string name: FsmState.idle
+        onEntered: root.enteredState(name)
+        onExited: root.exitedState(name)
         DSM.SignalTransition {
-            signal: sigBuy
-            targetState: stateWaitingForMoneyId
-            onTriggered: console.log("Transition:", "sigBuy")
+            signal: sigItemAddedToCart
+            targetState: stateItemsInCartId
+            onTriggered: console.log("Transition:", "sigItemAddedToCart")
         }
         DSM.SignalTransition {
             signal: sigMoneyInserted
@@ -38,59 +82,80 @@ DSM.StateMachine {
         }
     }
     DSM.State {
+        id: stateItemsInCartId
+        readonly property string name: FsmState.itemsInCart
+        onEntered: root.enteredState(name)
+        onExited: root.exitedState(name)
+
+        DSM.SignalTransition {
+            signal: sigBuy
+            targetState: stateWaitingForMoneyId
+            onTriggered: console.log("Transition:", "sigBuy")
+        }
+        DSM.SignalTransition {
+            signal: sigItemRemovedFromCart
+            targetState: stateIdleId
+            guard: isCartEmpty
+            onTriggered: console.log("Transition:", "sigItemRemovedFromCart")
+        }
+        DSM.SignalTransition {
+            signal: sigTimeout
+            targetState: stateReturningMoneyId
+            guard: hasMoneyToBeReturned
+            onTriggered: console.log("Transition:", "sigTimeout")
+        }
+        DSM.SignalTransition {
+            signal: sigTimeout
+            targetState: stateIdleId
+            guard: !hasMoneyToBeReturned
+            onTriggered: console.log("Transition:", "sigTimeout")
+        }
+    }
+    DSM.State {
         id: stateWaitingForMoneyId
-        readonly property string name: Constants.stateWaitingForMoney
-        onEntered: root.stateChanged(name)
+        readonly property string name: FsmState.waitingForMoney
+        onEntered: root.enteredState(name)
+        onExited: root.exitedState(name)
         DSM.SignalTransition {
             signal: sigMoneyInserted
             targetState: stateDeliveringItemId
-            guard: isEnough
+            guard: isEnoughMoney
             onTriggered: console.log("Transition:", "sigMoneyInserted")
         }
-        DSM.TimeoutTransition {
-            timeout: 20 * 60
-            targetState: stateIdleId
+        DSM.SignalTransition {
+            signal: sigTimeout
+            targetState: stateReturningMoneyId
+            guard: hasMoneyToBeReturned
+            onTriggered: console.log("Transition:", "sigTimeout")
         }
     }
     DSM.State {
         id: stateDeliveringItemId
-        readonly property string name: Constants.stateDeliveringItem
-        onEntered: root.stateChanged(name)
+        readonly property string name: FsmState.deliveringItem
+        onEntered: root.enteredState(name)
+        onExited: root.exitedState(name)
         DSM.SignalTransition {
             signal: sigItemDelivered
-            targetState: stateReturningChangeId
+            targetState: stateIdleId
+            guard: !hasMoneyToBeReturned
+            onTriggered: console.log("Transition:", "sigItemDelivered")
+        }
+        DSM.SignalTransition {
+            signal: sigItemDelivered
+            targetState: stateReturningMoneyId
+            guard: hasMoneyToBeReturned
             onTriggered: console.log("Transition:", "sigItemDelivered")
         }
     }
     DSM.State {
-        id: stateReturningChangeId
-        readonly property string name: Constants.stateReturningChange
-        onEntered: root.stateChanged(name)
-        DSM.SignalTransition {
-            signal: sigMoneyDelivered
-            targetState: stateIdleId
-            onTriggered: console.log("Transition:", "sigMoneyDelivered")
-        }
-    }
-    DSM.State {
         id: stateReturningMoneyId
-        readonly property string name: Constants.stateReturningMoney
-        onEntered: {
-            root.stateChanged(name)
-            returnMoneyTimeoutTimerId.start()
-        }
+        readonly property string name: FsmState.returningMoney
+        onEntered: root.enteredState(name)
+        onExited: root.exitedState(name)
         DSM.SignalTransition {
             signal: sigMoneyDelivered
             targetState: stateIdleId
             onTriggered: console.log("Transition:", "sigMoneyDelivered")
-        }
-        Timer {
-            id: returnMoneyTimeoutTimerId
-            interval: 5000
-            onTriggered: root.sigMoneyDelivered()
-            onRunningChanged: console.log(
-                                  "return money timeout timer running:",
-                                  running)
         }
     }
 }
