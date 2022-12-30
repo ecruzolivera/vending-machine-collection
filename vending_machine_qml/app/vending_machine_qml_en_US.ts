@@ -20,10 +20,59 @@
     </message>
 </context>
 <context>
+    <name>Cart</name>
+    <message>
+        <location filename="qml/ui/components/Cart.qml" line="38"/>
+        <source>Checkout</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>CheckoutSummaryPane</name>
+    <message>
+        <location filename="qml/ui/components/CheckoutSummaryPane.qml" line="28"/>
+        <source>Summary</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="qml/ui/components/CheckoutSummaryPane.qml" line="45"/>
+        <source>Total:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="qml/ui/components/CheckoutSummaryPane.qml" line="56"/>
+        <source>Back</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="qml/ui/components/CheckoutSummaryPane.qml" line="60"/>
+        <source>Pay</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>ItemCard</name>
     <message>
         <location filename="qml/ui/components/ItemCard.qml" line="55"/>
         <source>Existences:</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>PaymentPane</name>
+    <message>
+        <location filename="qml/ui/components/PaymentPane.qml" line="26"/>
+        <source>Payment</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="qml/ui/components/PaymentPane.qml" line="46"/>
+        <source>Back</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="qml/ui/components/PaymentPane.qml" line="50"/>
+        <source>Cancel</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

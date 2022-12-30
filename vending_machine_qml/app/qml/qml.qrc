@@ -5,14 +5,17 @@
         <file>actions/qmldir</file>
         <file>constants/Assets.qml</file>
         <file>constants/Constants.qml</file>
+        <file>constants/Denominations.qml</file>
+        <file>constants/FsmState.qml</file>
         <file>constants/qmldir</file>
         <file>js/Utils.js</file>
         <file>main.qml</file>
         <file>middlewares/ApiFixtures.qml</file>
+        <file>middlewares/ItemsMiddleware.qml</file>
         <file>middlewares/NavigationMiddleware.qml</file>
         <file>middlewares/qmldir</file>
-        <file>middlewares/SystemMiddleware.qml</file>
         <file>qtquickcontrols2.conf</file>
+        <file>stores/CartModel.qml</file>
         <file>stores/db.js</file>
         <file>stores/ItemsStore.qml</file>
         <file>stores/MainStore.qml</file>
@@ -21,9 +24,12 @@
         <file>stores/RootStore.qml</file>
         <file>stores/VendingMachineFsm.qml</file>
         <file>ui/components/BottomBar.qml</file>
+        <file>ui/components/Cart.qml</file>
         <file>ui/components/CategoriesCarousel.qml</file>
+        <file>ui/components/CheckoutSummaryPane.qml</file>
         <file>ui/components/ItemCard.qml</file>
         <file>ui/components/ItemsGrid.qml</file>
+        <file>ui/components/PaymentPane.qml</file>
         <file>ui/components/qmldir</file>
         <file>ui/components/TopBar.qml</file>
         <file>ui/pages/CheckoutPage.qml</file>
@@ -33,11 +39,9 @@
         <file>ui/pages/ViewStack.qml</file>
         <file>ui/theme/qmldir</file>
         <file>ui/theme/Theme.qml</file>
-        <file>stores/CartModel.qml</file>
-        <file>ui/components/Cart.qml</file>
-        <file>ui/components/CheckoutSummaryPane.qml</file>
-        <file>ui/components/PaymentPane.qml</file>
-        <file>constants/Denominations.qml</file>
-        <file>constants/FsmState.qml</file>
+        <file>vendor/QuickPromise/qmldir</file>
+        <file>vendor/QuickPromise/Promise.qml</file>
+        <file>vendor/QuickPromise/promise.js</file>
+        <file>vendor/QuickPromise/PromiseTimer.qml</file>
     </qresource>
 </RCC>

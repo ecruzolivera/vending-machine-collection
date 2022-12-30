@@ -67,18 +67,35 @@ ActionCreator {
         dispatch(ActionTypes.checkoutCart)
     }
 
-    function buyItems() {
-        dispatch(ActionTypes.buyItems)
+    function payItems() {
+        dispatch(ActionTypes.payItems)
     }
 
     function cancelPayment() {
         dispatch(ActionTypes.cancelPayment)
     }
 
-    // Coints inserted
-    function coinInserted(denomination) {
-        dispatch(ActionTypes.coinInserted, {
+    function moneyInserted(denomination) {
+        dispatch(ActionTypes.moneyInserted, {
                      "payload": denomination
                  })
+    }
+
+    function returnMoney(amount) {
+        dispatch(ActionTypes.returnMoney, {
+                     "payload": amount
+                 })
+    }
+
+    function moneyReturned() {
+        dispatch(ActionTypes.moneyReturned)
+    }
+
+    function deliverItems() {
+        dispatch(ActionTypes.deliverItems)
+    }
+
+    function itemsDelivered() {
+        dispatch(ActionTypes.itemsDelivered)
     }
 }

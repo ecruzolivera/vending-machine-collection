@@ -21,7 +21,7 @@ Pane {
                 AppActions.navigatePop()
             }
             onPayButtonClicked: {
-                AppActions.buyItems()
+                AppActions.payItems()
                 swipeId.incrementCurrentIndex()
             }
         }

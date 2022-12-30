@@ -21,8 +21,8 @@ DSM.StateMachine {
     signal sigBuy
     signal sigMoneyInserted
     signal sigTimeout
-    signal sigItemDelivered
-    signal sigMoneyDelivered
+    signal sigItemsDelivered
+    signal sigMoneyReturned
 
     onEnteredState: {
         console.log("fsm entered state:", state)
@@ -135,13 +135,13 @@ DSM.StateMachine {
         onEntered: root.enteredState(name)
         onExited: root.exitedState(name)
         DSM.SignalTransition {
-            signal: sigItemDelivered
+            signal: sigItemsDelivered
             targetState: stateIdleId
             guard: !hasMoneyToBeReturned
             onTriggered: console.log("Transition:", "sigItemDelivered")
         }
         DSM.SignalTransition {
-            signal: sigItemDelivered
+            signal: sigItemsDelivered
             targetState: stateReturningMoneyId
             guard: hasMoneyToBeReturned
             onTriggered: console.log("Transition:", "sigItemDelivered")
@@ -153,7 +153,7 @@ DSM.StateMachine {
         onEntered: root.enteredState(name)
         onExited: root.exitedState(name)
         DSM.SignalTransition {
-            signal: sigMoneyDelivered
+            signal: sigMoneyReturned
             targetState: stateIdleId
             onTriggered: console.log("Transition:", "sigMoneyDelivered")
         }

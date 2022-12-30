@@ -1,3 +1,3 @@
 singleton ApiFixtures 1.0 ApiFixtures.qml
 NavigationMiddleware 1.0 NavigationMiddleware.qml
-SystemMiddleware 1.0 SystemMiddleware.qml
+ItemsMiddleware 1.0 ItemsMiddleware.qml

@@ -94,7 +94,7 @@ Store {
     }
 
     Filter {
-        type: ActionTypes.coinInserted
+        type: ActionTypes.moneyInserted
         onDispatched: {
             console.log(type, JSON.stringify(message))
             const denomination = Utils.getSafe(() => message.payload)
@@ -108,10 +108,25 @@ Store {
     }
 
     Filter {
-        type: ActionTypes.buyItems
+        type: ActionTypes.payItems
         onDispatched: {
             console.log(type, JSON.stringify(message))
             fsmId.sigBuy()
+        }
+    }
+
+    Filter {
+        type: ActionTypes.itemsDelivered
+        onDispatched: {
+            console.log(type, JSON.stringify(message))
+            fsmId.sigItemsDelivered()
+        }
+    }
+    Filter {
+        type: ActionTypes.moneyReturned
+        onDispatched: {
+            console.log(type, JSON.stringify(message))
+            fsmId.sigMoneyReturned()
         }
     }
 
@@ -129,6 +144,12 @@ Store {
             case FsmState.idle:
                 cartId.clear()
                 insertedMoney = []
+                break
+            case FsmState.deliveringItem:
+                AppActions.deliverItems()
+                break
+            case FsmState.returningMoney:
+                AppActions.returnMoney(insertedMoney - cartCurrentCost)
                 break
             }
         }

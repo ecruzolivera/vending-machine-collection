@@ -15,9 +15,13 @@ KeyTable {
     property string itemDecrement
     property string itemRemove
     property string checkoutCart
-    property string buyItems
+    property string payItems
     property string cancelPayment
-    property string coinInserted
+    property string moneyInserted
+    property string returnMoney
+    property string moneyReturned
+    property string deliverItems
+    property string itemsDelivered
 
 
     // navigation
