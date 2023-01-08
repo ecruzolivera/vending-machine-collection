@@ -18,8 +18,7 @@ int main(int argc, char *argv[])
 
     QGuiApplication app(argc, argv);
     QCoreApplication::setOrganizationName("ecruzolivera");
-    QCoreApplication::setOrganizationDomain("ecruzolivera.tech");
-    QCoreApplication::setApplicationName("Starter");
+    QCoreApplication::setApplicationName("Vending Machine QML Example");
     QQmlApplicationEngine engine;
     UUId::registerTypes();
     com::cutehacks::duperagent::registerTypes();

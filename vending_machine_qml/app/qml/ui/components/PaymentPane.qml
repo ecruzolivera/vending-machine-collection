@@ -13,8 +13,11 @@ Item {
     id: root
     property int cartCost: 0
     property int insertedMoney: 0
+    property bool areItemsDelivered: false
+    property bool isMoneyReturned: false
     signal backButtonClicked
     signal cancelButtonClicked
+
     ColumnLayout {
         spacing: 20
         anchors {
@@ -50,6 +53,16 @@ Item {
                 text: qsTr("Cancel")
                 onClicked: root.cancelButtonClicked()
             }
+        }
+        Label {
+            visible: root.areItemsDelivered
+            Layout.alignment: Qt.AlignHCenter
+            text: qsTr("Please Pick Your Items")
+        }
+        Label {
+            visible: root.isMoneyReturned
+            Layout.alignment: Qt.AlignHCenter
+            text: qsTr("Please Pick Your Change")
         }
     }
 }

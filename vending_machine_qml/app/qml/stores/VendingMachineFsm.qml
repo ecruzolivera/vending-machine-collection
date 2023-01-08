@@ -23,6 +23,7 @@ DSM.StateMachine {
     signal sigTimeout
     signal sigItemsDelivered
     signal sigMoneyReturned
+    signal sigCancel
 
     onEnteredState: {
         console.log("fsm entered state:", state)
@@ -110,6 +111,18 @@ DSM.StateMachine {
             guard: !hasMoneyToBeReturned
             onTriggered: console.log("Transition:", "sigTimeout")
         }
+        DSM.SignalTransition {
+            signal: sigCancel
+            targetState: stateIdleId
+            guard: !hasMoneyToBeReturned
+            onTriggered: console.log("Transition:", "sigCancel")
+        }
+        DSM.SignalTransition {
+            signal: sigCancel
+            targetState: stateReturningMoneyId
+            guard: hasMoneyToBeReturned
+            onTriggered: console.log("Transition:", "sigCancel")
+        }
     }
     DSM.State {
         id: stateWaitingForMoneyId
@@ -124,9 +137,27 @@ DSM.StateMachine {
         }
         DSM.SignalTransition {
             signal: sigTimeout
+            targetState: stateIdleId
+            guard: !hasMoneyToBeReturned
+            onTriggered: console.log("Transition:", "sigTimeout")
+        }
+        DSM.SignalTransition {
+            signal: sigTimeout
             targetState: stateReturningMoneyId
             guard: hasMoneyToBeReturned
             onTriggered: console.log("Transition:", "sigTimeout")
+        }
+        DSM.SignalTransition {
+            signal: sigCancel
+            targetState: stateIdleId
+            guard: !hasMoneyToBeReturned
+            onTriggered: console.log("Transition:", "sigCancel")
+        }
+        DSM.SignalTransition {
+            signal: sigCancel
+            targetState: stateReturningMoneyId
+            guard: hasMoneyToBeReturned
+            onTriggered: console.log("Transition:", "sigCancel")
         }
     }
     DSM.State {

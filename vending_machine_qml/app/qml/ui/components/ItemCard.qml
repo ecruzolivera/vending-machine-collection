@@ -45,7 +45,8 @@ Item {
                     capitalization: Font.Capitalize
                     bold: true
                 }
-                text: `(${Number(productPrice / 100).toLocaleCurrencyString(Qt.locale())})`
+                text: `(${Number(productPrice / 100).toLocaleCurrencyString(
+                          Qt.locale())})`
             }
         }
         Row {

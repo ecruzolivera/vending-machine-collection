@@ -2,6 +2,7 @@ import QtQuick 2.7
 import QuickFlux 1.1
 import vendor.QuickPromise 1.0
 import actions 1.0
+import stores 1.0
 import ui.pages 1.0
 
 Middleware {

@@ -21,7 +21,6 @@ Store {
     property var insertedMoney: []
     property var insertedMoneyTotal: insertedMoney.reduce(
                                          (acc, current) => acc + current, 0)
-    property alias paymentState: fsmId.paymentEnteredState
 
     property alias cart: cartId.cart
     property int cartItemsQtty: cart.reduce((prev, item) => prev + item.qtty, 0)
@@ -37,6 +36,9 @@ Store {
                                                       return 0
                                                   }
                                               }, 0)
+
+    property alias paymentEnteredState: fsmId.paymentEnteredState
+    property alias paymentExitedState: fsmId.paymentExitedState
 
     onCartChanged: console.log("cart:", JSON.stringify(cart))
     onInsertedMoneyChanged: console.log("inserted money:",
@@ -112,6 +114,14 @@ Store {
         onDispatched: {
             console.log(type, JSON.stringify(message))
             fsmId.sigBuy()
+        }
+    }
+
+    Filter {
+        type: ActionTypes.cancelPayment
+        onDispatched: {
+            console.log(type, JSON.stringify(message))
+            fsmId.sigCancel()
         }
     }
 

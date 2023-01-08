@@ -5,6 +5,7 @@ import QtQuick.Layouts 1.15
 import QtQuick.Controls.Material 2.15
 import QSyncable 1.0
 import actions 1.0
+import constants 1.0
 import stores 1.0
 import ui.theme 1.0
 import ui.components 1.0
@@ -64,13 +65,44 @@ Item {
         Component {
             id: delegateId
             Item {
+                property string itemId: modelData.id
+                property int qttyInCart: modelData.qtty
+                property string itemName: modelData.name
+                property int totalPrice: modelData.totalPrice
                 height: priv.itemHeight
                 width: priv.itemWidth
-                Label {
+                Row {
                     anchors.centerIn: parent
-                    text: `${modelData.qtty}x ${modelData.name} ${Number(
-                              modelData.totalPrice / 100).toLocaleCurrencyString(
-                              Qt.locale())}`
+                    Item {
+                        visible: qttyInCart === 0
+                        Layout.preferredHeight: 40
+                        Layout.preferredWidth: 40
+                        Layout.alignment: Qt.AlignVCenter
+                    }
+                    Button {
+                        visible: qttyInCart > 0
+                        Layout.preferredHeight: 40
+                        Layout.preferredWidth: 40
+                        Layout.alignment: Qt.AlignVCenter
+                        icon {
+                            source: qttyInCart === 1 ? Assets.deleteIcon : Assets.removeIcon
+                        }
+                        onClicked: AppActions.itemDecrement(itemId)
+                    }
+                    Button {
+                        Layout.alignment: Qt.AlignVCenter
+                        Layout.preferredHeight: 40
+                        Layout.preferredWidth: 40
+                        icon {
+                            source: Assets.addIcon
+                        }
+                        onClicked: AppActions.itemAdd(itemId)
+                    }
+                    Label {
+                        text: `${qttyInCart}x ${itemName} ${Number(
+                                  totalPrice / 100).toLocaleCurrencyString(
+                                  Qt.locale())}`
+                    }
                 }
             }
         }
