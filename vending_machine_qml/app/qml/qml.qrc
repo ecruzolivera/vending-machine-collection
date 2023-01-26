@@ -45,5 +45,6 @@
         <file>vendor/QuickPromise/PromiseTimer.qml</file>
         <file>ui/components/ItemCardInBottomBar.qml</file>
         <file>ui/components/ItemIncreaseDecreaseControl.qml</file>
+        <file>ui/components/HorizontalCartBar.qml</file>
     </qresource>
 </RCC>

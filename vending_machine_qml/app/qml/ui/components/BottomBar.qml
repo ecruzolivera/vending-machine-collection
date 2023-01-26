@@ -13,32 +13,11 @@ import "../../js/Utils.js" as Utils
 ColumnLayout {
     id: root
     visible: !!priv.checkoutListModel.length
-    Rectangle {
-        color: Material.primaryColor
+    HorizontalCartBar {
         Layout.fillWidth: true
-        Layout.preferredHeight: 48
         Layout.leftMargin: 46
+        Layout.preferredHeight: 48
         Layout.rightMargin: 46
-        radius: 43
-        RowLayout {
-            anchors.fill: parent
-            Image {
-                source: Assets.shoppingCartIcon
-            }
-            Label {
-                text: qsTr("Your Cart")
-            }
-            Label {
-                text: qsTr("Total Cost:") + Number(
-                          priv.cartCurrentCost / 100).toLocaleCurrencyString(
-                          Qt.locale())
-            }
-            Button {
-                Layout.alignment: Qt.AlignVCenter
-                text: qsTr("Checkout")
-                onClicked: AppActions.checkoutCart()
-            }
-        }
     }
 
     ListView {
