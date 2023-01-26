@@ -18,6 +18,8 @@ ColumnLayout {
         Layout.leftMargin: 46
         Layout.preferredHeight: 48
         Layout.rightMargin: 46
+        cartCost: priv.cartCurrentCost
+        onCheckoutPressed: AppActions.checkoutCart()
     }
 
     ListView {

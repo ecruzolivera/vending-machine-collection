@@ -10,26 +10,44 @@ import ui.theme 1.0
 import ui.components 1.0
 import "../../js/Utils.js" as Utils
 
-Rectangle {
-    color: Material.primaryColor
-    radius: 43
+Pane {
+    property int cartCost: 10
+    signal checkoutPressed
+    Material.background: Material.DeepOrange
+    Material.foreground: "white"
+    background: Rectangle {
+        color: Material.backgroundColor
+        clip: true
+        radius: 43
+    }
     RowLayout {
-        anchors.fill: parent
-        Image {
-            source: Assets.shoppingCartIcon
+        anchors {
+            verticalCenter: parent.verticalCenter
+            left: parent.left
+            right: parent.right
         }
-        Label {
-            text: qsTr("Your Cart")
-        }
-        Label {
-            text: qsTr("Total Cost:") + Number(
-                      priv.cartCurrentCost / 100).toLocaleCurrencyString(
-                      Qt.locale())
-        }
-        Button {
+
+        Row {
             Layout.alignment: Qt.AlignVCenter
-            text: qsTr("Checkout")
-            onClicked: AppActions.checkoutCart()
+            spacing: 12
+            Image {
+                source: Assets.shoppingCartIcon
+            }
+            Label {
+                text: qsTr("Your Cart")
+            }
+        }
+        Row {
+            Layout.alignment: Qt.AlignVCenter
+            spacing: 12
+            Label {
+                text: qsTr("Total Cost:") + Number(
+                          cartCost / 100).toLocaleCurrencyString(Qt.locale())
+            }
+            Button {
+                text: qsTr("Checkout")
+                onClicked: checkoutPressed()
+            }
         }
     }
 }
