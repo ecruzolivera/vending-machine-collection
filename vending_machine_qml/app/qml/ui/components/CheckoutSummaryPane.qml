@@ -96,7 +96,7 @@ Item {
                         icon {
                             source: Assets.addIcon
                         }
-                        onClicked: AppActions.itemAdd(itemId)
+                        onClicked: AppActions.itemIncrement(itemId)
                     }
                     Label {
                         text: `${qttyInCart}x ${itemName} ${Number(

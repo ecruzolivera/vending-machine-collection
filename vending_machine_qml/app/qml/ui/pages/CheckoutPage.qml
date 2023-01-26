@@ -52,6 +52,7 @@ Pane {
                                                                          "qtty": item.qtty
                                                                      }
                                                                  })
+
         property bool areItemsReturned: MainStore.items.paymentEnteredState
                                         === FsmState.deliveringItem
         property bool isMoneyReturned: MainStore.items.paymentEnteredState

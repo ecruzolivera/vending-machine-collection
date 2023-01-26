@@ -9,18 +9,6 @@ import ui.theme 1.0
 import ui.components 1.0
 
 ColumnLayout {
-    Item {
-        Layout.fillWidth: true
-        Layout.preferredHeight: 1
-        z: 1
-        Cart {
-            anchors {
-                verticalCenter: parent.verticalCenter
-                right: parent.right
-                rightMargin: 68
-            }
-        }
-    }
     RowLayout {
         //main view
         Layout.preferredWidth: parent.width
@@ -39,9 +27,9 @@ ColumnLayout {
             Layout.preferredWidth: parent.width * 3 / 4
         }
     }
-    // BottomBar {
-    // Layout.alignment: Qt.AlignBottom
-    // Layout.fillWidth: true
-    // Layout.preferredHeight: 200
-    // }
+    BottomBar {
+        Layout.alignment: Qt.AlignBottom
+        Layout.fillWidth: true
+        Layout.preferredHeight: 200
+    }
 }

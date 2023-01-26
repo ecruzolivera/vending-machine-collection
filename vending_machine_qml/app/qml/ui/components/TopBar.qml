@@ -7,37 +7,31 @@ import actions 1.0
 import stores 1.0
 import ui.theme 1.0
 
-Item {
-    Pane {
-        Material.background: Material.primaryColor
+Pane {
+    RowLayout {
+        anchors.verticalCenter: parent.verticalCenter
         width: parent.width
-        height: parent.height
+        Label {
+            Layout.preferredWidth: parent.width / 2
+            text: qsTr("Vending Machine Logo")
+        }
         RowLayout {
-            anchors.verticalCenter: parent.verticalCenter
-            width: parent.width
+            spacing: 8
+            Layout.alignment: Qt.AlignVCenter
             Label {
-                Layout.preferredWidth: parent.width / 2
-                text: qsTr("Vending Machine Logo")
+                text: new Date().toDateString(Qt.locale(), Locale.LongFormat)
             }
-            RowLayout {
-                spacing: 8
-                Layout.alignment: Qt.AlignVCenter
-                Label {
-                    text: new Date().toDateString(Qt.locale(),
-                                                  Locale.ShortFormat)
-                }
-                Rectangle {
-                    Layout.preferredWidth: 1
-                    Layout.preferredHeight: 30
-                    color: Material.foreground
-                }
-                Label {
-                    text: new Date().toLocaleTimeString(Qt.locale(),
-                                                        Locale.ShortFormat)
-                    font {
-                        pixelSize: 22
-                        bold: true
-                    }
+            Rectangle {
+                Layout.preferredWidth: 1
+                Layout.preferredHeight: 30
+                color: Material.foreground
+            }
+            Label {
+                text: new Date().toLocaleTimeString(Qt.locale(),
+                                                    Locale.ShortFormat)
+                font {
+                    pixelSize: 22
+                    bold: true
                 }
             }
         }

@@ -43,5 +43,7 @@
         <file>vendor/QuickPromise/Promise.qml</file>
         <file>vendor/QuickPromise/promise.js</file>
         <file>vendor/QuickPromise/PromiseTimer.qml</file>
+        <file>ui/components/ItemCardInBottomBar.qml</file>
+        <file>ui/components/ItemIncreaseDecreaseControl.qml</file>
     </qresource>
 </RCC>

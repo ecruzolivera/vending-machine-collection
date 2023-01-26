@@ -54,7 +54,7 @@ Store {
     }
 
     Filter {
-        type: ActionTypes.itemAdd
+        type: ActionTypes.itemIncrement
         onDispatched: {
             console.log(type, JSON.stringify(message))
             const id = Utils.getSafe(() => message.payload)

@@ -4,93 +4,76 @@ import QtQuick.Layouts 1.15
 import QtQuick.Controls.Material 2.15
 import QSyncable 1.0
 import actions 1.0
+import constants 1.0
 import stores 1.0
 import ui.theme 1.0
 import ui.components 1.0
 import "../../js/Utils.js" as Utils
 
-Rectangle {
-    //bottom
+ColumnLayout {
     id: root
-    color: Material.primaryColor
-    RowLayout {
-        anchors.centerIn: parent
-        visible: !!priv.selectedItem
-        Pane {
-            // selected item
-            Layout.preferredWidth: root.width / 3 - 20
-            Layout.preferredHeight: root.height - 20
-            ColumnLayout {
-                anchors.centerIn: parent
-                spacing: 8
-                Label {
-                    Layout.alignment: Qt.AlignHCenter
-                    font {
-                        pixelSize: 20
-                        capitalization: Font.Capitalize
-                    }
-                    text: Utils.getSafe(() => priv.selectedItem.name, "")
-                }
-                Image {
-                    Layout.alignment: Qt.AlignHCenter
-                    fillMode: Image.PreserveAspectFit
-                    Layout.preferredWidth: 100
-                    Layout.preferredHeight: 100
-                    source: Utils.getSafe(() => priv.selectedItem.image, "")
-                }
+    visible: !!priv.checkoutListModel.length
+    Rectangle {
+        color: Material.primaryColor
+        Layout.fillWidth: true
+        Layout.preferredHeight: 48
+        Layout.leftMargin: 46
+        Layout.rightMargin: 46
+        radius: 43
+        RowLayout {
+            anchors.fill: parent
+            Image {
+                source: Assets.shoppingCartIcon
             }
-        }
-        Pane {
-            // selected item nutritional
-            id: nutritionalFactsPaneId
-            Layout.preferredWidth: root.width / 3 - 20
-            Layout.preferredHeight: root.height - 20
-            ColumnLayout {
-                Label {
-                    font {
-                        pixelSize: 15
-                        bold: true
-                    }
-                    text: qsTr("Ingredients")
-                }
-                Label {
-                    Layout.preferredWidth: nutritionalFactsPaneId.width - 20
-                    Layout.fillHeight: true
-                    font {
-                        pixelSize: 14
-                    }
-                    wrapMode: Text.WordWrap
-                    text: Utils.getSafe(() => priv.selectedItem.description, "")
-                }
+            Label {
+                text: qsTr("Your Cart")
             }
-        }
-        Pane {
-            // selected item buy area
-            Layout.preferredWidth: root.width / 3 - 20
-            Layout.preferredHeight: root.height - 20
-            ColumnLayout {
-                anchors.centerIn: parent
-                spacing: 10
-                Label {
-                    font {
-                        pixelSize: 15
-                        bold: true
-                    }
-                    text: qsTr("Price")
-                }
-                Button {
-                    text: qsTr("Checkout")
-                    onClicked: AppActions.buySelected(
-                                   Utils.getSafe(() => priv.selectedItem.id, 0))
-                }
+            Label {
+                text: qsTr("Total Cost:") + Number(
+                          priv.cartCurrentCost / 100).toLocaleCurrencyString(
+                          Qt.locale())
+            }
+            Button {
+                Layout.alignment: Qt.AlignVCenter
+                text: qsTr("Checkout")
+                onClicked: AppActions.checkoutCart()
             }
         }
     }
 
+    ListView {
+        id: listId
+        Layout.fillWidth: true
+        Layout.preferredHeight: 100
+        Layout.leftMargin: 46
+        Layout.rightMargin: 46
+        focus: true
+        orientation: ListView.Horizontal
+        clip: true
+        spacing: 16
+        model: priv.checkoutListModel
+        delegate: ItemCardInBottomBar {
+            itemId: modelData.id
+            itemName: modelData.name
+            imageUrl: modelData.image
+            productPrice: modelData.price
+            qttyInCart: modelData.qtty
+        }
+    }
     QtObject {
         id: priv
-        readonly property int cardWidth: 300
-        readonly property int cardHeight: 200
-        property var selectedItem: MainStore.items.selectedItem
+        property int cartItemsQtty: MainStore.items.cartItemsQtty
+        property int cartCurrentCost: MainStore.items.cartCurrentCost
+        property var checkoutListModel: MainStore.items.cart.map(item => {
+                                                                     const currentItem = MainStore.items.items.find(
+                                                                         i => i.id === item.id)
+                                                                     return {
+                                                                         "id": currentItem.id,
+                                                                         "name": currentItem.name,
+                                                                         "image": currentItem.image,
+                                                                         "price": currentItem.price * item.qtty,
+                                                                         "qtty": item.qtty
+                                                                     }
+                                                                 })
     }
 }

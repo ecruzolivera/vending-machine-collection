@@ -11,7 +11,7 @@ KeyTable {
     property string quitApp
     // app
     property string categorySelected
-    property string itemAdd
+    property string itemIncrement
     property string itemDecrement
     property string itemRemove
     property string checkoutCart

@@ -12,15 +12,15 @@ import ui.components 1.0
 import "../../js/Utils.js" as Utils
 
 Item {
-    width: 400
-    height: 200
+    width: 300
+    height: 100
     property string itemId
     property string itemName
     property url imageUrl
     property int productPrice
-    property int existences
     property int qttyInCart
-    ColumnLayout {
+
+    RowLayout {
         anchors.centerIn: parent
         spacing: 8
         Image {
@@ -47,17 +47,6 @@ Item {
                 }
                 text: `(${Number(productPrice / 100).toLocaleCurrencyString(
                           Qt.locale())})`
-            }
-        }
-        Row {
-            Layout.alignment: Qt.AlignHCenter
-            spacing: Theme.spacing_sm
-            Label {
-                text: qsTr("Existences:")
-            }
-            Label {
-                font.capitalization: Font.Capitalize
-                text: existences
             }
         }
         ItemIncreaseDecreaseControl {

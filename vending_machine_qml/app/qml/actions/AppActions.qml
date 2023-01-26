@@ -45,8 +45,8 @@ ActionCreator {
                  })
     }
 
-    function itemAdd(id) {
-        dispatch(ActionTypes.itemAdd, {
+    function itemIncrement(id) {
+        dispatch(ActionTypes.itemIncrement, {
                      "payload": id
                  })
     }
