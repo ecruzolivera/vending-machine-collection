@@ -48,6 +48,7 @@ Pane {
                                                                      return {
                                                                          "id": currentItem.id,
                                                                          "name": currentItem.name,
+                                                                         "image": currentItem.image,
                                                                          "totalPrice": currentItem.price * item.qtty,
                                                                          "qtty": item.qtty
                                                                      }

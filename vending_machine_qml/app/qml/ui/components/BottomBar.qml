@@ -37,7 +37,7 @@ ColumnLayout {
             itemId: modelData.id
             itemName: modelData.name
             imageUrl: modelData.image
-            productPrice: modelData.price
+            totalPrice: modelData.totalPrice
             qttyInCart: modelData.qtty
         }
     }
@@ -52,7 +52,7 @@ ColumnLayout {
                                                                          "id": currentItem.id,
                                                                          "name": currentItem.name,
                                                                          "image": currentItem.image,
-                                                                         "price": currentItem.price * item.qtty,
+                                                                         "totalPrice": currentItem.price * item.qtty,
                                                                          "qtty": item.qtty
                                                                      }
                                                                  })

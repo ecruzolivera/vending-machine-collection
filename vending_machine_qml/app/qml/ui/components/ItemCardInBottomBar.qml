@@ -17,7 +17,7 @@ Item {
     property string itemId
     property string itemName
     property url imageUrl
-    property int productPrice
+    property int totalPrice
     property int qttyInCart
 
     RowLayout {
@@ -45,7 +45,7 @@ Item {
                     capitalization: Font.Capitalize
                     bold: true
                 }
-                text: `(${Number(productPrice / 100).toLocaleCurrencyString(
+                text: `(${Number(totalPrice / 100).toLocaleCurrencyString(
                           Qt.locale())})`
             }
         }

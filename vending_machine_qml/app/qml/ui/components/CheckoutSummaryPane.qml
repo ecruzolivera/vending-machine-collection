@@ -30,13 +30,19 @@ Item {
         }
         ListView {
             id: checkoutListId
-            Layout.preferredHeight: priv.maxItemsInSummary * priv.itemHeight
+            Layout.preferredHeight: priv.maxItemsInSummary * 100
             Layout.preferredWidth: priv.itemWidth
             Layout.alignment: Qt.AlignHCenter | Qt.AlignTop
             clip: true
             interactive: count > priv.maxItemsInSummary
             model: root.model
-            delegate: delegateId
+            delegate: ItemCardInBottomBar {
+                itemId: modelData.id
+                itemName: modelData.name
+                imageUrl: modelData.image
+                totalPrice: modelData.totalPrice
+                qttyInCart: modelData.qtty
+            }
         }
         Row {
             Layout.alignment: Qt.AlignHCenter | Qt.AlignTop
@@ -62,54 +68,9 @@ Item {
                 onClicked: root.payButtonClicked()
             }
         }
-        Component {
-            id: delegateId
-            Item {
-                property string itemId: modelData.id
-                property int qttyInCart: modelData.qtty
-                property string itemName: modelData.name
-                property int totalPrice: modelData.totalPrice
-                height: priv.itemHeight
-                width: priv.itemWidth
-                Row {
-                    anchors.centerIn: parent
-                    Item {
-                        visible: qttyInCart === 0
-                        Layout.preferredHeight: 40
-                        Layout.preferredWidth: 40
-                        Layout.alignment: Qt.AlignVCenter
-                    }
-                    Button {
-                        visible: qttyInCart > 0
-                        Layout.preferredHeight: 40
-                        Layout.preferredWidth: 40
-                        Layout.alignment: Qt.AlignVCenter
-                        icon {
-                            source: qttyInCart === 1 ? Assets.deleteIcon : Assets.removeIcon
-                        }
-                        onClicked: AppActions.itemDecrement(itemId)
-                    }
-                    Button {
-                        Layout.alignment: Qt.AlignVCenter
-                        Layout.preferredHeight: 40
-                        Layout.preferredWidth: 40
-                        icon {
-                            source: Assets.addIcon
-                        }
-                        onClicked: AppActions.itemIncrement(itemId)
-                    }
-                    Label {
-                        text: `${qttyInCart}x ${itemName} ${Number(
-                                  totalPrice / 100).toLocaleCurrencyString(
-                                  Qt.locale())}`
-                    }
-                }
-            }
-        }
         QtObject {
             id: priv
             property int itemWidth: 400
-            property int itemHeight: 50
             readonly property int maxItemsInSummary: 5
         }
     }
