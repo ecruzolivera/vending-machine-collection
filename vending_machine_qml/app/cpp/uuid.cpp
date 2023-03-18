@@ -10,9 +10,7 @@ UUId::UUId(QObject *parent)
 
 QString UUId::uuid()
 {
-    auto id = QUuid::createUuid().toString(QUuid::WithoutBraces);
-    qDebug() << id;
-    return id;
+    return QUuid::createUuid().toString(QUuid::WithoutBraces);
 }
 
 void UUId::registerTypes()

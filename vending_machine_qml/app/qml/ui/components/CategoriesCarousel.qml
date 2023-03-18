@@ -19,12 +19,18 @@ Item {
         model: MainStore.items.categories
         delegate: categoryDelegateId
         header: Item {
-            //spacers
-            height: 20
+            width: listId.width
+            height: 80
+            ArrowButton {
+                anchors.centerIn: parent
+            }
         }
         footer: Item {
-            //spacers
-            height: 20
+            width: listId.width
+            height: 80
+            ArrowButton {
+                anchors.centerIn: parent
+            }
         }
     }
     Component {

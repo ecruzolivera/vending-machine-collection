@@ -8,6 +8,7 @@ import stores 1.0
 import ui.theme 1.0
 
 Pane {
+
     RowLayout {
         anchors.verticalCenter: parent.verticalCenter
         width: parent.width

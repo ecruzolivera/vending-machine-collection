@@ -46,5 +46,7 @@
         <file>ui/components/ItemCardInBottomBar.qml</file>
         <file>ui/components/ItemIncreaseDecreaseControl.qml</file>
         <file>ui/components/HorizontalCartBar.qml</file>
+        <file>ui/components/ArrowButton.qml</file>
+        <file>ui/components/AddSubButton.qml</file>
     </qresource>
 </RCC>

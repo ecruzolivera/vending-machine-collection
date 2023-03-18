@@ -12,17 +12,9 @@ RowLayout {
     property int itemQtty
     signal incrementItem
     signal decrementItem
-    Item {
-        visible: itemQtty === 0
-        Layout.preferredHeight: 40
-        Layout.preferredWidth: 40
+    AddSubButton {
         Layout.alignment: Qt.AlignVCenter
-    }
-    Button {
-        visible: itemQtty > 0
-        Layout.preferredHeight: 40
-        Layout.preferredWidth: 40
-        Layout.alignment: Qt.AlignVCenter
+        enabled: itemQtty > 0
         icon {
             source: itemQtty === 1 ? Assets.deleteIcon : Assets.removeIcon
         }
@@ -33,10 +25,8 @@ RowLayout {
         font.capitalization: Font.Capitalize
         text: itemQtty
     }
-    Button {
+    AddSubButton {
         Layout.alignment: Qt.AlignVCenter
-        Layout.preferredHeight: 40
-        Layout.preferredWidth: 40
         icon {
             source: Assets.addIcon
         }
