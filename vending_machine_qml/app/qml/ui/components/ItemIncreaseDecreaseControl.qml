@@ -8,7 +8,7 @@ import ui.theme 1.0
 
 RowLayout {
     id: root
-    spacing: Theme.spacing_sm
+    spacing: Theme.spacing_lg
     property int itemQtty
     signal incrementItem
     signal decrementItem
