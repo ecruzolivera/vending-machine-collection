@@ -39,6 +39,12 @@ Item {
                                         item => item.id === id)
                     return !!maybeItem ? maybeItem.qtty : 0
                 }
+                qttyInStore: {
+                    const id = modelData.id
+                    const maybeItem = MainStore.items.items.find(
+                                        item => item.id === id)
+                    return !!maybeItem ? maybeItem.qtty : 0
+                }
             }
         }
     }

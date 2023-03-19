@@ -50,7 +50,7 @@ Item {
             }
         }
         ItemIncreaseDecreaseControl {
-            itemQtty: qttyInCart
+            itemQttyInCart: qttyInCart
             onIncrementItem: AppActions.itemIncrement(itemId)
             onDecrementItem: AppActions.itemDecrement(itemId)
         }

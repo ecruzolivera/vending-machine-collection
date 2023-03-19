@@ -11,7 +11,7 @@ Store {
     id: root
     property var db: Db.db()
     property var categories: Utils.getSafe(() => db.categories, [])
-    property var items: Utils.getSafe(() => db.items, [])
+    property alias items: itemsId.items
     property string selectedCategoryId: ""
     property var selectedCategoryItems: items.filter(
                                             item => item.categoryId === selectedCategoryId)
@@ -59,6 +59,10 @@ Store {
             console.log(type, JSON.stringify(message))
             const id = Utils.getSafe(() => message.payload)
             if (!!id) {
+                if (itemsId.decrementItem(id)) {
+                    console.warn(`Item Id:${id} has no existences`)
+                    return
+                }
                 cartId.addItem(id)
                 fsmId.sigItemAddedToCart()
             } else {
@@ -73,6 +77,7 @@ Store {
             console.log(type, JSON.stringify(message))
             const id = Utils.getSafe(() => message.payload, "")
             if (!!id) {
+                itemsId.incrementItem(id)
                 cartId.decrementItem(id)
                 fsmId.sigItemRemovedFromCart()
             } else {
@@ -142,6 +147,11 @@ Store {
 
     CartModel {
         id: cartId
+    }
+
+    ItemsModel {
+        id: itemsId
+        items: Utils.getSafe(() => db.items, [])
     }
 
     VendingMachineFsm {

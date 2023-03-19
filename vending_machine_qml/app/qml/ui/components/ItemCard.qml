@@ -20,6 +20,7 @@ Rectangle {
     property int productPrice
     property int existences
     property int qttyInCart
+    property int qttyInStore
 
     RectangularGlow {
         z: -1
@@ -53,7 +54,6 @@ Rectangle {
             Layout.alignment: Qt.AlignHCenter
             spacing: Theme.spacing_sm
             Label {
-                WireFrame {}
                 font {
                     capitalization: Font.Capitalize
                     bold: true
@@ -64,11 +64,16 @@ Rectangle {
             }
             Label {
                 font.capitalization: Font.Capitalize
-                text: existences
+                text: "/"
+            }
+            Label {
+                color: Material.color(Material.Grey)
+                text: `${qttyInStore} pcs`
             }
         }
         ItemIncreaseDecreaseControl {
-            itemQtty: qttyInCart
+            itemQttyInCart: qttyInCart
+            itemQttyInStore: qttyInStore
             onIncrementItem: AppActions.itemIncrement(itemId)
             onDecrementItem: AppActions.itemDecrement(itemId)
         }
