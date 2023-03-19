@@ -14,33 +14,38 @@ Item {
         id: gridId
         focus: true
         anchors.fill: parent
-        cellHeight: priv.cardHeight
-        cellWidth: priv.cardWidth
+        cellHeight: priv.cardHeight + 20
+        cellWidth: priv.cardWidth + 20
         clip: true
         model: MainStore.items.selectedCategoryItems
         delegate: itemDelegateId
     }
     Component {
         id: itemDelegateId
-        ItemCard {
-            height: priv.cardHeight
-            width: priv.cardWidth
-            itemId: modelData.id
-            itemName: modelData.name
-            imageUrl: modelData.image
-            productPrice: modelData.price
-            qttyInCart: {
-                const id = modelData.id
-                const maybeItem = MainStore.items.cart.find(
-                                    item => item.id === id)
-                return !!maybeItem ? maybeItem.qtty : 0
+        Item {
+            height: priv.cardHeight + 20
+            width: priv.cardWidth + 20
+            ItemCard {
+                height: priv.cardHeight
+                width: priv.cardWidth
+                anchors.centerIn: parent
+                itemId: modelData.id
+                itemName: modelData.name
+                imageUrl: modelData.image
+                productPrice: modelData.price
+                qttyInCart: {
+                    const id = modelData.id
+                    const maybeItem = MainStore.items.cart.find(
+                                        item => item.id === id)
+                    return !!maybeItem ? maybeItem.qtty : 0
+                }
             }
         }
     }
 
     QtObject {
         id: priv
-        readonly property int cardWidth: gridId.width / 3 - 20
-        readonly property int cardHeight: 200
+        readonly property int cardWidth: 180
+        readonly property int cardHeight: 250
     }
 }

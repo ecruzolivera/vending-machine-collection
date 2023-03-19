@@ -11,49 +11,56 @@ import ui.theme 1.0
 import ui.components 1.0
 import "../../js/Utils.js" as Utils
 
-Item {
-    width: 400
-    height: 200
+Rectangle {
+    id: root
+    radius: 15
     property string itemId
     property string itemName
     property url imageUrl
     property int productPrice
     property int existences
     property int qttyInCart
+
+    RectangularGlow {
+        z: -1
+        anchors.fill: parent
+        glowRadius: 5
+        spread: 0.2
+        color: Qt.rgba(0, 0, 0, 0.1)
+        cornerRadius: root.radius + glowRadius
+    }
     ColumnLayout {
         anchors.centerIn: parent
         spacing: 8
         Image {
-            Layout.alignment: Qt.AlignHCenter
+            Layout.alignment: Qt.AlignHCenter | Qt.AlignBottom
             Layout.preferredWidth: 60
             Layout.preferredHeight: 60
             fillMode: Image.PreserveAspectFit
             source: imageUrl
+            WireFrame {}
+        }
+        Label {
+            WireFrame {}
+            Layout.alignment: Qt.AlignHCenter
+            font {
+                capitalization: Font.Capitalize
+                bold: true
+            }
+            text: itemName
         }
         Row {
             Layout.alignment: Qt.AlignHCenter
             spacing: Theme.spacing_sm
             Label {
+                WireFrame {}
                 font {
                     capitalization: Font.Capitalize
                     bold: true
                 }
-                text: itemName
-            }
-            Label {
-                font {
-                    capitalization: Font.Capitalize
-                    bold: true
-                }
-                text: `(${Number(productPrice / 100).toLocaleCurrencyString(
-                          Qt.locale())})`
-            }
-        }
-        Row {
-            Layout.alignment: Qt.AlignHCenter
-            spacing: Theme.spacing_sm
-            Label {
-                text: qsTr("Existences:")
+                color: Material.primaryColor
+                text: `${Number(productPrice / 100).toLocaleCurrencyString(
+                          Qt.locale())}`
             }
             Label {
                 font.capitalization: Font.Capitalize
