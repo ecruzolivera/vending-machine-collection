@@ -34,8 +34,9 @@ Pane {
             }
         }
         Label {
+            Layout.preferredWidth: 150
             Layout.alignment: Qt.AlignVCenter
-            text: qsTr("Total Cost:") + Number(
+            text: qsTr("Cost: ") + Number(
                       cartCost / 100).toLocaleCurrencyString(Qt.locale())
         }
     }

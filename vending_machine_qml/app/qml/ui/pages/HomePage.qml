@@ -8,28 +8,36 @@ import stores 1.0
 import ui.theme 1.0
 import ui.components 1.0
 
-ColumnLayout {
-    RowLayout {
-        //main view
-        Layout.preferredWidth: parent.width
-        Layout.preferredHeight: parent.height
-        Layout.fillWidth: true
-        Layout.fillHeight: true
-        CategoriesCarousel {
-            Layout.alignment: Qt.AlignHCenter | Qt.AlignVCenter
-            Layout.preferredWidth: parent.width / 4
+Item {
+    ColumnLayout {
+        anchors.fill: parent
+        RowLayout {
+            //main view
+            Layout.preferredWidth: parent.width
             Layout.preferredHeight: parent.height
+            Layout.fillWidth: true
             Layout.fillHeight: true
+            CategoriesCarousel {
+                Layout.alignment: Qt.AlignHCenter | Qt.AlignVCenter
+                Layout.preferredWidth: parent.width / 4
+                Layout.preferredHeight: parent.height
+                Layout.fillHeight: true
+            }
+            ItemsGrid {
+                Layout.fillHeight: true
+                Layout.preferredHeight: parent.height
+                Layout.preferredWidth: parent.width * 3 / 4
+            }
         }
-        ItemsGrid {
-            Layout.fillHeight: true
-            Layout.preferredHeight: parent.height
-            Layout.preferredWidth: parent.width * 3 / 4
+        BottomBar {
+            id: bbar
+            Layout.alignment: Qt.AlignBottom
+            Layout.fillWidth: true
+            Layout.preferredHeight: 200
+            WireFrame {
+                z: 1
+                target: bbar
+            }
         }
-    }
-    BottomBar {
-        Layout.alignment: Qt.AlignBottom
-        Layout.fillWidth: true
-        Layout.preferredHeight: 200
     }
 }

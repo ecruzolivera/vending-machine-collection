@@ -34,21 +34,22 @@ Rectangle {
         anchors.centerIn: parent
         spacing: 8
         Image {
-            Layout.alignment: Qt.AlignHCenter | Qt.AlignBottom
-            Layout.preferredWidth: 60
-            Layout.preferredHeight: 60
+            Layout.alignment: Qt.AlignHCenter
+            Layout.preferredWidth: 70
+            Layout.preferredHeight: 70
             fillMode: Image.PreserveAspectFit
             source: imageUrl
         }
         Label {
             Layout.alignment: Qt.AlignHCenter
+            Layout.topMargin: 10
             font {
                 capitalization: Font.Capitalize
-                bold: true
+                weight: Font.Medium
             }
             text: itemName
         }
-        Row {
+        RowLayout {
             Layout.alignment: Qt.AlignHCenter
             spacing: Theme.spacing_sm
             Label {
@@ -62,14 +63,18 @@ Rectangle {
             }
             Label {
                 font.capitalization: Font.Capitalize
+                color: Material.color(Material.Grey)
                 text: "/"
             }
             Label {
+                Layout.alignment: Qt.AlignVCenter
                 color: Material.color(Material.Grey)
                 text: `${qttyInStore} pcs`
+                font.pointSize: 12
             }
         }
         ItemIncreaseDecreaseControl {
+            Layout.topMargin: 10
             itemQttyInCart: qttyInCart
             itemQttyInStore: qttyInStore
             onIncrementItem: AppActions.itemIncrement(itemId)

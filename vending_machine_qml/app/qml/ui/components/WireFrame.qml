@@ -14,5 +14,6 @@ Loader {
     sourceComponent: Rectangle {
         color: "transparent"
         border.color: Qt.rgba(Math.random(), Math.random(), Math.random(), 1)
+        border.width: 2
     }
 }

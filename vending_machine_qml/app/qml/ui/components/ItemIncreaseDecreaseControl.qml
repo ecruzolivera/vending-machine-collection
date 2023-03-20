@@ -17,6 +17,7 @@ RowLayout {
         Layout.alignment: Qt.AlignVCenter
         enabled: itemQttyInCart > 0
         icon {
+            color: "white"
             source: Assets.removeIcon
         }
         onClicked: root.decrementItem()
@@ -30,6 +31,7 @@ RowLayout {
         Layout.alignment: Qt.AlignVCenter
         enabled: itemQttyInStore > 0
         icon {
+            color: "white"
             source: Assets.addIcon
         }
         onClicked: root.incrementItem()

@@ -8,7 +8,11 @@ import stores 1.0
 import ui.theme 1.0
 
 Pane {
-
+    Material.background: Material.DeepOrange
+    Material.foreground: "white"
+    background: Rectangle {
+        color: Material.backgroundColor
+    }
     RowLayout {
         anchors.verticalCenter: parent.verticalCenter
         width: parent.width
@@ -20,7 +24,8 @@ Pane {
             spacing: 8
             Layout.alignment: Qt.AlignVCenter
             Label {
-                text: new Date().toDateString(Qt.locale(), Locale.LongFormat)
+                text: new Date().toDateString(Qt.locale("es_MX"),
+                                              Locale.LongFormat)
             }
             Rectangle {
                 Layout.preferredWidth: 1
@@ -31,7 +36,7 @@ Pane {
                 text: new Date().toLocaleTimeString(Qt.locale(),
                                                     Locale.ShortFormat)
                 font {
-                    pixelSize: 22
+                    pixelSize: 30
                     bold: true
                 }
             }
