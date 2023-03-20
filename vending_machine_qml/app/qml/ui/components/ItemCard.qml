@@ -39,10 +39,8 @@ Rectangle {
             Layout.preferredHeight: 60
             fillMode: Image.PreserveAspectFit
             source: imageUrl
-            WireFrame {}
         }
         Label {
-            WireFrame {}
             Layout.alignment: Qt.AlignHCenter
             font {
                 capitalization: Font.Capitalize

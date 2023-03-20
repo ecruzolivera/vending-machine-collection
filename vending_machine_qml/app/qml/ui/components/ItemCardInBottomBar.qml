@@ -11,29 +11,34 @@ import ui.theme 1.0
 import ui.components 1.0
 import "../../js/Utils.js" as Utils
 
-Item {
-    width: 300
-    height: 100
+Rectangle {
+    id: root
+    radius: 15
     property string itemId
     property string itemName
     property url imageUrl
     property int totalPrice
     property int qttyInCart
+    property int qttyInStore
 
-    RowLayout {
-        anchors.centerIn: parent
+    RectangularGlow {
+        z: -1
+        anchors.fill: parent
+        glowRadius: 5
+        spread: 0.2
+        color: Qt.rgba(0, 0, 0, 0.1)
+        cornerRadius: root.radius + glowRadius
+    }
+
+    ColumnLayout {
+        id: colid
         spacing: 8
-        Image {
-            Layout.alignment: Qt.AlignHCenter
-            Layout.preferredWidth: 60
-            Layout.preferredHeight: 60
-            fillMode: Image.PreserveAspectFit
-            source: imageUrl
-        }
-        Row {
-            Layout.alignment: Qt.AlignHCenter
+        anchors.centerIn: parent
+        RowLayout {
+            Layout.alignment: Qt.AlignRight
             spacing: Theme.spacing_sm
             Label {
+                horizontalAlignment: Text.AlignLeft
                 font {
                     capitalization: Font.Capitalize
                     bold: true
@@ -41,16 +46,20 @@ Item {
                 text: itemName
             }
             Label {
+                width: 20
+                horizontalAlignment: Text.AlignLeft
                 font {
                     capitalization: Font.Capitalize
-                    bold: true
+                    pointSize: 14
                 }
-                text: `(${Number(totalPrice / 100).toLocaleCurrencyString(
-                          Qt.locale())})`
+                text: `${Number(totalPrice / 100).toLocaleCurrencyString(
+                          Qt.locale())}`
             }
         }
         ItemIncreaseDecreaseControl {
+            Layout.alignment: Qt.AlignRight
             itemQttyInCart: qttyInCart
+            itemQttyInStore: qttyInStore
             onIncrementItem: AppActions.itemIncrement(itemId)
             onDecrementItem: AppActions.itemDecrement(itemId)
         }

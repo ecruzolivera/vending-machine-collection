@@ -33,16 +33,26 @@ ColumnLayout {
         clip: true
         spacing: 16
         model: priv.checkoutListModel
-        delegate: ItemCardInBottomBar {
-            itemId: modelData.id
-            itemName: modelData.name
-            imageUrl: modelData.image
-            totalPrice: modelData.totalPrice
-            qttyInCart: modelData.qtty
+        delegate: Item {
+            height: priv.cardHeight
+            width: priv.cardWidth
+            ItemCardInBottomBar {
+                height: priv.cardHeight - 10
+                width: priv.cardWidth - 10
+                anchors.centerIn: parent
+                itemId: modelData.id
+                itemName: modelData.name
+                imageUrl: modelData.image
+                totalPrice: modelData.totalPrice
+                qttyInCart: modelData.qtty
+                qttyInStore: modelData.storeQtty
+            }
         }
     }
     QtObject {
         id: priv
+        readonly property int cardWidth: 250
+        readonly property int cardHeight: 100
         property int cartItemsQtty: MainStore.items.cartItemsQtty
         property int cartCurrentCost: MainStore.items.cartCurrentCost
         property var checkoutListModel: MainStore.items.cart.map(item => {
@@ -53,7 +63,8 @@ ColumnLayout {
                                                                          "name": currentItem.name,
                                                                          "image": currentItem.image,
                                                                          "totalPrice": currentItem.price * item.qtty,
-                                                                         "qtty": item.qtty
+                                                                         "qtty": item.qtty,
+                                                                         "storeQtty": currentItem.qtty
                                                                      }
                                                                  })
     }

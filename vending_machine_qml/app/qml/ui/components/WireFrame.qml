@@ -1,13 +1,14 @@
 import QtQuick 2.15
-import QtQuick.Controls 2.15
-import QtQuick.Layouts 1.15
-import QtQuick.Controls.Material 2.15
-import QtGraphicalEffects 1.15
-import constants 1.0
-import ui.theme 1.0
 
 Loader {
-    anchors.fill: parent
+    property var target
+    anchors {
+        top: target ? target.top : undefined
+        bottom: target ? target.bottom : undefined
+        left: target ? target.left : undefined
+        right: target ? target.right : undefined
+        fill: target ? undefined : parent
+    }
     asynchronous: true
     active: true
     sourceComponent: Rectangle {
