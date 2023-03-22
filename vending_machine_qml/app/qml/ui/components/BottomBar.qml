@@ -13,7 +13,6 @@ import "../../js/Utils.js" as Utils
 Item {
     id: root
     visible: !!priv.checkoutListModel.length
-    WireFrame {}
     ColumnLayout {
         anchors.top: parent.top
         width: parent.width

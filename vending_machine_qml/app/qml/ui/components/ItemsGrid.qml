@@ -17,7 +17,11 @@ Item {
         cellHeight: priv.cardHeight + 20
         cellWidth: priv.cardWidth + 20
         clip: true
-        model: MainStore.items.selectedCategoryItems
+        model: JsonListModel {
+            keyField: "id"
+            source: MainStore.items.selectedCategoryItems
+        }
+
         delegate: itemDelegateId
     }
     Component {
@@ -29,20 +33,20 @@ Item {
                 height: priv.cardHeight
                 width: priv.cardWidth
                 anchors.centerIn: parent
-                itemId: modelData.id
-                itemName: modelData.name
-                imageUrl: modelData.image
-                productPrice: modelData.price
+                itemId: id
+                itemName: name
+                imageUrl: image
+                productPrice: price
                 qttyInCart: {
-                    const id = modelData.id
+                    const iD = id
                     const maybeItem = MainStore.items.cart.find(
-                                        item => item.id === id)
+                                        item => item.id === iD)
                     return !!maybeItem ? maybeItem.qtty : 0
                 }
                 qttyInStore: {
-                    const id = modelData.id
+                    const iD = id
                     const maybeItem = MainStore.items.items.find(
-                                        item => item.id === id)
+                                        item => item.id === iD)
                     return !!maybeItem ? maybeItem.qtty : 0
                 }
             }

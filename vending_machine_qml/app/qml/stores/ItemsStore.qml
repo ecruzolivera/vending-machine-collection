@@ -13,6 +13,7 @@ Store {
     property var categories: Utils.getSafe(() => db.categories, [])
     property alias items: itemsId.items
     property string selectedCategoryId: ""
+
     property var selectedCategoryItems: items.filter(
                                             item => item.categoryId === selectedCategoryId)
                                         || []
