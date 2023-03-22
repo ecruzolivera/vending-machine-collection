@@ -13,8 +13,10 @@ import "../../js/Utils.js" as Utils
 Item {
     id: root
     visible: !!priv.checkoutListModel.length
+    WireFrame {}
     ColumnLayout {
-        anchors.fill: parent
+        anchors.top: parent.top
+        width: parent.width
         HorizontalCartBar {
             Layout.fillWidth: true
             Layout.leftMargin: 46

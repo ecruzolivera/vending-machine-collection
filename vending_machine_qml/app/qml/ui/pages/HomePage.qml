@@ -34,10 +34,6 @@ Item {
             Layout.alignment: Qt.AlignBottom
             Layout.fillWidth: true
             Layout.preferredHeight: 200
-            WireFrame {
-                z: 1
-                target: bbar
-            }
         }
     }
 }
