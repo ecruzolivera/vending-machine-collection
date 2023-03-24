@@ -14,8 +14,8 @@ import "../../js/Utils.js" as Utils
 Rectangle {
     id: root
     radius: 15
-    property string itemId
-    property string itemName
+    property string uuid
+    property string name
     property url imageUrl
     property int totalPrice
     property int qttyInCart
@@ -31,7 +31,6 @@ Rectangle {
     }
 
     ColumnLayout {
-        id: colid
         spacing: 8
         anchors.centerIn: parent
         RowLayout {
@@ -43,7 +42,7 @@ Rectangle {
                     capitalization: Font.Capitalize
                     bold: true
                 }
-                text: itemName
+                text: name
             }
             Label {
                 width: 20
@@ -60,8 +59,8 @@ Rectangle {
             Layout.alignment: Qt.AlignRight
             itemQttyInCart: qttyInCart
             itemQttyInStore: qttyInStore
-            onIncrementItem: AppActions.itemIncrement(itemId)
-            onDecrementItem: AppActions.itemDecrement(itemId)
+            onIncrementItem: AppActions.itemIncrement(root.uuid)
+            onDecrementItem: AppActions.itemDecrement(root.uuid)
         }
     }
 }

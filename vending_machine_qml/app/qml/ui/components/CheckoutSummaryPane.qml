@@ -22,7 +22,6 @@ Item {
             top: parent.top
             horizontalCenter: parent.horizontalCenter
         }
-
         Label {
             Layout.alignment: Qt.AlignHCenter
             font.bold: true
@@ -36,42 +35,51 @@ Item {
             clip: true
             interactive: count > priv.maxItemsInSummary
             model: root.model
-            delegate: ItemCardInBottomBar {
-                itemId: modelData.id
-                itemName: modelData.name
+            delegate: itemDelegateId
+            Row {
+                Layout.alignment: Qt.AlignHCenter | Qt.AlignTop
+                spacing: 10
+                Label {
+                    font.bold: true
+                    text: qsTr("Total:")
+                }
+                Label {
+                    text: `${Number(cartCost / 100).toLocaleCurrencyString(
+                              Qt.locale())}`
+                }
+            }
+            Row {
+                Layout.alignment: Qt.AlignHCenter | Qt.AlignTop
+                spacing: 20
+                Button {
+                    text: qsTr("Back")
+                    onClicked: root.backButtonClicked()
+                }
+                Button {
+                    text: qsTr("Pay")
+                    onClicked: root.payButtonClicked()
+                }
+            }
+        }
+    }
+    Component {
+        id: itemDelegateId
+        Item {
+            height: priv.cardHeight + 10
+            width: priv.cardWidth + 10
+            ItemCardInBottomBar {
+                uuid: modelData.id
+                name: modelData.name
                 imageUrl: modelData.image
                 totalPrice: modelData.totalPrice
                 qttyInCart: modelData.qtty
             }
         }
-        Row {
-            Layout.alignment: Qt.AlignHCenter | Qt.AlignTop
-            spacing: 10
-            Label {
-                font.bold: true
-                text: qsTr("Total:")
-            }
-            Label {
-                text: `${Number(cartCost / 100).toLocaleCurrencyString(
-                          Qt.locale())}`
-            }
-        }
-        Row {
-            Layout.alignment: Qt.AlignHCenter | Qt.AlignTop
-            spacing: 20
-            Button {
-                text: qsTr("Back")
-                onClicked: root.backButtonClicked()
-            }
-            Button {
-                text: qsTr("Pay")
-                onClicked: root.payButtonClicked()
-            }
-        }
-        QtObject {
-            id: priv
-            property int itemWidth: 400
-            readonly property int maxItemsInSummary: 5
-        }
+    }
+    QtObject {
+        id: priv
+        readonly property int maxItemsInSummary: 5
+        readonly property int cardWidth: 180
+        readonly property int cardHeight: 250
     }
 }

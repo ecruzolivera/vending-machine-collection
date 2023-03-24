@@ -35,7 +35,10 @@ Item {
             orientation: ListView.Horizontal
             clip: true
             spacing: 16
-            model: priv.checkoutListModel
+            model: JsonListModel {
+                keyField: "id"
+                source: priv.checkoutListModel
+            }
             delegate: Item {
                 height: priv.cardHeight
                 width: priv.cardWidth
@@ -43,12 +46,12 @@ Item {
                     height: priv.cardHeight - 10
                     width: priv.cardWidth - 10
                     anchors.centerIn: parent
-                    itemId: modelData.id
-                    itemName: modelData.name
-                    imageUrl: modelData.image
-                    totalPrice: modelData.totalPrice
-                    qttyInCart: modelData.qtty
-                    qttyInStore: modelData.storeQtty
+                    uuid: itemId
+                    name: itemName
+                    imageUrl: itemImage
+                    totalPrice: itemTotalPrice
+                    qttyInCart: itemQtty
+                    qttyInStore: itemStoreQtty
                 }
             }
         }
@@ -61,12 +64,12 @@ Item {
             property var checkoutListModel: MainStore.items.cart.map(item => {
                                                                          const currentItem = MainStore.items.items.find(i => i.id === item.id)
                                                                          return {
-                                                                             "id": currentItem.id,
-                                                                             "name": currentItem.name,
-                                                                             "image": currentItem.image,
-                                                                             "totalPrice": currentItem.price * item.qtty,
-                                                                             "qtty": item.qtty,
-                                                                             "storeQtty": currentItem.qtty
+                                                                             "itemId": currentItem.id,
+                                                                             "itemName": currentItem.name,
+                                                                             "itemImage": currentItem.image,
+                                                                             "itemTotalPrice": currentItem.price * item.qtty,
+                                                                             "itemQtty": item.qtty,
+                                                                             "itemStoreQtty": currentItem.qtty
                                                                          }
                                                                      })
         }
