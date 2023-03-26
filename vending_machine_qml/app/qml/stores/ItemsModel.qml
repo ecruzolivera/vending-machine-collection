@@ -13,12 +13,12 @@ QtObject {
 
     function decrementItem(id) {
         const maybeItem = items.find(item => item.id === id)
-        const isZero = !!maybeItem && maybeItem.qtty === 0
-        if (!isZero) {
+        const notZeroQtty = !!maybeItem && maybeItem.qtty !== 0
+        if (notZeroQtty) {
             maybeItem.qtty--
             itemsChanged()
             return false
         }
-        return isZero
+        return !notZeroQtty
     }
 }
