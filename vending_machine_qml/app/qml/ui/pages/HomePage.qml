@@ -36,4 +36,19 @@ Item {
             Layout.preferredHeight: 200
         }
     }
+    Timer {
+        running: true
+        interval: 400
+        onTriggered: {
+            AppActions.itemIncrement("1")
+            AppActions.itemIncrement("1")
+            AppActions.checkoutCart()
+            AppActions.itemIncrement("3")
+            AppActions.itemIncrement("3")
+            AppActions.itemIncrement("4")
+            AppActions.itemIncrement("2")
+            AppActions.itemIncrement("6")
+            AppActions.itemIncrement("8")
+        }
+    }
 }

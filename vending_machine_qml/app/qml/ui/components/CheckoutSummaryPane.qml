@@ -30,56 +30,63 @@ Item {
         ListView {
             id: checkoutListId
             Layout.preferredHeight: priv.maxItemsInSummary * 100
-            Layout.preferredWidth: priv.itemWidth
+            Layout.preferredWidth: priv.cardWidth
             Layout.alignment: Qt.AlignHCenter | Qt.AlignTop
             clip: true
             interactive: count > priv.maxItemsInSummary
-            model: root.model
-            delegate: itemDelegateId
-            Row {
-                Layout.alignment: Qt.AlignHCenter | Qt.AlignTop
-                spacing: 10
-                Label {
-                    font.bold: true
-                    text: qsTr("Total:")
-                }
-                Label {
-                    text: `${Number(cartCost / 100).toLocaleCurrencyString(
-                              Qt.locale())}`
-                }
+            model: JsonListModel {
+                keyField: "id"
+                source: root.model
             }
-            Row {
-                Layout.alignment: Qt.AlignHCenter | Qt.AlignTop
-                spacing: 20
-                Button {
-                    text: qsTr("Back")
-                    onClicked: root.backButtonClicked()
-                }
-                Button {
-                    text: qsTr("Pay")
-                    onClicked: root.payButtonClicked()
-                }
+            delegate: itemDelegateId
+        }
+        Row {
+            Layout.alignment: Qt.AlignHCenter | Qt.AlignTop
+            spacing: 10
+            Label {
+                font.bold: true
+                text: qsTr("Total:")
+            }
+            Label {
+                text: `${Number(cartCost / 100).toLocaleCurrencyString(
+                          Qt.locale())}`
+            }
+        }
+        Row {
+            Layout.alignment: Qt.AlignHCenter | Qt.AlignTop
+            spacing: 20
+            Button {
+                text: qsTr("Back")
+                onClicked: root.backButtonClicked()
+            }
+            Button {
+                text: qsTr("Pay")
+                onClicked: root.payButtonClicked()
             }
         }
     }
     Component {
         id: itemDelegateId
         Item {
-            height: priv.cardHeight + 10
-            width: priv.cardWidth + 10
+            height: priv.cardHeight
+            width: priv.cardWidth
             ItemCardInBottomBar {
-                uuid: modelData.id
-                name: modelData.name
-                imageUrl: modelData.image
-                totalPrice: modelData.totalPrice
-                qttyInCart: modelData.qtty
+                height: priv.cardHeight - 10
+                width: priv.cardWidth - 10
+                anchors.centerIn: parent
+                uuid: itemId
+                name: itemName
+                imageUrl: itemImage
+                totalPrice: itemTotalPrice
+                qttyInCart: itemQtty
+                qttyInStore: itemStoreQtty
             }
         }
     }
     QtObject {
         id: priv
         readonly property int maxItemsInSummary: 5
-        readonly property int cardWidth: 180
-        readonly property int cardHeight: 250
+        readonly property int cardWidth: 250
+        readonly property int cardHeight: 100
     }
 }

@@ -46,11 +46,12 @@ Pane {
                                                                      const currentItem = MainStore.items.items.find(
                                                                          i => i.id === item.id)
                                                                      return {
-                                                                         "id": currentItem.id,
-                                                                         "name": currentItem.name,
-                                                                         "image": currentItem.image,
-                                                                         "totalPrice": currentItem.price * item.qtty,
-                                                                         "qtty": item.qtty
+                                                                         "itemId": currentItem.id,
+                                                                         "itemName": currentItem.name,
+                                                                         "itemImage": currentItem.image,
+                                                                         "itemTotalPrice": currentItem.price * item.qtty,
+                                                                         "itemQtty": item.qtty,
+                                                                         "itemStoreQtty": currentItem.qtty
                                                                      }
                                                                  })
 
