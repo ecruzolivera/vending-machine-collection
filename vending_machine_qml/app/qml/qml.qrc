@@ -50,5 +50,7 @@
         <file>ui/components/AddSubButton.qml</file>
         <file>ui/components/WireFrame.qml</file>
         <file>stores/ItemsModel.qml</file>
+        <file>ui/components/StyledButton.qml</file>
+        <file>ui/components/UserButton.qml</file>
     </qresource>
 </RCC>

@@ -27,7 +27,10 @@ Item {
         Label {
             Layout.alignment: Qt.AlignHCenter
             text: qsTr("Payment")
-            font.bold: true
+            font {
+                bold: true
+                pointSize: 40
+            }
         }
         Label {
             Layout.alignment: Qt.AlignHCenter
@@ -45,12 +48,16 @@ Item {
         Row {
             Layout.alignment: Qt.AlignHCenter
             spacing: 10
-            Button {
+            UserButton {
+                width: 150
                 text: qsTr("Back")
+                textColor: "white"
                 onClicked: root.backButtonClicked()
             }
-            Button {
+            UserButton {
+                width: 150
                 text: qsTr("Cancel")
+                textColor: "white"
                 onClicked: root.cancelButtonClicked()
             }
         }

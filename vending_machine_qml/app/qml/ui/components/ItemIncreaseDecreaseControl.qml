@@ -8,7 +8,7 @@ import ui.theme 1.0
 
 RowLayout {
     id: root
-    spacing: Theme.spacing_lg
+    spacing: Theme.spacing_md
     property int itemQttyInCart
     property int itemQttyInStore
     signal incrementItem
@@ -23,8 +23,10 @@ RowLayout {
         onClicked: root.decrementItem()
     }
     Label {
-        Layout.alignment: Qt.AlignVCenter
+        Layout.preferredWidth: 40
+        Layout.alignment: Qt.AlignVCenter | Qt.AlignHCenter
         font.capitalization: Font.Capitalize
+        horizontalAlignment: Text.AlignHCenter
         text: itemQttyInCart
     }
     AddSubButton {

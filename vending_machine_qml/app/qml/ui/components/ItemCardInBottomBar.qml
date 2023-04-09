@@ -30,37 +30,40 @@ Rectangle {
         cornerRadius: root.radius + glowRadius
     }
 
-    ColumnLayout {
-        spacing: 8
-        anchors.centerIn: parent
-        RowLayout {
-            Layout.alignment: Qt.AlignRight
-            spacing: Theme.spacing_sm
-            Label {
-                horizontalAlignment: Text.AlignLeft
-                font {
-                    capitalization: Font.Capitalize
-                    bold: true
-                }
-                text: name
-            }
-            Label {
-                width: 20
-                horizontalAlignment: Text.AlignLeft
-                font {
-                    capitalization: Font.Capitalize
-                    pointSize: 14
-                }
-                text: `${Number(totalPrice / 100).toLocaleCurrencyString(
-                          Qt.locale())}`
-            }
+    RowLayout {
+        id: textRowId
+        spacing: Theme.spacing_sm
+        anchors {
+            top: root.top
+            topMargin: 10
+            horizontalCenter: root.horizontalCenter
         }
-        ItemIncreaseDecreaseControl {
-            Layout.alignment: Qt.AlignRight
-            itemQttyInCart: qttyInCart
-            itemQttyInStore: qttyInStore
-            onIncrementItem: AppActions.itemIncrement(root.uuid)
-            onDecrementItem: AppActions.itemDecrement(root.uuid)
+        Label {
+            font {
+                capitalization: Font.Capitalize
+                bold: true
+            }
+            text: name
         }
+        Label {
+            Layout.preferredWidth: 20
+            font {
+                capitalization: Font.Capitalize
+                pointSize: 14
+            }
+            text: `${Number(totalPrice / 100).toLocaleCurrencyString(
+                      Qt.locale())}`
+        }
+    }
+    ItemIncreaseDecreaseControl {
+        anchors {
+            top: textRowId.bottom
+            topMargin: 10
+            horizontalCenter: root.horizontalCenter
+        }
+        itemQttyInCart: qttyInCart
+        itemQttyInStore: qttyInStore
+        onIncrementItem: AppActions.itemIncrement(root.uuid)
+        onDecrementItem: AppActions.itemDecrement(root.uuid)
     }
 }

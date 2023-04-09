@@ -24,7 +24,10 @@ Item {
         }
         Label {
             Layout.alignment: Qt.AlignHCenter
-            font.bold: true
+            font {
+                bold: true
+                pointSize: 40
+            }
             text: qsTr("Summary")
         }
         ListView {
@@ -55,12 +58,16 @@ Item {
         Row {
             Layout.alignment: Qt.AlignHCenter | Qt.AlignTop
             spacing: 20
-            Button {
+            UserButton {
+                width: 80
                 text: qsTr("Back")
+                textColor: "white"
                 onClicked: root.backButtonClicked()
             }
-            Button {
+            UserButton {
+                width: 80
                 text: qsTr("Pay")
+                textColor: "white"
                 onClicked: root.payButtonClicked()
             }
         }

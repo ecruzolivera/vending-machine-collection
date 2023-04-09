@@ -8,7 +8,6 @@ import ui.theme 1.0
 
 Button {
     background: Rectangle {
-        id: background
         implicitWidth: 30
         implicitHeight: 30
         color: Material.accentColor
