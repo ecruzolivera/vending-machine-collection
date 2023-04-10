@@ -19,7 +19,7 @@ Item {
     signal cancelButtonClicked
 
     ColumnLayout {
-        spacing: 20
+        spacing: 40
         anchors {
             top: parent.top
             horizontalCenter: parent.horizontalCenter
@@ -39,11 +39,17 @@ Item {
                            Qt.locale())}`)
             font.bold: true
         }
-        Label {
+        Row {
             Layout.alignment: Qt.AlignHCenter
-            text: qsTr(`Money Inserted: ${Number(
-                           insertedMoney / 100).toLocaleCurrencyString(
-                           Qt.locale())}`)
+            spacing: 10
+            Label {
+                text: qsTr("Money Inserted:")
+            }
+            Label {
+                width: 80
+                text: qsTr(Number(insertedMoney / 100).toLocaleCurrencyString(
+                               Qt.locale()))
+            }
         }
         Row {
             Layout.alignment: Qt.AlignHCenter

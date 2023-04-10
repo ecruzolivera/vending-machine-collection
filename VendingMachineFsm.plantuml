@@ -3,6 +3,7 @@
 hide empty description
 skinparam dpi 100
 
+
 title Vending Machine
 
 [*] --> Idle

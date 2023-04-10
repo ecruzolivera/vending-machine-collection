@@ -57,7 +57,7 @@ Item {
         }
         QtObject {
             id: priv
-            readonly property int cardWidth: 250
+            readonly property int cardWidth: 270
             readonly property int cardHeight: 100
             property int cartItemsQtty: MainStore.items.cartItemsQtty
             property int cartCurrentCost: MainStore.items.cartCurrentCost

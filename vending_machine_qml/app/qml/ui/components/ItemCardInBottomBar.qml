@@ -46,7 +46,7 @@ Rectangle {
             text: name
         }
         Label {
-            Layout.preferredWidth: 20
+            Layout.preferredWidth: 60
             font {
                 capitalization: Font.Capitalize
                 pointSize: 14
@@ -59,7 +59,7 @@ Rectangle {
     ItemIncreaseDecreaseControl {
         anchors {
             top: textRowId.bottom
-            topMargin: 10
+            topMargin: 5
             horizontalCenter: root.horizontalCenter
         }
         itemQttyInCart: qttyInCart

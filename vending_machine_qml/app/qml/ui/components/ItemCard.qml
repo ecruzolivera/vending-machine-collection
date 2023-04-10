@@ -58,8 +58,8 @@ Rectangle {
                     bold: true
                 }
                 color: Material.primaryColor
-                text: `${Number(productPrice / 100).toLocaleCurrencyString(
-                          Qt.locale())}`
+                text: Number(productPrice / 100).toLocaleCurrencyString(
+                          Qt.locale())
             }
             Label {
                 font.capitalization: Font.Capitalize
@@ -67,9 +67,10 @@ Rectangle {
                 text: "/"
             }
             Label {
+                Layout.preferredWidth: 20
                 Layout.alignment: Qt.AlignVCenter
                 color: Material.color(Material.Grey)
-                text: `${qttyInStore} pcs`
+                text: qttyInStore + qsTr(" pcs")
                 font.pointSize: 12
             }
         }
