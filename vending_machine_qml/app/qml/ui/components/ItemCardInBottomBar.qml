@@ -55,6 +55,7 @@ Rectangle {
                       Qt.locale())}`
         }
     }
+
     ItemIncreaseDecreaseControl {
         anchors {
             top: textRowId.bottom
