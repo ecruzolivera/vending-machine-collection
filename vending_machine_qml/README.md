@@ -1,3 +1,3 @@
-# Crosspod
+# Vending Machine Qml
 
-Simple crossplataform podcast player
+![screenshot](./VendingMachineLogo.png)
