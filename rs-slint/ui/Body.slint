@@ -1,0 +1,33 @@
+
+
+   import { HorizontalBox, Palette, VerticalBox } from "std-widgets.slint";
+export component Body inherits Rectangle {
+        padding: 10px;
+            background: Palette.background;
+    HorizontalLayout {
+            preferred-height: 100%;
+            preferred-width: 100%;
+
+        Rectangle {
+            preferred-width: 200px;
+            max-width: 200px;
+            border-color: red;
+            border-width: 2px;
+            Text {
+                text: "Vertical Carousel";
+
+            }
+        }
+        Rectangle {
+            border-color: blue;
+            preferred-width: 100%;
+            border-width: 2px;
+            Text {
+                text: "Grid";
+
+            }
+        }
+
+  }
+        
+}

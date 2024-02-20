@@ -1,0 +1,35 @@
+
+   import { HorizontalBox, Palette } from "std-widgets.slint";
+export component Header inherits Rectangle {
+        in property <string> date: "March, 3rd, 2024";
+        in property <string> time: "12:32pm";
+        padding: 10px;
+        background: Palette.accent-background;
+           HorizontalBox {
+            preferred-height: 100%;
+            preferred-width: 100%;
+            alignment: space-between;
+            Text {
+                text: @tr("Vending Machine Logo");
+                vertical-alignment: center;
+            }
+            HorizontalLayout {
+               alignment: center;
+               spacing: 10px;
+               Text {
+                   text: date;
+                   vertical-alignment: center;
+               }
+               Rectangle {
+                  preferred-height:parent.height - 40px;
+                  preferred-width: 2px;
+                  background: Palette.foreground;
+               }
+               Text {
+                   text: time;
+                   vertical-alignment: center;
+               }
+            }
+           }
+        }
+   
