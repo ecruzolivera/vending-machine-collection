@@ -1,0 +1,22 @@
+
+import { HorizontalBox, Palette, VerticalBox } from "std-widgets.slint";
+
+export struct GridCardData {
+    name: string 
+}
+
+export global GridCardSize {
+    out property <length> width: 180px;
+    out property <length> height: 250px;
+}
+
+export component GridCard inherits Rectangle {
+    in property <GridCardData> cardData:{name:"Card1"};
+    border-color: blue;
+    border-width: 2px;
+    width: GridCardSize.width;
+    height: GridCardSize.height;
+    Text {
+        text: cardData.name;
+    }
+}

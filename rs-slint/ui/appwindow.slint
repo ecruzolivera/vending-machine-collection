@@ -1,11 +1,10 @@
 import { Button, VerticalBox,Palette } from "std-widgets.slint";
-import { Header } from "header.slint";
-import { Body } from "Body.slint";
+import { Header } from "components/header.slint";
+import { Home } from "pages/home.slint";
 
 export component AppWindow inherits Window {
-    height: 860px;
-    width: 640px;
-
+    preferred-height: 720px;
+    preferred-width: 800px; 
     in-out property<int> counter: 42;
     callback request-increase-value();
     VerticalLayout {
@@ -14,7 +13,7 @@ export component AppWindow inherits Window {
         Header {
             height: 100px;
         }
-        Body {
+        Home {
             vertical-stretch: 1;
         }
     }
