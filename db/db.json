@@ -3,25 +3,25 @@
     {
       "id": "1",
       "category": "fastfood",
-      "image": "assets/fastfood/burger.svg",
+      "image": "assets/images/burger.svg",
       "description": "Laboris amet eiusmod tempor proident tempor exercitation nostrud reprehenderit adipisicing nulla irure nostrud enim minim."
     },
     {
       "id": "2",
       "category": "fruits",
-      "image": "assets/fruits/apricot.svg",
+      "image": "assets/images/apricot.svg",
       "description": "Ipsum occaecat deserunt mollit laboris."
     },
     {
       "id": "3",
       "category": "juice",
-      "image": "assets/juice/cantaloupe.svg",
+      "image": "assets/images/cantaloupe.svg",
       "description": "Nostrud veniam voluptate laborum aliquip dolore consequat ullamco aliqua enim."
     },
     {
       "id": "4",
       "category": "misc",
-      "image": "assets/misc/bandage.svg",
+      "image": "assets/images/bandage.svg",
       "description": "Eiusmod anim nulla nostrud eu officia enim ipsum elit ullamco."
     }
   ],
@@ -32,7 +32,7 @@
       "qtty": 5,
       "name": "burger",
       "description": "Officia enim amet enim sit nostrud quis voluptate culpa et ut ullamco exercitation quis.",
-      "image": "assets/fastfood/burger.svg"
+      "image": "assets/images/burger.svg"
     },
     {
       "id": "2",
@@ -40,7 +40,7 @@
       "qtty": 5,
       "name": "chocolatebar",
       "description": "Fugiat nisi ea amet irure dolore in pariatur laborum commodo mollit cupidatat.",
-      "image": "assets/fastfood/chocolatebar.svg"
+      "image": "assets/images/chocolatebar.svg"
     },
     {
       "id": "3",
@@ -48,7 +48,7 @@
       "qtty": 5,
       "name": "fried chicken",
       "description": "Cupidatat do adipisicing elit culpa mollit laboris mollit adipisicing ipsum est nostrud excepteur ex mollit.",
-      "image": "assets/fastfood/fried-chicken.svg"
+      "image": "assets/images/fried-chicken.svg"
     },
     {
       "id": "4",
@@ -56,7 +56,7 @@
       "qtty": 5,
       "name": "hot dog",
       "description": "Aliquip laboris elit aliquip voluptate sunt labore quis Lorem deserunt.",
-      "image": "assets/fastfood/hot-dog.svg"
+      "image": "assets/images/hot-dog.svg"
     },
     {
       "id": "5",
@@ -64,7 +64,7 @@
       "qtty": 5,
       "name": "pizza",
       "description": "Adipisicing do laborum labore eu do adipisicing minim sunt adipisicing est do.",
-      "image": "assets/fastfood/pizza.svg"
+      "image": "assets/images/pizza.svg"
     },
     {
       "id": "6",
@@ -72,7 +72,7 @@
       "qtty": 5,
       "name": "potato",
       "description": "Elit veniam officia qui pariatur amet et aliquip sunt adipisicing duis ipsum pariatur dolore.",
-      "image": "assets/fastfood/potato.svg"
+      "image": "assets/images/potato.svg"
     },
     {
       "id": "7",
@@ -80,7 +80,7 @@
       "qtty": 5,
       "name": "taco",
       "description": "Pariatur duis anim veniam mollit ullamco Lorem.",
-      "image": "assets/fastfood/taco.svg"
+      "image": "assets/images/taco.svg"
     },
     {
       "id": "8",
@@ -88,7 +88,7 @@
       "qtty": 5,
       "name": "hamburger",
       "description": "Qui reprehenderit ullamco fugiat aliqua.",
-      "image": "assets/fastfood/hamburger.svg"
+      "image": "assets/images/hamburger.svg"
     },
     {
       "id": "9",
@@ -96,7 +96,7 @@
       "qtty": 5,
       "name": "popcorn",
       "description": "Pariatur aute irure occaecat consectetur mollit esse est ut consequat dolore cupidatat laborum tempor minim.",
-      "image": "assets/fastfood/popcorn.svg"
+      "image": "assets/images/popcorn.svg"
     },
     {
       "id": "10",
@@ -104,7 +104,7 @@
       "qtty": 5,
       "name": "sandwich",
       "description": "Duis nostrud irure laboris aute.",
-      "image": "assets/fastfood/sandwich.svg"
+      "image": "assets/images/sandwich.svg"
     },
     {
       "id": "11",
@@ -112,7 +112,7 @@
       "qtty": 5,
       "name": "shortcake",
       "description": "Exercitation exercitation Lorem est adipisicing aute esse ad et.",
-      "image": "assets/fastfood/shortcake.svg"
+      "image": "assets/images/shortcake.svg"
     },
     {
       "id": "12",
@@ -120,7 +120,7 @@
       "qtty": 5,
       "name": "apricot",
       "description": "Reprehenderit est in fugiat sit culpa aliqua.",
-      "image": "assets/fruits/apricot.svg"
+      "image": "assets/images/apricot.svg"
     },
     {
       "id": "13",
@@ -128,7 +128,7 @@
       "qtty": 5,
       "name": "avocado",
       "description": "Enim cupidatat cupidatat minim qui tempor id sit sunt.",
-      "image": "assets/fruits/avocado.svg"
+      "image": "assets/images/avocado.svg"
     },
     {
       "id": "14",
@@ -136,7 +136,7 @@
       "qtty": 5,
       "name": "banana",
       "description": "Commodo Lorem pariatur non eu duis duis velit.",
-      "image": "assets/fruits/banana.svg"
+      "image": "assets/images/banana.svg"
     },
     {
       "id": "15",
@@ -144,7 +144,7 @@
       "qtty": 5,
       "name": "dragon fruit",
       "description": "Cillum nostrud ut adipisicing excepteur non est deserunt sit do veniam aliqua.",
-      "image": "assets/fruits/dragon_fruit.svg"
+      "image": "assets/images/dragon_fruit.svg"
     },
     {
       "id": "16",
@@ -152,7 +152,7 @@
       "qtty": 5,
       "name": "durian",
       "description": "Proident ad labore eu consequat proident officia mollit minim reprehenderit Lorem cillum dolore cupidatat quis.",
-      "image": "assets/fruits/durian.svg"
+      "image": "assets/images/durian.svg"
     },
     {
       "id": "17",
@@ -160,7 +160,7 @@
       "qtty": 5,
       "name": "granate",
       "description": "Incididunt pariatur ipsum cillum pariatur cillum id nisi qui laboris elit laboris duis commodo est.",
-      "image": "assets/fruits/granate.svg"
+      "image": "assets/images/granate.svg"
     },
     {
       "id": "18",
@@ -168,7 +168,7 @@
       "qtty": 5,
       "name": "grape",
       "description": "Sint adipisicing do est commodo ipsum.",
-      "image": "assets/fruits/grape.svg"
+      "image": "assets/images/grape.svg"
     },
     {
       "id": "19",
@@ -176,7 +176,7 @@
       "qtty": 5,
       "name": "kiwi",
       "description": "Nisi non nulla proident velit.",
-      "image": "assets/fruits/kiwi.svg"
+      "image": "assets/images/kiwi.svg"
     },
     {
       "id": "20",
@@ -184,7 +184,7 @@
       "qtty": 5,
       "name": "lychee",
       "description": "Est sint amet laboris mollit magna irure dolor nulla do fugiat in.",
-      "image": "assets/fruits/lychee.svg"
+      "image": "assets/images/lychee.svg"
     },
     {
       "id": "21",
@@ -192,7 +192,7 @@
       "qtty": 5,
       "name": "mango",
       "description": "Exercitation irure Lorem magna ullamco mollit veniam do excepteur esse aliquip ut.",
-      "image": "assets/fruits/mango.svg"
+      "image": "assets/images/mango.svg"
     },
     {
       "id": "22",
@@ -200,7 +200,7 @@
       "qtty": 5,
       "name": "passion_fruit",
       "description": "Proident mollit veniam adipisicing Lorem amet aute qui fugiat ullamco sunt tempor aute.",
-      "image": "assets/fruits/passion_fruit.svg"
+      "image": "assets/images/passion_fruit.svg"
     },
     {
       "id": "23",
@@ -208,7 +208,7 @@
       "qtty": 5,
       "name": "pineapple",
       "description": "Eiusmod laborum qui Lorem eiusmod in magna cupidatat nulla non in.",
-      "image": "assets/fruits/pineapple.svg"
+      "image": "assets/images/pineapple.svg"
     },
     {
       "id": "24",
@@ -216,7 +216,7 @@
       "qtty": 5,
       "name": "raspberry",
       "description": "Consequat dolore laboris pariatur cillum nulla ad aliquip magna irure consequat cupidatat cupidatat do.",
-      "image": "assets/fruits/raspberry.svg"
+      "image": "assets/images/raspberry.svg"
     },
     {
       "id": "25",
@@ -224,7 +224,7 @@
       "qtty": 5,
       "name": "strawberry",
       "description": "Pariatur qui est pariatur excepteur duis deserunt ex ipsum irure aliquip nisi amet tempor.",
-      "image": "assets/fruits/strawberry.svg"
+      "image": "assets/images/strawberry.svg"
     },
     {
       "id": "26",
@@ -232,7 +232,7 @@
       "qtty": 5,
       "name": "watermelon",
       "description": "Magna ut excepteur sit dolor.",
-      "image": "assets/fruits/watermelon.svg"
+      "image": "assets/images/watermelon.svg"
     },
     {
       "id": "27",
@@ -240,7 +240,7 @@
       "qtty": 5,
       "name": "cantaloupe",
       "description": "Reprehenderit deserunt culpa ipsum occaecat sint occaecat sint magna culpa tempor Lorem.",
-      "image": "assets/juice/cantaloupe.svg"
+      "image": "assets/images/cantaloupe.svg"
     },
     {
       "id": "28",
@@ -248,7 +248,7 @@
       "qtty": 5,
       "name": "cherry",
       "description": "Tempor culpa ad magna deserunt sunt laboris ullamco aute magna mollit fugiat reprehenderit culpa ipsum.",
-      "image": "assets/juice/cherry.svg"
+      "image": "assets/images/cherry.svg"
     },
     {
       "id": "29",
@@ -256,7 +256,7 @@
       "qtty": 5,
       "name": "coconut",
       "description": "Ullamco qui occaecat velit culpa laborum eiusmod do amet in consectetur dolore.",
-      "image": "assets/juice/coconut.svg"
+      "image": "assets/images/coconut.svg"
     },
     {
       "id": "30",
@@ -264,7 +264,7 @@
       "qtty": 5,
       "name": "guava",
       "description": "Eiusmod ad culpa voluptate commodo nisi aute ullamco ad dolore.",
-      "image": "assets/juice/guava.svg"
+      "image": "assets/images/guava.svg"
     },
     {
       "id": "31",
@@ -272,7 +272,7 @@
       "qtty": 5,
       "name": "lemon",
       "description": "Ipsum consectetur ut cupidatat et veniam anim reprehenderit quis pariatur dolor officia nulla ipsum Lorem.",
-      "image": "assets/juice/lemon.svg"
+      "image": "assets/images/lemon.svg"
     },
     {
       "id": "32",
@@ -280,7 +280,7 @@
       "qtty": 5,
       "name": "mango",
       "description": "Cillum aliquip excepteur quis sint deserunt fugiat excepteur laborum magna do culpa nostrud.",
-      "image": "assets/juice/mango.svg"
+      "image": "assets/images/mango.svg"
     },
     {
       "id": "33",
@@ -288,7 +288,7 @@
       "qtty": 5,
       "name": "peach",
       "description": "Ad veniam sunt consequat consequat.",
-      "image": "assets/juice/peach.svg"
+      "image": "assets/images/peach.svg"
     },
     {
       "id": "34",
@@ -296,7 +296,7 @@
       "qtty": 5,
       "name": "pear",
       "description": "Excepteur consequat cupidatat sit dolore deserunt duis amet.",
-      "image": "assets/juice/pear.svg"
+      "image": "assets/images/pear.svg"
     },
     {
       "id": "35",
@@ -304,7 +304,7 @@
       "qtty": 5,
       "name": "pineapple",
       "description": "In ullamco ut irure non commodo exercitation mollit ipsum laboris proident nulla.",
-      "image": "assets/juice/pineapple.svg"
+      "image": "assets/images/pineapple.svg"
     },
     {
       "id": "36",
@@ -312,7 +312,7 @@
       "qtty": 5,
       "name": "pitahaya",
       "description": "Aute consectetur minim ea nostrud enim id.",
-      "image": "assets/juice/pitahaya.svg"
+      "image": "assets/images/pitahaya.svg"
     },
     {
       "id": "37",
@@ -320,7 +320,7 @@
       "qtty": 5,
       "name": "strawberry",
       "description": "Commodo pariatur tempor ut consectetur laborum deserunt proident pariatur mollit dolor nulla eu.",
-      "image": "assets/juice/strawberry.svg"
+      "image": "assets/images/strawberry.svg"
     },
     {
       "id": "38",
@@ -328,7 +328,7 @@
       "qtty": 5,
       "name": "bandage",
       "description": "Elit amet incididunt ut magna pariatur in.",
-      "image": "assets/misc/bandage.svg"
+      "image": "assets/images/bandage.svg"
     },
     {
       "id": "39",
@@ -336,7 +336,7 @@
       "qtty": 5,
       "name": "comb",
       "description": "Eu do enim laborum laboris pariatur id do anim.",
-      "image": "assets/misc/comb.svg"
+      "image": "assets/images/comb.svg"
     },
     {
       "id": "40",
@@ -344,7 +344,7 @@
       "qtty": 5,
       "name": "pen",
       "description": "In cillum enim tempor quis magna eiusmod nisi aliqua culpa magna esse.",
-      "image": "assets/misc/pen.svg"
+      "image": "assets/images/pen.svg"
     },
     {
       "id": "41",
@@ -352,7 +352,7 @@
       "qtty": 5,
       "name": "soap",
       "description": "Enim est nostrud exercitation deserunt adipisicing quis mollit in fugiat excepteur do.",
-      "image": "assets/misc/soap.svg"
+      "image": "assets/images/soap.svg"
     },
     {
       "id": "42",
@@ -360,7 +360,7 @@
       "qtty": 5,
       "name": "usb_drive",
       "description": "Aliquip velit eiusmod eu esse tempor sit culpa nulla do est.",
-      "image": "assets/misc/usb_drive.svg"
+      "image": "assets/images/usb_drive.svg"
     }
   ]
 }
