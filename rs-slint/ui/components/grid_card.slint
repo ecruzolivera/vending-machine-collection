@@ -1,8 +1,13 @@
 
-import { HorizontalBox, Palette, VerticalBox } from "std-widgets.slint";
+import { HorizontalBox, Palette, VerticalBox, Button } from "std-widgets.slint";
 
 export struct GridCardData {
-    name: string 
+    id: string,
+    name: string,
+    image_url: image,
+    price :int ,
+    qttyInCart  :int ,
+    qttyInStore :int ,
 }
 
 export global GridCardSize {
@@ -11,12 +16,57 @@ export global GridCardSize {
 }
 
 export component GridCard inherits Rectangle {
-    in property <GridCardData> cardData:{name:"Card1"};
+    in property <GridCardData> cardData:{
+        name:"Card1" ,
+        price:1,
+        qttyInCart  :2 ,
+        qttyInStore :4 ,
+    };
+    callback itemInc();
+    callback itemDec();
     border-color: blue;
     border-width: 2px;
     width: GridCardSize.width;
     height: GridCardSize.height;
-    Text {
-        text: cardData.name;
+    VerticalBox {
+        Image {
+            vertical-stretch: 1;
+            
+        }
+        Text {
+            text: cardData.name;
+        }
+
+        HorizontalBox {
+
+            Text {
+                text: cardData.price;
+            }
+            Text {
+                text: "/";
+            }
+            Text {
+                text: cardData.qttyInStore ;
+            }
     }
+        HorizontalBox {
+            Button {
+                text: "-";
+                clicked => {root.itemDec()}
+            }
+            Text {
+                text: cardData.qttyInCart;
+            }
+            Button {
+                text: "+";
+                clicked => {root.itemInc()}
+            }
+        }
 }
+}
+
+
+
+
+
+

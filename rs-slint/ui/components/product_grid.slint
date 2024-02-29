@@ -1,4 +1,4 @@
-import { ScrollView, HorizontalBox, Palette, VerticalBox, GridBox } from "std-widgets.slint";
+import { ListView, HorizontalBox, Palette, VerticalBox, GridBox } from "std-widgets.slint";
 import { GridCard, GridCardData, GridCardSize } from "grid_card.slint";
 
 
@@ -6,14 +6,8 @@ export component ProductGrid inherits Rectangle{
     border-color: green;
     border-width: 2px;
 
-    property <int> col_count: floor(root.width/(GridCardSize.width+card_spacing_px));
-    property <int> row_count: floor(root.height/(GridCardSize.height+card_spacing_px));       
-    property <int> card_spacing: 10;    
-    property <length> card_spacing_px: card_spacing*1px;    
-
-    ScrollView {
-
     in property <[GridCardData]> cards : [
+          { name: "card0"},
           { name: "card1"},
           { name: "card2"},
           { name: "card3"},
@@ -25,13 +19,24 @@ export component ProductGrid inherits Rectangle{
           { name: "card9"},
           { name: "card10"},
         ];
-    
-    
-    for card[index] in cards:
-        GridCard {
-            x: root.card_spacing_px + mod(index, root.col_count) * (GridCardSize.width + root.card_spacing_px);
-            y: root.card_spacing_px + floor(index/ root.row_count) * (GridCardSize.height + root.card_spacing_px);
-            cardData: { name: "Card" + index };
+    property <int> col_count: 3;
+    property <int> row_count: cards.length/col_count;
+    property <int> card_spacing: 10;    
+    property <length> card_spacing_px: card_spacing*1px;    
+
+    ListView {
+        for row in row_count:
+            HorizontalBox{
+                for col in col_count:
+                    Rectangle{
+                        width: GridCardSize.width;
+                        height: GridCardSize.height;
+                        property <int> idx: (row * col_count) + col;
+                        if idx < cards.length: 
+                            GridCard {
+                                cardData: { name: "Index:" +idx};
+                            }
+                    }
         }
 }
 }
