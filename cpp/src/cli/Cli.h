@@ -9,12 +9,11 @@
 
 using SelectItemTable = std::vector<std::pair<std::uint16_t, VendingMachineCore::Item>>;
 
-bool        RunMachine(VendingMachineCore::VendingMachine &machine);
+bool RunMachine(VendingMachineCore::VendingMachine &machine);
 
 std::string SelectItemTableToString(const SelectItemTable &items);
 void        DisplayMachineWelcomeMsg(const VendingMachineCore::VendingMachine &machine,
                                      const SelectItemTable                    &itemsTable);
-
 
 std::string join(const std::vector<std::string> &strings, std::string_view delim);
 
