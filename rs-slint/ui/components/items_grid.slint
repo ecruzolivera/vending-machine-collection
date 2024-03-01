@@ -1,13 +1,11 @@
 import { ListView, HorizontalBox, Palette, VerticalBox, GridBox } from "std-widgets.slint";
-import { GridCard, GridCardData, GridCardSize } from "grid_card.slint";
+import { ItemCard, ItemCardData, ItemCardSize } from "item_card.slint";
 
 
-export component ProductGrid inherits Rectangle{
-    border-color: green;
-    border-width: 2px;
-
-    in property <[GridCardData]> cards : [
-          { name: "card0"},
+export component ItemsGrid inherits Rectangle{
+    in property <[ItemCardData]> cards : [
+          { name: "card0",
+            id: "card0" },
           { name: "card1"},
           { name: "card2"},
           { name: "card3"},
@@ -24,16 +22,19 @@ export component ProductGrid inherits Rectangle{
     property <int> card_spacing: 10;    
     property <length> card_spacing_px: card_spacing*1px;    
 
+    border-color: green;
+    border-width: 2px;
+
     ListView {
         for row in row_count:
             HorizontalBox{
                 for col in col_count:
                     Rectangle{
-                        width: GridCardSize.width;
-                        height: GridCardSize.height;
+                        width: ItemCardSize.width;
+                        height: ItemCardSize.height;
                         property <int> idx: (row * col_count) + col;
                         if idx < cards.length: 
-                            GridCard {
+                            ItemCard {
                                 cardData: { name: "Index:" +idx};
                             }
                     }

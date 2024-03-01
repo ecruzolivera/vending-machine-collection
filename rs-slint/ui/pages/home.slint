@@ -1,28 +1,14 @@
 import { HorizontalBox, Palette, VerticalBox } from "std-widgets.slint";
 import { Page } from "page.slint";
-import { ProductGrid } from "../components/product_grid.slint";
+import { CategoriesCarousel } from "../components/categories_carousel.slint";
+import { ItemsGrid } from "../components/items_grid.slint";
 
 export component Home inherits Page {
-            padding: 10px;
-            background: Palette.background;
     HorizontalLayout {
-            preferred-height: 100%;
-            preferred-width: 100%;
-        Rectangle {
-            preferred-width: 200px;
-            max-width: 200px;
-            border-color: red;
-            border-width: 2px;
-            Text {
-                text: "Vertical Carousel";
-
-            }
-        }
-        ProductGrid {
-            horizontal-stretch: 1;
-            preferred-height: 100%;
-            preferred-width: 100%;
-        }
+        preferred-height: 100%;
+        preferred-width: 100%;
+        CategoriesCarousel {}
+        ItemsGrid {}
 
   }
         

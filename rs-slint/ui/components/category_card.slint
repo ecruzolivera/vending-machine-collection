@@ -1,0 +1,55 @@
+
+import { HorizontalBox, Palette, VerticalBox, Button } from "std-widgets.slint";
+
+export struct CategoryCardData {
+    id: string,
+    name: string,
+    image_url: image,
+    is_selected: bool
+}
+
+export global CategoryCardCallback {
+    callback categorySelected(string);
+}
+
+export global CategoryCardSize {
+    out property <length> width: 150px;
+    out property <length> height: 200px;
+}
+
+export component CategoryCard inherits Rectangle {
+    in property <CategoryCardData> cardData:{
+        name:"Card1" ,
+    };
+        width: CategoryCardSize.width;
+        height: CategoryCardSize.height;
+
+    Rectangle {
+        width: parent.width - sizeCoeff;
+        height: parent.height - sizeCoeff;
+        property <length> sizeCoeff: cardData.is_selected ? 20px: 30px;
+        border-color: cardData.is_selected ? green : blue;
+        border-width: 2px;
+        TouchArea {
+            clicked => {
+                CategoryCardCallback.categorySelected(cardData.id);
+            }
+        }
+
+        VerticalBox {
+            Image {
+                vertical-stretch: 1;
+            }
+            Text {
+                horizontal-alignment: center;
+                vertical-alignment: center;
+                text: cardData.name;
+            }
+        }
+}
+
+}
+
+
+
+

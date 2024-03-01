@@ -8,7 +8,9 @@ build = "build.rs"
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
-slint = "1.4"
+env_logger = "0.11.2"
+log = "0.4.21"
+slint = {version = "1.4", features = ["backend-winit"]}
 
 [build-dependencies]
 slint-build = "1.4"
